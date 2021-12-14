@@ -444,10 +444,10 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         }
         else
         {
-            walletTitle = getString(R.string.toolbar_header_wallet);
+//            walletTitle = getString(R.string.toolbar_header_wallet);
+            ((WalletFragment) walletFragment).setToolbarTitle("$0.00");
         }
 
-        ((WalletFragment) walletFragment).setToolbarTitle(walletTitle);
     }
 
     private void onError(ErrorEnvelope errorEnvelope)

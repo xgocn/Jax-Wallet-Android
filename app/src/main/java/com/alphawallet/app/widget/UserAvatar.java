@@ -50,6 +50,7 @@ public class UserAvatar extends LinearLayout
     private String walletAddress;
 
     private final ImageView image;
+    private final ImageView imageWallet;
     private final RelativeLayout webLayout;
     private final WebView webView;
     private BindingState state;
@@ -59,12 +60,18 @@ public class UserAvatar extends LinearLayout
         super(context, attrs);
         inflate(context, R.layout.item_asset_image, this);
         image = findViewById(R.id.image_asset);
+        imageWallet = findViewById(R.id.image_wallet);
         webLayout = findViewById(R.id.web_view_wrapper);
         webView = findViewById(R.id.image_web_view);
         findViewById(R.id.overlay).setVisibility(View.VISIBLE);
 
         ensResolver = new AWEnsResolver(TokenRepository.getWeb3jService(MAINNET_ID), getContext());
         state = BindingState.NONE;
+    }
+
+    public void setVisibleWalletProfile() {
+        imageWallet.setVisibility(VISIBLE);
+        webLayout.setVisibility(View.GONE);
     }
 
     public void bind(Wallet wallet)

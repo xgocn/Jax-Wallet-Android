@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -161,10 +162,20 @@ public class WalletFragment extends BaseFragment implements
     private void initViewModel() {
         viewModel = new ViewModelProvider(this, walletViewModelFactory)
                 .get(WalletViewModel.class);
+//        handler.post(new Runnable() {
+//            public void run() {
+//
+//                Log.d("current usd value", "$" + viewModel.getTokensService().getUSDValue());
+//                handler.postDelayed(this, 1000);
+//            }
+//        });
         viewModel.progress().observe(getViewLifecycleOwner(), systemView::showProgress);
         viewModel.tokens().observe(getViewLifecycleOwner(), this::onTokens);
         viewModel.backupEvent().observe(getViewLifecycleOwner(), this::backupEvent);
         viewModel.defaultWallet().observe(getViewLifecycleOwner(), this::onDefaultWallet);
+
+        setTitle();
+
     }
 
     private void initViews(View view) {
@@ -179,6 +190,7 @@ public class WalletFragment extends BaseFragment implements
 
         systemView.attachRecyclerView(recyclerView);
         systemView.attachSwipeRefreshLayout(refreshLayout);
+
     }
 
     private void onDefaultWallet(Wallet wallet)
@@ -187,8 +199,9 @@ public class WalletFragment extends BaseFragment implements
             adapter.setWalletAddress(wallet.address);
         }
 
-        addressAvatar.bind(wallet, this);
+//        addressAvatar.bind(wallet, this);
         addressAvatar.setVisibility(View.VISIBLE);
+        addressAvatar.setVisibleWalletProfile();
 
         //Do we display new user backup popup?
         ((HomeActivity) getActivity()).showBackupWalletDialog(wallet.lastBackupTime > 0);
@@ -196,6 +209,8 @@ public class WalletFragment extends BaseFragment implements
 
     private void setRealmListener(long updateTime)
     {
+        Log.e("wallet metas", "here");
+
         if (realmUpdates != null)
         {
             realmUpdates.removeAllChangeListeners();
@@ -210,6 +225,7 @@ public class WalletFragment extends BaseFragment implements
             if (!isVisible && realmTokens.size() == 0) return;
             long lastUpdateTime = updateTime;
             List<TokenCardMeta> metas = new ArrayList<>();
+
             //make list
             for (RealmToken t : realmTokens)
             {
@@ -237,6 +253,7 @@ public class WalletFragment extends BaseFragment implements
 
     private void updateMetas(List<TokenCardMeta> metas)
     {
+
         handler.post(() -> {
             if (metas.size() > 0)
             {
@@ -276,7 +293,7 @@ public class WalletFragment extends BaseFragment implements
         }
         tabLayout.addTab(tabLayout.newTab().setText(R.string.all));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.currency));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.collectibles));
+//        tabLayout.addTab(tabLayout.newTab().setText(R.string.collectibles));
         //tabLayout.addTab(tabLayout.newTab().setText(R.string.attestations));
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
@@ -350,6 +367,12 @@ public class WalletFragment extends BaseFragment implements
         currentTabPos = tab;
     }
 
+    public void setTitle() {
+        if(viewModel != null && viewModel.getTokensService() != null)
+            setToolbarTitle(String.format("$%.2f", viewModel.getTokensService().getUSDValue()));
+        else setToolbarTitle("$0.00");
+    }
+
     @Override
     public void onTokenClick(View view, Token token, List<BigInteger> ids, boolean selected) {
         if (selectedToken == null)
@@ -388,6 +411,7 @@ public class WalletFragment extends BaseFragment implements
     {
         if (tokens != null)
         {
+            setTitle();
             adapter.setTokens(tokens);
             checkScrollPosition();
         }
@@ -539,7 +563,7 @@ public class WalletFragment extends BaseFragment implements
     {
         if (selectedToken != null && selectedToken.findViewById(R.id.token_layout) != null)
         {
-            selectedToken.findViewById(R.id.token_layout).setBackgroundResource(R.drawable.background_marketplace_event);
+//            selectedToken.findViewById(R.id.token_layout).setBackgroundResource(R.drawable.background_marketplace_event);
         }
         selectedToken = null;
     }
@@ -559,7 +583,7 @@ public class WalletFragment extends BaseFragment implements
                 {
                     ((HomeActivity)getActivity()).backupWalletFail(keyBackup, noLockScreen);
                 }
-    });
+            });
 
     @Override
     public void BackupClick(Wallet wallet)

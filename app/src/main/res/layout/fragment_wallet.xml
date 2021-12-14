@@ -30,15 +30,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:background="@drawable/background_tab_layout"
-            android:paddingStart="12dp"
-            app:layout_scrollFlags="enterAlways"
-            app:tabGravity="center"
-            app:tabIndicatorColor="@color/colorHighlight"
+            app:tabIndicatorColor="@color/colorTabHighlight"
             app:tabIndicatorFullWidth="true"
-            app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/colorHighlight"
+            app:tabSelectedTextColor="@color/colorTabHighlight"
             app:tabTextAppearance="@style/WalletTabTextAppearance"
-            app:tabTextColor="@color/dove" />
+            app:tabTextColor="@color/white" />
 
         <View
             android:layout_width="match_parent"
@@ -58,13 +54,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="?actionBarSize"
-        android:background="@color/alabaster"
+        android:background="@color/background_color"
+        android:paddingHorizontal="15dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

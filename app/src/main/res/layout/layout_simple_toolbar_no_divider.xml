@@ -36,6 +36,6 @@
         android:paddingHorizontal="15dp"
         android:singleLine="true"
         android:textColor="@color/toolbar_text_color"
-        android:textSize="20sp" />
+        android:textSize="@dimen/sp20" />
 
 </androidx.appcompat.widget.Toolbar>

@@ -9,9 +9,10 @@
 
 	<color name="background_color">#F5F5F5</color>
 	<color name="secondary_text">#40000000</color>
-	<color name="toolbar_text_color">@color/black</color>
+	<color name="toolbar_text_color">@color/white</color>
 	<color name="bottom_dialog_title">#89000000</color>
 	<color name="bottom_dialog_item">#dd000000</color>
+	<color name="colorTabHighlight">#E7A634</color>
     <color name="semitransparentWhite">#AAFFFFFF</color>
 	<color name="white20">#32FFFFFF</color>
 	<color name="translucentWhite">#80FFFFFF</color>

@@ -813,4 +813,5 @@
     <string name="connected_to">连接到</string>
     <string name="not_connected">未连接</string>
     <string name="online">在线</string>
+    <string name="bep20">BEP20</string>
 </resources>

@@ -32,6 +32,6 @@ public class ManageTokensHolder extends BinderViewHolder<ManageTokensData> {
 
     public ManageTokensHolder(int res_id, ViewGroup parent) {
         super(res_id, parent);
-        layout = findViewById(R.id.layout_manage_tokens);
+        layout = findViewById(R.id.layout_manage_tokens_button);
     }
 }

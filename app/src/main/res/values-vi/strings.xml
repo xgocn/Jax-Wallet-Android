@@ -841,4 +841,5 @@
     <string name="connected_to">được kết nối với</string>
     <string name="not_connected">Không được kết nối</string>
     <string name="online">Trực tuyến</string>
+    <string name="bep20">BEP20</string>
 </resources>

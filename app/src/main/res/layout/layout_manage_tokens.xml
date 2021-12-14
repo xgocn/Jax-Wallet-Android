@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/layout_manage_tokens"
+<LinearLayout android:id="@+id/layout_manage_tokens_button"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:background="@drawable/background_divider_top_bottom"
-    android:gravity="end"
+    android:background="@null"
+    android:gravity="center"
     android:orientation="horizontal"
-    android:paddingEnd="16dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
         android:id="@+id/text_add_hide_tokens"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|center_vertical"
-        android:layout_marginEnd="8dp"
+        style="@style/Button.Border.Primary"
         android:fontFamily="@font/font_semibold"
         android:text="@string/add_hide_tokens"
-        android:textColor="@color/colorHighlight"
-        android:textSize="17sp" />
-
-    <ImageView
-        android:id="@+id/img_add_token"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|center_vertical"
-        android:src="@drawable/ic_plus"
-        android:visibility="gone" />
+        android:paddingHorizontal="20dp"
+        />
 
 </LinearLayout>

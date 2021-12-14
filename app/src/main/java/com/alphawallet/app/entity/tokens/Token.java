@@ -267,7 +267,8 @@ public class Token
         switch (contractType)
         {
             case ERC20:
-                return R.string.erc20;
+            if(tokenInfo.chainId == 56) return R.string.bep20;
+            else return R.string.erc20;
             case ETHEREUM:
                 return 0; //don't display 'ethereum' as contract type
             default:

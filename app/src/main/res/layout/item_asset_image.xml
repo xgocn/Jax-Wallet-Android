@@ -11,7 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
-        tools:src="@drawable/ic_token_eth"/>
+        tools:src="@drawable/ic_wallet_profile"/>
+    <ImageView
+        android:id="@+id/image_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:src="@drawable/ic_wallet_profile"/>
 
     <RelativeLayout
         android:id="@+id/web_view_wrapper"

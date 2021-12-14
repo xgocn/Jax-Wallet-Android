@@ -2,10 +2,10 @@
 <resources>
 	<color name="colorPrimary">#152172</color>
 	<color name="colorPrimaryDark">#152172</color>
-	<color name="colorAccent">#152172</color>
+	<color name="colorAccent">#898DB4</color>
 	<color name="colorPrimaryLight">#152172</color>
 	<color name="colorTheme">#152172</color>
-	<color name="colorHighlight">@color/azure</color>
+	<color name="colorHighlight">@color/colorPrimary</color>
 
 	<color name="background_color">#F5F5F5</color>
 	<color name="secondary_text">#40000000</color>
@@ -108,7 +108,7 @@
 	<!-- Fiji Colour Palette -->
 	<color name="black">#000000</color>
 	<color name="mine">#2f2f2f</color>
-	<color name="dove">#727272</color>
+	<color name="dove">#808392</color>
 	<color name="dove_hint">#66727272</color>
 	<color name="dusty">#999999</color>
 	<color name="silver">#c2c2c2</color>

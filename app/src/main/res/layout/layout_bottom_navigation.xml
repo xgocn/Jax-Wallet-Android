@@ -34,10 +34,11 @@
                 android:id="@+id/nav_wallet_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/font_semibold"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/font_regular"
                 android:text="@string/wallet_label"
-                android:textColor="@color/dove"
-                android:textSize="12sp" />
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/sp8" />
         </LinearLayout>
 
         <LinearLayout
@@ -59,10 +60,11 @@
                 android:id="@+id/nav_activity_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/font_semibold"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/font_regular"
                 android:text="@string/activity_label"
-                android:textColor="@color/dove"
-                android:textSize="12sp" />
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/sp8" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,10 +86,11 @@
                 android:id="@+id/nav_browser_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/font_semibold"
+                android:fontFamily="@font/font_regular"
+                android:layout_marginTop="1dp"
                 android:text="@string/browser_label"
-                android:textColor="@color/dove"
-                android:textSize="12sp" />
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/sp8" />
         </LinearLayout>
 
         <RelativeLayout
@@ -112,11 +115,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/nav_settings"
                 android:layout_centerHorizontal="true"
-                android:fontFamily="@font/font_semibold"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/font_regular"
                 android:lineSpacingExtra="8sp"
                 android:text="@string/settings_label"
-                android:textColor="@color/dove"
-                android:textSize="12sp" />
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/sp8" />
 
             <LinearLayout
                 android:id="@+id/spacer"
@@ -136,7 +140,7 @@
                 android:gravity="center"
                 android:paddingBottom="2dp"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="@dimen/sp8"
                 tools:text="1"
                 android:visibility="gone" />
         </RelativeLayout>

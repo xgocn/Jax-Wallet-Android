@@ -17,7 +17,7 @@ buildscript {
         // WARNING WARNING WARNING
         // you are about to add here a dependency to be used in the Android app
         // don't do that. add that dependency to app/build.gradle
-        classpath 'com.google.gms:google-services:4.3.8'
+        classpath 'com.google.gms:google-services:4.3.10'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.6.1'
     }

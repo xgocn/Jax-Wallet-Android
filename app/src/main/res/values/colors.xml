@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<color name="colorPrimary">#FFFFFF</color>
-	<color name="colorPrimaryDark">#707070</color>
-	<color name="colorAccent">#54C1E3</color>
-	<color name="colorPrimaryLight">#AA54C1E3</color>
-	<color name="colorTheme">#FFFFFF</color>
+	<color name="colorPrimary">#152172</color>
+	<color name="colorPrimaryDark">#152172</color>
+	<color name="colorAccent">#152172</color>
+	<color name="colorPrimaryLight">#152172</color>
+	<color name="colorTheme">#152172</color>
 	<color name="colorHighlight">@color/azure</color>
 
+	<color name="background_color">#F5F5F5</color>
 	<color name="secondary_text">#40000000</color>
 	<color name="toolbar_text_color">@color/black</color>
 	<color name="bottom_dialog_title">#89000000</color>
@@ -26,7 +27,7 @@
 	<color name="button_pressed_colour">#b4cd99</color>
 	<color name="button_disabled_colour">#b4cd99</color>
 	<color name="semi_dark_grey">#707070</color>
-	<color name="text_black">#2f2f2f</color>
+	<color name="text_black">#152172</color>
 	<color name="text_dark_gray">#4a4a4a</color>
 	<color name="text_light_gray">#686767</color>
 	<color name="light_gray">#9b9b9b</color>

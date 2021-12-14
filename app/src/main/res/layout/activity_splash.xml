@@ -21,7 +21,7 @@
             android:gravity="center_horizontal"/>
 
         <TextView
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="@dimen/dp13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp18"
@@ -38,8 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="@dimen/dp21"
+        android:layout_marginStart="@dimen/dp21"
         android:orientation="vertical">
 
         <Button
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/already_have_a_wallet"
                     android:textColor="@color/text_black"
-                    android:textSize="10sp"
+                    android:textSize="@dimen/sp10"
                     android:layout_gravity="center_horizontal"/>
 
                 <LinearLayout
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="@dimen/dp11"
                     >
 
                     <Button
@@ -86,7 +86,7 @@
                         android:layout_weight="1"
                         style="@style/Button.Border.Primary"
                         android:text="@string/watch"
-                        android:layout_marginEnd="4dp"
+                        android:layout_marginEnd="@dimen/dp5"
                         />
 
                     <Button
@@ -94,7 +94,7 @@
                         style="@style/Button.Border.Primary"
                         android:text="@string/action_import"
                         android:layout_weight="1.0"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginStart="@dimen/dp5"
                         />
 
                 </LinearLayout>

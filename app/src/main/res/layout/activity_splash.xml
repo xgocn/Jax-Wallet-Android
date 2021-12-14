@@ -3,7 +3,7 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/background_color">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,16 +24,17 @@
             android:layout_marginTop="9dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="26sp"
+            android:textSize="@dimen/sp18"
             android:textColor="@color/text_black"
             android:gravity="center_horizontal"
+            android:fontFamily="@font/font_semibold"
             android:text="@string/welcome_to_alphawallet"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layout_new_wallet"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -45,66 +46,59 @@
             android:id="@+id/button_create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/nasty_green"
+            style="@style/Button.Fill.Primary"
             android:layout_marginBottom="@dimen/create_new_wallet_margin_bottom"
             android:text="@string/create_a_new_wallet"
             android:elevation="2dp"
-            android:textStyle="normal"
-            android:textColor="@color/white"
-            android:textSize="16sp"
             android:textAllCaps="true" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="@dimen/divider_margin_top"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/grey_bar"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/already_label_margin_top"
-            android:text="@string/already_have_a_wallet"
-            android:textColor="@color/text_dark_gray"
-            android:textSize="16sp"
-            android:layout_gravity="center_horizontal"/>
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
+            custom:cardCornerRadius="@dimen/dp5"
+            custom:cardElevation="0dp"
             android:layout_marginBottom="@dimen/bottom_buttons_holder_margin_bottom">
-
-            <Button
-                android:id="@+id/button_watch"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/watch"
-                android:layout_weight="1.0"
-                android:background="@drawable/background_white_button"
-                android:elevation="2dp"
-                android:layout_marginEnd="4dp"
-                android:padding="2dp"
-                android:textAllCaps="true"
-                android:textColor="@color/tealish"/>
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:padding="@dimen/already_label_margin_top"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/already_have_a_wallet"
+                    android:textColor="@color/text_black"
+                    android:textSize="10sp"
+                    android:layout_gravity="center_horizontal"/>
 
-            <Button
-                android:id="@+id/button_import"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_import"
-                android:layout_weight="1.0"
-                android:background="@drawable/background_white_button"
-                android:elevation="2dp"
-                android:layout_marginStart="4dp"
-                android:padding="2dp"
-                android:textAllCaps="true"
-                android:textColor="@color/tealish"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    >
 
-        </LinearLayout>
+                    <Button
+                        android:id="@+id/button_watch"
+                        android:layout_weight="1"
+                        style="@style/Button.Border.Primary"
+                        android:text="@string/watch"
+                        android:layout_marginEnd="4dp"
+                        />
+
+                    <Button
+                        android:id="@+id/button_import"
+                        style="@style/Button.Border.Primary"
+                        android:text="@string/action_import"
+                        android:layout_weight="1.0"
+                        android:layout_marginStart="4dp"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </RelativeLayout>

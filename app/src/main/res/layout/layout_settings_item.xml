@@ -30,10 +30,10 @@
             android:id="@+id/setting_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/font_regular"
+            android:fontFamily="@font/font_semibold"
             android:text="Setting Title"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/sp14" />
 
         <TextView
             android:id="@+id/setting_subtitle"
@@ -45,7 +45,7 @@
             android:maxLines="1"
             android:text="Setting Subtitle"
             android:textColor="@color/dove"
-            android:textSize="12sp"
+            android:textSize="@dimen/sp9"
             android:visibility="gone" />
     </LinearLayout>
 
@@ -80,5 +80,5 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/mercury" />
+        android:background="@color/background_color" />
 </RelativeLayout>

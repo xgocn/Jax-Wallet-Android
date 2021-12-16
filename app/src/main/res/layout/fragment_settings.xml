@@ -30,7 +30,7 @@
             <View
                 android:id="@+id/warning_separator"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="0dp"
                 android:background="@color/mercury"
                 android:visibility="gone" />
 
@@ -44,12 +44,12 @@
                 android:paddingEnd="16dp"
                 android:text="@string/wallet_label"
                 android:textAllCaps="true"
-                android:textColor="@color/dove"
-                android:textSize="15sp" />
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/sp14" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="0dp"
                 android:background="@color/mercury" />
 
             <LinearLayout
@@ -68,12 +68,12 @@
                 android:paddingEnd="16dp"
                 android:text="@string/system"
                 android:textAllCaps="true"
-                android:textColor="@color/dove"
-                android:textSize="15sp" />
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/sp14" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="0dp"
                 android:background="@color/mercury" />
 
             <LinearLayout
@@ -92,8 +92,8 @@
                 android:paddingEnd="16dp"
                 android:text="@string/support"
                 android:textAllCaps="true"
-                android:textColor="@color/dove"
-                android:textSize="15sp" />
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/sp14" />
 
             <View
                 android:layout_width="match_parent"
@@ -120,8 +120,8 @@
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/font_regular"
                     android:text="@string/version"
-                    android:textColor="@color/dove"
-                    android:textSize="15sp" />
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/sp9" />
 
                 <TextView
                     android:id="@+id/text_version"
@@ -130,15 +130,15 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/font_regular"
-                    android:textColor="@color/dove"
-                    android:textSize="13sp" />
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/sp9" />
 
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/mercury" />
+                android:background="@color/white" />
 
             <RelativeLayout
                 android:id="@+id/layout_tokenscript_compatibility"
@@ -154,8 +154,8 @@
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/font_regular"
                     android:text="@string/tokenscript_compatibility"
-                    android:textColor="@color/dove"
-                    android:textSize="15sp" />
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/sp9" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -168,9 +168,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/font_regular"
-                        android:textColor="@color/dove"
+                        android:textColor="@color/text_black"
                         android:text="@string/version"
-                        android:textSize="13sp" />
+                        android:textSize="@dimen/sp9" />
 
                 <TextView
                         android:id="@+id/text_tokenscript_compatibility"
@@ -179,7 +179,7 @@
                         android:layout_marginLeft="@dimen/default_gap"
                         android:fontFamily="@font/font_regular"
                         android:textColor="@color/dove"
-                        android:textSize="13sp" />
+                        android:textSize="@dimen/sp9" />
                 </LinearLayout>
             </RelativeLayout>
 

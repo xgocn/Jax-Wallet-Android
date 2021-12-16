@@ -119,7 +119,7 @@ public class MyAddressActivity extends BaseActivity implements AmountReadyCallba
         address =  findViewById(R.id.address);
         qrImageView = findViewById(R.id.qr_image);
         selectAddress = findViewById(R.id.layout_select_address);
-        qrImageView.setBackgroundResource(R.color.white);
+//        qrImageView.setBackgroundResource(R.color.white);
         ensFetchProgressBar = findViewById(R.id.ens_fetch_progress);
 
         if (viewModel == null) initViewModel();
@@ -332,7 +332,7 @@ public class MyAddressActivity extends BaseActivity implements AmountReadyCallba
                         setupPOSMode(info);
                     }
                 }
-    });
+            });
 
     private void selectNetwork() {
         Intent intent = new Intent(MyAddressActivity.this, SelectNetworkActivity.class);

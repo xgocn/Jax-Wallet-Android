@@ -135,6 +135,8 @@ public class InputAddress extends RelativeLayout implements ItemClickListener, E
             findViewById(R.id.layout_header).setVisibility(showHeader ? View.VISIBLE : View.GONE);
             TextView headerText = findViewById(R.id.text_header);
             headerText.setText(headerTextId);
+            boolean showPaste = a.getBoolean(R.styleable.InputView_show_paste, true);
+            findViewById(R.id.text_paste).setVisibility(showPaste ? View.VISIBLE : View.GONE);
         }
         finally
         {
@@ -147,7 +149,7 @@ public class InputAddress extends RelativeLayout implements ItemClickListener, E
         if (labelResId != R.string.empty)
         {
             labelText.setText(labelResId);
-            labelText.setVisibility(View.VISIBLE);
+//            labelText.setVisibility(View.VISIBLE);
         }
 
         editText.setHint(hintRedId);

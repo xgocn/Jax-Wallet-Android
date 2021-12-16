@@ -4,29 +4,28 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/alabaster">
+    android:background="@color/transparent">
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0dp"
         android:background="@color/mercury" />
 
     <TextView
         android:id="@+id/text_header"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:fontFamily="@font/font_semibold"
+        android:layout_height="20dp"
+        android:fontFamily="@font/font_bold"
         android:gravity="center_vertical|end"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp10"
         tools:text="@string/recipient"
-        android:textAllCaps="true"
-        android:textColor="@color/dove"
-        android:textSize="15sp" />
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/sp14" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0dp"
         android:background="@color/mercury" />
 
 </LinearLayout>

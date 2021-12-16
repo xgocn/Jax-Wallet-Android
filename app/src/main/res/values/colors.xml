@@ -77,7 +77,7 @@
 
 	<color name="pending">#f5a623</color>
 	<color name="incomplete">#fb6523</color>
-	<color name="mainnet">#2986AF</color>
+	<color name="mainnet">#4C79CB</color>
 	<color name="ropsten">#FF4A8D</color>
 	<color name="kovan">#70578D</color>
 	<color name="rinkeby">#F6C343</color>

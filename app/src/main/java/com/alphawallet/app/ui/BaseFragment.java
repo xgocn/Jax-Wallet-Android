@@ -2,6 +2,8 @@ package com.alphawallet.app.ui;
 
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
+
+import android.graphics.Color;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -16,6 +18,7 @@ public class BaseFragment extends Fragment implements Toolbar.OnMenuItemClickLis
     private void initToolbar(View view) {
         toolbar = view.findViewById(R.id.toolbar);
         toolbarTitle = toolbar.findViewById(R.id.toolbar_title);
+        toolbarTitle.setTextColor(Color.WHITE);
     }
     protected void toolbar(View view) {
         initToolbar(view);

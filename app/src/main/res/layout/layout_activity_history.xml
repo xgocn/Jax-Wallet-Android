@@ -3,13 +3,22 @@
     android:id="@+id/layout_transactions"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/background_color"
     android:orientation="vertical">
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0dp"
         android:background="@color/super_light_grey" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:fontFamily="@font/font_semibold"
+        android:gravity="center_vertical"
+        android:text="@string/activity_label"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/sp16" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
@@ -27,10 +36,10 @@
 
         <ImageView
             android:id="@+id/no_recent_transactions"
-            android:layout_width="match_parent"
+            android:layout_width="50dp"
+            android:layout_height="63dp"
             android:layout_marginBottom="20dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_icons_no_transactions" />
+            android:src="@drawable/empty_activity" />
 
         <TextView
             android:id="@+id/no_recent_transactions_subtext"
@@ -38,9 +47,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/font_regular"
-            android:text="@string/no_transactions_yet"
-            android:textColor="@color/mine"
-            android:textSize="@dimen/sp17" />
+            android:text="@string/no_recent_transactions_subtext"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/sp9" />
     </LinearLayout>
 
     <ProgressBar

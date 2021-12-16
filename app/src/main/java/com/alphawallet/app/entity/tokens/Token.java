@@ -103,8 +103,8 @@ public class Token
         int decimals = 18;
         if (tokenInfo != null) decimals = tokenInfo.decimals;
         String balanceStr = BalanceUtils.getScaledValueScientific(balance, decimals);
-        if (balanceStr.equals("0") && balance.compareTo(BigDecimal.ZERO) > 0) { balanceStr = "~0"; }
-        return balanceStr;
+//        if (balanceStr.equals("0") && balance.compareTo(BigDecimal.ZERO) > 0) { balanceStr = "~0"; }
+        return String.format("%.3f", Double.parseDouble(balanceStr));
     }
 
     public boolean hasPositiveBalance() {

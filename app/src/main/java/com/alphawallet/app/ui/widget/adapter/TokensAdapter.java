@@ -119,9 +119,9 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
         if (obj instanceof TokenSortedItem) {
             TokenCardMeta tcm = ((TokenSortedItem) obj).value;
 
-             // This is an attempt to obtain a 'unique' id
-             // to fully utilise the RecyclerView's setHasStableIds feature.
-             // This will drastically reduce 'blinking' when the list changes
+            // This is an attempt to obtain a 'unique' id
+            // to fully utilise the RecyclerView's setHasStableIds feature.
+            // This will drastically reduce 'blinking' when the list changes
             return tcm.getUID();
         } else {
             return position;
@@ -134,6 +134,12 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
         switch (viewType) {
             case TokenHolder.VIEW_TYPE: {
                 TokenHolder tokenHolder = new TokenHolder(parent, assetService, tokensService, realm, false);
+                tokenHolder.setOnTokenClickListener(onTokenClickListener);
+                holder = tokenHolder;
+                break;
+            }
+            case TokenHolder.VIEW_TYPE_DETAIL: {
+                TokenHolder tokenHolder = new TokenHolder(parent, assetService, tokensService, realm, true);
                 tokenHolder.setOnTokenClickListener(onTokenClickListener);
                 holder = tokenHolder;
                 break;
@@ -154,7 +160,7 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
                 holder = new AssetInstanceScriptHolder(R.layout.item_ticket, parent, null, assetService, false);
                 break;
             default:
-            // NB to save ppl a lot of effort this view doesn't show - item_total_balance has height coded to 1dp.
+                // NB to save ppl a lot of effort this view doesn't show - item_total_balance has height coded to 1dp.
             case TotalBalanceHolder.VIEW_TYPE: {
                 holder = new TotalBalanceHolder(R.layout.item_total_balance, parent);
             }
@@ -249,6 +255,32 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
             else
             {
                 TokenSortedItem tsi = new TokenSortedItem(TokenHolder.VIEW_TYPE, token, token.nameWeight);
+                if (debugView) tsi.debug();
+                position = items.add(tsi);
+            }
+
+            if (notify) notifyItemChanged(position);
+        }
+        else
+        {
+            removeToken(token);
+        }
+    }
+
+    public void updateDetailToken(TokenCardMeta token, boolean notify)
+    {
+        if (canDisplayToken(token))
+        {
+            //does this token already exist with a different weight (ie name has changed)?
+            removeMatchingTokenDifferentWeight(token);
+            int position = -1;
+            if (gridFlag)
+            {
+                position = items.add(new TokenSortedItem(TokenGridHolder.VIEW_TYPE, token, token.nameWeight));
+            }
+            else
+            {
+                TokenSortedItem tsi = new TokenSortedItem(TokenHolder.VIEW_TYPE_DETAIL, token, token.nameWeight);
                 if (debugView) tsi.debug();
                 position = items.add(tsi);
             }

@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/greyffive"
     android:orientation="vertical">
 
     <include layout="@layout/layout_certified_toolbar" />
@@ -11,7 +10,7 @@
         android:id="@+id/layout_eth_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/greyffive"
+        android:background="@color/background_color"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:visibility="visible">
@@ -27,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/dp20"
             android:layout_above="@id/layoutButtons">
 
             <androidx.recyclerview.widget.RecyclerView

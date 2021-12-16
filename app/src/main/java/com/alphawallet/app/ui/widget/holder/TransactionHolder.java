@@ -22,12 +22,9 @@ import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.ui.TokenActivity;
 import com.alphawallet.app.ui.widget.entity.StatusType;
 import com.alphawallet.app.util.Utils;
-import com.alphawallet.app.widget.ChainName;
 import com.alphawallet.app.widget.TokenIcon;
 import com.alphawallet.app.repository.EthereumNetworkBase;
 import com.alphawallet.token.entity.ContractAddress;
-
-import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 
 public class TransactionHolder extends BinderViewHolder<TransactionMeta> implements View.OnClickListener
 {
@@ -38,11 +35,9 @@ public class TransactionHolder extends BinderViewHolder<TransactionMeta> impleme
     public static final String DEFAULT_ADDRESS_ADDITIONAL = "default_address";
 
     private final TokenIcon tokenIcon;
-    private final TextView date;
     private final TextView type;
     private final TextView address;
     private final TextView value;
-    private final ChainName chainName;
     private final TextView supplemental;
     private final TokensService tokensService;
     private final LinearLayout transactionBackground;
@@ -56,12 +51,10 @@ public class TransactionHolder extends BinderViewHolder<TransactionMeta> impleme
     public TransactionHolder(ViewGroup parent, TokensService service, FetchTransactionsInteract interact, AssetDefinitionService svs)
     {
         super(R.layout.item_transaction, parent);
-        date = findViewById(R.id.text_tx_time);
         tokenIcon = findViewById(R.id.token_icon);
         address = findViewById(R.id.address);
         type = findViewById(R.id.type);
         value = findViewById(R.id.value);
-        chainName = findViewById(R.id.chain_name);
         supplemental = findViewById(R.id.supplimental);
         transactionBackground = findViewById(R.id.layout_background);
         tokensService = service;
@@ -110,9 +103,6 @@ public class TransactionHolder extends BinderViewHolder<TransactionMeta> impleme
         supplemental.setText(supplementalTxt);
         supplemental.setTextColor(getContext().getColor(transaction.getSupplementalColour(supplementalTxt)));
 
-        date.setText(Utils.localiseUnixTime(getContext(), transaction.timeStamp));
-        date.setVisibility(View.VISIBLE);
-
         setTransactionStatus(transaction.blockNumber, transaction.error, transaction.isPending());
     }
 
@@ -130,15 +120,6 @@ public class TransactionHolder extends BinderViewHolder<TransactionMeta> impleme
 
     private void setChainElement()
     {
-        if (transaction.chainId == MAINNET_ID)
-        {
-            chainName.setVisibility(View.GONE);
-        }
-        else
-        {
-            chainName.setVisibility(View.VISIBLE);
-            chainName.setChainID(transaction.chainId);
-        }
     }
 
     private Token getOperationToken()
@@ -194,7 +175,6 @@ public class TransactionHolder extends BinderViewHolder<TransactionMeta> impleme
             tokenIcon.setStatusIcon(StatusType.PENDING);
             type.setText(R.string.pending_transaction);
             transactionBackground.setBackgroundResource(R.drawable.background_pending_transaction);
-            chainName.setVisibility(View.GONE);
         }
         else if (transactionBackground != null)
         {

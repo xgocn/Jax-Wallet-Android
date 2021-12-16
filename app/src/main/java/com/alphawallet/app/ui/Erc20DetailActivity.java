@@ -117,7 +117,7 @@ public class Erc20DetailActivity extends BaseActivity implements StandardFunctio
     private void onNewScript(Boolean hasNewScript)
     {
         //found a new tokenscript for this token, create a new meta with balance set to trigger view update; view will update the token name
-        tokenViewAdapter.updateToken(new TokenCardMeta(token.tokenInfo.chainId, token.getAddress(), "force_update",
+        tokenViewAdapter.updateDetailToken(new TokenCardMeta(token.tokenInfo.chainId, token.getAddress(), "force_update",
                 token.updateBlancaTime, token.lastTxCheck, token.getInterfaceSpec()), true);
         viewModel.checkTokenScriptValidity(token); //check script signature
     }
@@ -147,7 +147,7 @@ public class Erc20DetailActivity extends BaseActivity implements StandardFunctio
             }
         });
         tokenViewAdapter = new TokensAdapter(null, viewModel.getAssetDefinitionService(), viewModel.getTokensService(), null);
-        tokenViewAdapter.updateToken(tokenMeta, true);
+        tokenViewAdapter.updateDetailToken(tokenMeta, true);
         tokenView.setAdapter(tokenViewAdapter);
         setTokenListener();
         setupButtons();
@@ -213,7 +213,7 @@ public class Erc20DetailActivity extends BaseActivity implements StandardFunctio
                     playNotification();
                 }
 
-                tokenViewAdapter.updateToken(meta, true);
+                tokenViewAdapter.updateDetailToken(meta, true);
             }
         });
     }

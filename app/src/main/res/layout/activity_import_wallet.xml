@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/background_color"
         android:orientation="vertical">
 
         <com.google.android.material.tabs.TabLayout
@@ -20,20 +20,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            app:tabPaddingStart="-1dp"
-            app:tabPaddingEnd="-1dp"
-            app:tabIndicatorColor="@color/colorHighlight"
+            android:background="@drawable/background_tab_layout"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@color/colorTabHighlight"
             app:tabIndicatorFullWidth="true"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/colorHighlight"
+            app:tabSelectedTextColor="@color/colorTabHighlight"
             app:tabTextAppearance="@style/WalletTabTextAppearance"
-            app:tabTextColor="@color/dove" />
+            app:tabTextColor="@color/white" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="0dp"
             android:background="@color/mercury" />
 
     </LinearLayout>

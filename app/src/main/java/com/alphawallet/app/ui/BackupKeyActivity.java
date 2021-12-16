@@ -626,7 +626,7 @@ public class BackupKeyActivity extends BaseActivity implements
         seedWord.setTypeface(ResourcesCompat.getFont(this, R.font.font_regular));
         seedWord.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
         seedWord.setBackgroundResource(R.drawable.background_seed_word);
-        seedWord.setTextColor(getColor(R.color.mine));
+        seedWord.setTextColor(getColor(R.color.text_black));
         seedWord.setLayoutParams(params);
         seedWord.setGravity(Gravity.CENTER);
         seedWord.setPadding(padding, 0, padding, 0);

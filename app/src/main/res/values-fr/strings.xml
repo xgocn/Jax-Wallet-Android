@@ -840,4 +840,5 @@
     <string name="not_connected">Non connecté</string>
     <string name="online">Connecté</string>
     <string name="bep20">BEP20</string>
+    <string name="action_verify">Verify</string>
 </resources>

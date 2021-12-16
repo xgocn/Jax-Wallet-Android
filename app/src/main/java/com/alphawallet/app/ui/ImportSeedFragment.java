@@ -158,7 +158,7 @@ public class ImportSeedFragment extends Fragment implements View.OnClickListener
         importButton.setActivated(enabled);
         importButton.setClickable(enabled);
         int colorId = enabled ? R.color.nasty_green : R.color.inactive_green;
-        if (getContext() != null) importButton.setBackgroundColor(getContext().getColor(colorId));
+//        if (getContext() != null) importButton.setBackgroundColor(getContext().getColor(colorId));
     }
 
     @Override

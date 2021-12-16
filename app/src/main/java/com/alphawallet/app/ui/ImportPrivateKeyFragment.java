@@ -113,7 +113,7 @@ public class ImportPrivateKeyFragment extends Fragment implements View.OnClickLi
         importButton.setActivated(enabled);
         importButton.setClickable(enabled);
         int colorId = enabled ? R.color.nasty_green : R.color.inactive_green;
-        if (getContext() != null) importButton.setBackgroundColor(getContext().getColor(colorId));
+//        if (getContext() != null) importButton.setBackgroundColor(getContext().getColor(colorId));
     }
 
     public void setOnImportPrivateKeyListener(OnImportPrivateKeyListener onImportPrivateKeyListener) {

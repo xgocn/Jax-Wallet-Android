@@ -130,16 +130,15 @@
     <style name="TransactionDetailsSubTitleStyle">
         <item name="android:layout_marginTop">@dimen/big_margin</item>
         <item name="android:fontFamily">@font/font_regular</item>
-        <item name="android:textSize">13sp</item>
-        <item name="android:textColor">@color/dove</item>
+        <item name="android:textSize">@dimen/sp9</item>
+        <item name="android:textColor">@color/text_black</item>
     </style>
 
     <style name="TransactionDetailsStyle">
         <item name="android:paddingTop">@dimen/dp5</item>
-        <item name="android:background">@color/white</item>
-        <item name="android:fontFamily">@font/font_regular</item>
-        <item name="android:textSize">17sp</item>
-        <item name="android:textColor">@color/mine</item>
+        <item name="android:fontFamily">@font/font_bold</item>
+        <item name="android:textSize">@dimen/sp9</item>
+        <item name="android:textColor">@color/text_black</item>
     </style>
 
     <style name="QRScannerTextView">

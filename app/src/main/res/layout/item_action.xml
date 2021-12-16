@@ -8,5 +8,5 @@
     android:paddingStart="20dp"
     android:paddingEnd="20dp"
     android:text="Action"
-    android:textColor="@color/black"
-    android:textSize="17sp" />
+    android:textColor="@color/text_black"
+    android:textSize="@dimen/sp14" />

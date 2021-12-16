@@ -27,7 +27,7 @@
             android:fontFamily="@font/font_regular"
             android:lines="1"
             android:gravity="start"
-            android:textSize="@dimen/sp13"/>
+            android:textSize="@dimen/sp9"/>
 
         <LinearLayout
             android:id="@+id/layout_gas_warning"
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/danger"
-                android:fontFamily="@font/font_semibold"
+                android:fontFamily="@font/font_bold"
                 android:text="@string/insufficient_gas"
                 android:textSize="@dimen/sp17"/>
 
@@ -72,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/danger"
-                android:fontFamily="@font/font_semibold"
+                android:fontFamily="@font/font_bold"
                 android:text="@string/speed_too_low"
                 android:textSize="@dimen/sp17"/>
 
@@ -83,10 +83,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="3.1"
             android:textColor="@color/black"
-            android:fontFamily="@font/font_semibold"
+            android:fontFamily="@font/font_bold"
             android:text="@string/speed_average"
             android:gravity="start"
-            android:textSize="@dimen/sp17"/>
+            android:textSize="@dimen/sp9"/>
 
         <TextView
             android:id="@+id/edit_text"
@@ -94,11 +94,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_weight="0.6"
-            android:fontFamily="@font/font_semibold"
+            android:fontFamily="@font/font_bold"
             android:gravity="center_horizontal"
-            android:textColor="@color/azure"
+            android:textColor="@color/mainnet"
             android:lines="1"
-            android:textSize="@dimen/sp17"
+            android:textSize="@dimen/sp9"
             android:text="@string/edit"
             android:visibility="visible" />
 
@@ -126,7 +126,7 @@
             android:fontFamily="@font/font_regular"
             android:gravity="start"
             tools:text="&lt; 0.003 ETH ($0.55 USD)≈2 minutes"
-            android:textSize="@dimen/sp15"/>
+            android:textSize="@dimen/sp9"/>
 
     </LinearLayout>
 

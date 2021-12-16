@@ -27,18 +27,18 @@
             android:textColor="@color/dove"
             android:fontFamily="@font/font_regular"
             android:gravity="start"
-            android:textSize="@dimen/sp13"/>
+            android:textSize="@dimen/sp9"/>
 
         <TextView
             android:id="@+id/text_amount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3.5"
-            android:textColor="@color/black"
-            android:fontFamily="@font/font_semibold"
+            android:textColor="@color/text_black"
+            android:fontFamily="@font/font_bold"
             android:gravity="start"
             tools:text="1.234 ETH ≈ 500.23 USD"
-            android:textSize="@dimen/sp16"/>
+            android:textSize="@dimen/sp9"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tokens_list"

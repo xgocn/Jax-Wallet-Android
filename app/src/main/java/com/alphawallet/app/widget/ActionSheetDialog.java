@@ -222,7 +222,7 @@ public class ActionSheetDialog extends BottomSheetDialog implements StandardFunc
     {
         detailWidget.setupTransaction(candidateTransaction, token.tokenInfo.chainId, tokensService.getCurrentAddress(),
                 tokensService.getNetworkSymbol(token.tokenInfo.chainId), this);
-        detailWidget.setVisibility(View.VISIBLE);
+//        detailWidget.setVisibility(View.VISIBLE);
     }
 
     public void setCurrentGasIndex(int gasSelectionIndex, BigDecimal customGasPrice, BigDecimal customGasLimit, long expectedTxTime, long nonce)

@@ -13,28 +13,29 @@
 
         <ImageView
             android:id="@+id/image_close"
-            android:contentDescription="@string/action_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp16"
-            android:padding="5dp"
             android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp16"
             android:background="@color/transparent"
+            android:contentDescription="@string/action_close"
+            android:padding="5dp"
             android:src="@drawable/ic_close" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/image_close"
-            android:layout_toStartOf="@id/logo"
-            android:text="@string/confirm_transaction"
-            android:textColor="@color/black"
-            android:fontFamily="@font/font_semibold"
             android:layout_centerVertical="true"
-            android:gravity="center_horizontal"
             android:layout_marginTop="@dimen/dp8"
             android:layout_marginBottom="@dimen/dp8"
-            android:textSize="@dimen/sp20"/>
+            android:layout_toStartOf="@id/logo"
+            android:layout_toEndOf="@id/image_close"
+            android:fontFamily="@font/font_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/confirm_transaction"
+            android:textColor="@color/text_black"
+            android:textFontWeight="1"
+            android:textSize="@dimen/sp18" />
 
         <ImageView
             android:id="@+id/logo"
@@ -44,7 +45,8 @@
             android:src="@drawable/ic_launcher_foreground"
             android:layout_marginEnd="10dp"
             android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 
@@ -67,6 +69,7 @@
 
     <com.alphawallet.app.widget.TransactionDetailWidget
         android:id="@+id/detail_widget"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

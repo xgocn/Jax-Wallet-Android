@@ -4,7 +4,6 @@
     android:layout_height="50dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:background="@color/alabaster"
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
@@ -12,12 +11,10 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/font_semibold"
+        android:fontFamily="@font/font_bold"
         android:gravity="center_horizontal"
-        android:shadowColor="@color/greyf6"
         android:text="@string/legacy_wallets"
-        android:textAllCaps="true"
-        android:textColor="@color/dove"
-        android:textSize="15sp" />
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/sp16" />
 
 </LinearLayout>

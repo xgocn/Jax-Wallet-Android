@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimary"
+    android:background="@color/background_color"
     android:orientation="vertical">
 
     <include
@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="?android:attr/actionBarSize"
         android:layout_marginBottom="?android:attr/actionBarSize"
-        android:background="@drawable/background_card">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,18 +23,19 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:orientation="vertical"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp">
+            android:padding="15dp"
+            >
 
             <com.alphawallet.app.widget.InputAddress
                 android:id="@+id/input_address_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                custom:ens="false"
+                custom:ens="true"
                 custom:hint="@string/contract_address"
                 custom:label="@string/contract_address"
-                custom:show_header="false" />
+                custom:show_header="true"
+                custom:show_paste="true"/>
 
             <com.alphawallet.app.widget.InputView
                 android:id="@+id/input_symbol"

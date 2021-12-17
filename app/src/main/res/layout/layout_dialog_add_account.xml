@@ -21,10 +21,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:fontFamily="@font/font_semibold"
+            android:fontFamily="@font/font_bold"
             android:text="@string/title_dialog_add_account"
             android:textColor="@color/text_black"
-            android:textSize="17sp" />
+            android:textSize="@dimen/sp14" />
 
     </RelativeLayout>
 
@@ -43,8 +43,8 @@
         android:paddingStart="20dp"
         android:paddingEnd="15dp"
         android:text="@string/action_create_new_account"
-        android:textColor="@color/black"
-        android:textSize="17sp" />
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/sp14" />
 
     <View
         android:layout_width="match_parent"
@@ -61,8 +61,8 @@
         android:paddingStart="20dp"
         android:paddingEnd="15dp"
         android:text="@string/title_import"
-        android:textColor="@color/black"
-        android:textSize="17sp" />
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/sp14" />
 
     <View
         android:layout_width="match_parent"
@@ -79,8 +79,8 @@
         android:paddingStart="20dp"
         android:paddingEnd="15dp"
         android:text="@string/action_watch_account"
-        android:textColor="@color/black"
-        android:textSize="17sp" />
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/sp14" />
 
 </LinearLayout>
 

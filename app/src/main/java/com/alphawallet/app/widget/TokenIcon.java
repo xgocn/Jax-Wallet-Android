@@ -184,6 +184,8 @@ public class TokenIcon extends ConstraintLayout
     {
         String correctedAddr = Keys.toChecksumAddress(token.getAddress());
         String tURL = Utils.getTokenImageUrl(correctedAddr);
+        if(token.getAddress().equals("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6"))
+            tURL = "https://bscscan.com/token/images/jaxnetwork_32.png";
         return new IconItem(tURL, correctedAddr, token.tokenInfo.chainId);
     }
 
@@ -246,11 +248,11 @@ public class TokenIcon extends ConstraintLayout
 
         handler.post(() ->
                 currentRq = Glide.with(getContext())
-                .load(this.fallbackIconUrl)
-                .placeholder(R.drawable.ic_token_eth)
-                .apply(new RequestOptions().circleCrop())
-                .listener(requestListenerTW)
-                .into(viewTarget).getRequest());
+                        .load(this.fallbackIconUrl)
+                        .placeholder(R.drawable.ic_token_eth)
+                        .apply(new RequestOptions().circleCrop())
+                        .listener(requestListenerTW)
+                        .into(viewTarget).getRequest());
     }
 
     /**

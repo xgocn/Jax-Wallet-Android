@@ -852,4 +852,5 @@
     <string name="not_connected">Not Connected</string>
     <string name="online">Online</string>
     <string name="bep20">BEP20</string>
+    <string name="avax">AVAX</string>
 </resources>

@@ -268,6 +268,7 @@ public class Token
         {
             case ERC20:
             if(tokenInfo.chainId == 56) return R.string.bep20;
+            else if(tokenInfo.chainId == 43114) return R.string.avax;
             else return R.string.erc20;
             case ETHEREUM:
                 return 0; //don't display 'ethereum' as contract type

@@ -814,5 +814,6 @@
     <string name="not_connected">No conectado</string>
     <string name="online">Conectado</string>
     <string name="bep20">BEP20</string>
+    <string name="avax">AVAX</string>
     <string name="action_verify">Verify</string>
 </resources>

@@ -842,5 +842,6 @@
     <string name="not_connected">Không được kết nối</string>
     <string name="online">Trực tuyến</string>
     <string name="bep20">BEP20</string>
+    <string name="avax">AVAX</string>
     <string name="action_verify">Verify</string>
 </resources>

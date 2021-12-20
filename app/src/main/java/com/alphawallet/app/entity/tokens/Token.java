@@ -267,9 +267,9 @@ public class Token
         switch (contractType)
         {
             case ERC20:
+            if(tokenInfo.chainId == 1) return R.string.erc20;
             if(tokenInfo.chainId == 56) return R.string.bep20;
-            else if(tokenInfo.chainId == 43114) return R.string.avax;
-            else return R.string.erc20;
+            if(tokenInfo.chainId == 43114) return R.string.avax;
             case ETHEREUM:
                 return 0; //don't display 'ethereum' as contract type
             default:
@@ -283,9 +283,9 @@ public class Token
         {
             case ERC20:
             case ETHEREUM:
-                if(tokenInfo.symbol.equals("BSC")) return "Binance";
-                else if(tokenInfo.chainId == 43114) return "AVAX";
-                else return "Ethereum";
+                if(tokenInfo.chainId == 1) return "Ethereum";
+                if(tokenInfo.chainId == 56) return "Binance";
+                if(tokenInfo.chainId == 43114) return "AVAX";
             default:
                 return "";
         }

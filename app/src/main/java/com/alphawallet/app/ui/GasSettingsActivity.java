@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -104,7 +103,7 @@ public class GasSettingsActivity extends BaseActivity implements GasSettingsCall
 
         setContentView(R.layout.activity_gas_settings);
         toolbar();
-        setTitle(R.string.set_speed_title);
+        setTitle(getString(R.string.set_speed_title));
 
         gasSliderView = findViewById(R.id.gasSliderView);
         recyclerView = findViewById(R.id.list);
@@ -136,7 +135,7 @@ public class GasSettingsActivity extends BaseActivity implements GasSettingsCall
         gasSliderView.initGasPrice(customGasPriceFromWidget);
         adapter = new CustomAdapter(this);
         recyclerView.setAdapter(adapter);
-        recyclerView.addItemDecoration(new ListDivider(this));
+//        recyclerView.addItemDecoration(new ListDivider(this));
         gasSliderView.setCallback(this);
 
         // start listening for gas price updates

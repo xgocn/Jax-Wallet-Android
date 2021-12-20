@@ -282,7 +282,7 @@ public class TokenHolder extends BinderViewHolder<TokenCardMeta> implements View
             if (issuerName != null && !issuerName.equalsIgnoreCase(getString(R.string.app_name))) //don't display issuer if it's alphawallet
             {
                 issuer.setVisibility(View.GONE);
-                issuerPlaceholder.setVisibility(View.VISIBLE);
+//                issuerPlaceholder.setVisibility(View.VISIBLE);
                 primaryElement = true;
                 issuer.setText(issuerName);
             }
@@ -310,7 +310,7 @@ public class TokenHolder extends BinderViewHolder<TokenCardMeta> implements View
         else
         {
 //            contractType.setVisibility(View.GONE);
-//            contractType.setText("");
+            contractType.setText("");
         }
     }
 

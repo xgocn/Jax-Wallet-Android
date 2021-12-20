@@ -155,7 +155,9 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
             findViewById(R.id.pending_spinner).setVisibility(View.GONE);
             ((TextView) findViewById(R.id.txn_time)).setText(Utils.localiseUnixDate(getApplicationContext(), transaction.timeStamp));
             //update function bar
-            functionBar.setupSecondaryFunction(this, R.string.action_open_etherscan);
+//            functionBar.setupSecondaryFunction(this, R.string.action_open_etherscan);
+            List<Integer> functionList = new ArrayList<>(Collections.singletonList(R.string.action_open_etherscan));
+            functionBar.setupFunctions(this, functionList);
             checkFailed();
         }
     }

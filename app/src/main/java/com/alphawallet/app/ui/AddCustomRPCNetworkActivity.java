@@ -53,6 +53,7 @@ public class AddCustomRPCNetworkActivity extends BaseActivity implements Standar
         AndroidInjection.inject(this);
 
         toolbar();
+        setTitle(getString(R.string.title_activity_add_custom_rpcnetwork));
 
         nameInputView = findViewById(R.id.input_network_name);
         nameInputView.getEditText().setImeOptions(EditorInfo.IME_ACTION_NEXT);

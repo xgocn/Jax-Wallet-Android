@@ -3,10 +3,9 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_simple_toolbar_no_divider" />
+    <include layout="@layout/layout_app_bar" />
 
     <ScrollView
         android:layout_width="match_parent"

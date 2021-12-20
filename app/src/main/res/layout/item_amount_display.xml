@@ -27,7 +27,7 @@
             android:textColor="@color/dove"
             android:fontFamily="@font/font_regular"
             android:gravity="start"
-            android:textSize="@dimen/sp9"/>
+            android:textSize="@dimen/sp11"/>
 
         <TextView
             android:id="@+id/text_amount"
@@ -38,7 +38,7 @@
             android:fontFamily="@font/font_bold"
             android:gravity="start"
             tools:text="1.234 ETH ≈ 500.23 USD"
-            android:textSize="@dimen/sp9"/>
+            android:textSize="@dimen/sp11"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tokens_list"

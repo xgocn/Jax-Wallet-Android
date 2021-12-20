@@ -926,10 +926,10 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
             String shortName = info.name;
             int index = shortName.indexOf(" (Test)");
             if (index > 0) shortName = info.name.substring(0, index);
-            if (shortName.length() > networkMap.get(CLASSIC_ID).name.length()) //shave off the last word
-            {
-                shortName = shortName.substring(0, shortName.lastIndexOf(" "));
-            }
+//            if (shortName.length() > networkMap.get(CLASSIC_ID).name.length()) //shave off the last word
+//            {
+//                shortName = shortName.substring(0, shortName.lastIndexOf(" "));
+//            }
             return shortName;
         }
         else

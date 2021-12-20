@@ -3,17 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
     android:orientation="horizontal">
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="22dp"
+        android:layout_height="40dp"
         android:fontFamily="@font/font_semibold"
         android:gravity="center_vertical"
         android:text="@string/activity_label"
-        android:textColor="@color/text_dark_gray"
-        android:textSize="@dimen/sp24" />
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/sp16" />
 
 </LinearLayout>

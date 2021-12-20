@@ -123,8 +123,8 @@ public class ActivityAdapter extends RecyclerView.Adapter<BinderViewHolder<?>> i
                         assetService, this);
             case TransactionDateHolder.VIEW_TYPE:
                 return new TransactionDateHolder(R.layout.item_transactions_date_head, parent);
-            case LabelSortedItem.VIEW_TYPE:
-                return new LabelHolder(R.layout.item_activity_label, parent);
+//            case LabelSortedItem.VIEW_TYPE:
+//                return new LabelHolder(R.layout.item_activity_label, parent);
             case TransferHolder.VIEW_TYPE:
                 return new TransferHolder(parent, tokensService, fetchTransactionsInteract,
                         assetService);
@@ -235,10 +235,10 @@ public class ActivityAdapter extends RecyclerView.Adapter<BinderViewHolder<?>> i
         if (activityItems.length == 0) return ;
 
         items.beginBatchedUpdates();
-        if (itemLimit != 0)
-        {
-            items.add(new LabelSortedItem(new Date(Long.MAX_VALUE))); //always at top of list
-        }
+//        if (itemLimit != 0)
+//        {
+//            items.add(new LabelSortedItem(new Date(Long.MAX_VALUE))); //always at top of list
+//        }
 
         for (ActivityMeta item : activityItems)
         {
@@ -307,7 +307,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<BinderViewHolder<?>> i
         for (int i = 0; i < items.size(); i++)
         {
             if (items.get(i).viewType == TransactionHolder.VIEW_TYPE
-                && items.get(i).value instanceof TransactionMeta)
+                    && items.get(i).value instanceof TransactionMeta)
             {
                 TransactionMeta tm = (TransactionMeta)items.get(i).value;
                 if (tm.contractAddress != null && hasMatchingContract(tokenContracts, tm.contractAddress.toLowerCase()))

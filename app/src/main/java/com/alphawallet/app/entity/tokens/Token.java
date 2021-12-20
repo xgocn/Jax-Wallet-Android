@@ -277,6 +277,20 @@ public class Token
         }
     }
 
+    public String getContractNet()
+    {
+        switch (contractType)
+        {
+            case ERC20:
+            case ETHEREUM:
+                if(tokenInfo.symbol.equals("BSC")) return "Binance";
+                else if(tokenInfo.chainId == 43114) return "AVAX";
+                else return "Ethereum";
+            default:
+                return "";
+        }
+    }
+
     public Map<BigInteger, NFTAsset> getTokenAssets() {
         return null;
     }

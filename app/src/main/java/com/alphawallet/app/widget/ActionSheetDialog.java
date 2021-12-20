@@ -386,6 +386,7 @@ public class ActionSheetDialog extends BottomSheetDialog implements StandardFunc
                 //Display transaction success dialog
                 Intent intent = new Intent(getContext(), TransactionSuccessActivity.class);
                 intent.putExtra(C.EXTRA_TXHASH, txHash);
+                intent.putExtra("contract_net", token.getContractNet());
                 intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                 activity.startActivityForResult(intent, C.COMPLETED_TRANSACTION);
                 dismiss();

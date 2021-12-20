@@ -735,7 +735,7 @@
     <string name="calc_gas_limit">Calculating Gas Limit</string>
     <string name="wallet_address">Địa chỉ ví</string>
     <string name="transaction_in_progress">Đang tiến hành giao dịch</string>
-    <string name="transaction_progress_detail">The transaction is sent to the Ethereum blockchain. It might take few minutes to be confirmed by miners.</string>
+    <string name="transaction_progress_detail">The transaction is sent to the %1$s blockchain. It might take few minutes to be confirmed by miners.</string>
     <string name="action_show_tx_details">Hiển thị chi tiết giao dịch</string>
     <string name="default_to">Gửi %1$s %2$s tới %3$s</string>
     <string name="default_from">Nhận được %1$s %2$s từ %3$s</string>

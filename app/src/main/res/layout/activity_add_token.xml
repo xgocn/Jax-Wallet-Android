@@ -23,7 +23,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:orientation="vertical"
-            android:padding="15dp"
+            android:padding="20dp"
             >
 
             <com.alphawallet.app.widget.InputAddress

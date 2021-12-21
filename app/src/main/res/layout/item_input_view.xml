@@ -43,8 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_header"
-        android:layout_marginStart="@dimen/dp8"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="7dp"
         android:fontFamily="@font/font_semibold"
         android:textColor="@color/text_black"
         android:textSize="@dimen/sp16"
@@ -55,8 +54,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/label"
-        android:layout_marginStart="@dimen/dp8"
-        android:layout_marginEnd="@dimen/dp8"
         android:background="@drawable/background_password_entry"
         >
 
@@ -70,13 +67,13 @@
             android:inputType="text"
             android:lines="1"
             android:maxLines="1"
-            android:paddingStart="@dimen/dp8"
+            android:paddingStart="@dimen/dp18"
             android:paddingTop="@dimen/dp12"
-            android:paddingEnd="@dimen/dp8"
+            android:paddingEnd="@dimen/dp18"
             android:paddingBottom="@dimen/dp12"
-            android:textColor="@color/black"
-            android:textColorHint="@color/dove_hint"
-            android:textSize="@dimen/sp17"
+            android:textColor="@color/text_black"
+            android:textColorHint="@color/placeholder_color"
+            android:textSize="@dimen/sp16"
             android:layout_toStartOf="@id/img_scan_qr"
             tools:text="Awesome High Yield DeFi Token" />
 
@@ -85,6 +82,7 @@
             android:src="@drawable/ic_camera_scan"
             android:contentDescription="@string/scan_qr"
             android:background="?android:selectableItemBackground"
+            android:tint="@color/placeholder_color"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/dp8"
@@ -94,18 +92,16 @@
     </RelativeLayout>
 
 
-
     <TextView
         android:id="@+id/text_paste"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/box_layout"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="16dp"
         android:fontFamily="@font/font_semibold"
-        android:textColor="@color/azure"
-        android:textSize="@dimen/sp17"
         android:text="@string/paste"
+        android:textColor="@color/azure"
+        android:textSize="@dimen/sp16"
         android:visibility="visible" />
 
     <TextView

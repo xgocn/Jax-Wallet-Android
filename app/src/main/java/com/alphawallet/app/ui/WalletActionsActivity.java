@@ -46,7 +46,7 @@ public class WalletActionsActivity extends BaseActivity implements Runnable, Vie
     WalletActionsViewModelFactory walletActionsViewModelFactory;
     WalletActionsViewModel viewModel;
 
-    private UserAvatar walletIcon;
+//    private UserAvatar walletIcon;
     private TextView walletBalance;
     private TextView walletBalanceCurrency;
     private TextView walletNameText;
@@ -169,7 +169,7 @@ public class WalletActionsActivity extends BaseActivity implements Runnable, Vie
     }
 
     private void initViews() {
-        walletIcon = findViewById(R.id.wallet_icon);
+//        walletIcon = findViewById(R.id.wallet_icon);
         walletBalance = findViewById(R.id.wallet_balance);
         walletBalanceCurrency = findViewById(R.id.wallet_currency);
         walletNameText = findViewById(R.id.wallet_name);
@@ -181,7 +181,7 @@ public class WalletActionsActivity extends BaseActivity implements Runnable, Vie
         inputAddress = findViewById(R.id.input_ens);
         walletSelectedIcon.setOnClickListener(this);
 
-        walletIcon.bind(wallet);
+//        walletIcon.bind(wallet);
 
         walletBalance.setText(wallet.balance);
         walletBalanceCurrency.setText(wallet.balanceSymbol);

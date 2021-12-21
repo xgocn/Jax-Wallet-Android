@@ -124,7 +124,7 @@ public class WalletsActivity extends BaseActivity implements
 
         adapter = new WalletsAdapter(this, this::onSetWalletDefault, viewModel.getWalletInteract());
         list.setAdapter(adapter);
-        list.addItemDecoration(new ListDivider(this));
+//        list.addItemDecoration(new ListDivider(this));
 
         systemView.attachRecyclerView(list);
         systemView.attachSwipeRefreshLayout(refreshLayout);

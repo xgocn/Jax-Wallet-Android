@@ -33,7 +33,7 @@ public class WalletHolder extends BinderViewHolder<Wallet> implements View.OnCli
 
 	private final LinearLayout manageWalletLayout;
 	private final ImageView manageWalletBtn;
-	private final UserAvatar walletIcon;
+//	private final UserAvatar walletIcon;
 	private final LinearLayout walletClickLayout;
 	private final TextView walletBalanceText;
 	private final TextView walletBalanceCurrency;
@@ -52,7 +52,7 @@ public class WalletHolder extends BinderViewHolder<Wallet> implements View.OnCli
 	public WalletHolder(int resId, ViewGroup parent, WalletClickCallback callback, Realm realm) {
 		super(resId, parent);
 		manageWalletBtn = findViewById(R.id.manage_wallet_btn);
-		walletIcon = findViewById(R.id.wallet_icon);
+//		walletIcon = findViewById(R.id.wallet_icon);
 		walletBalanceText = findViewById(R.id.wallet_balance);
 		walletBalanceCurrency = findViewById(R.id.wallet_currency);
 		walletNameText = findViewById(R.id.wallet_name);
@@ -92,7 +92,7 @@ public class WalletHolder extends BinderViewHolder<Wallet> implements View.OnCli
 				walletNameText.setVisibility(View.GONE);
 			}
 
-			walletIcon.bind(wallet, this);
+//			walletIcon.bind(wallet, this);
 
 			String walletBalance = wallet.balance;
 			if (!TextUtils.isEmpty(walletBalance) && walletBalance.startsWith("*"))

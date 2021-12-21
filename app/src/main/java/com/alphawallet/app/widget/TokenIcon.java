@@ -166,17 +166,26 @@ public class TokenIcon extends ConstraintLayout
                 || token.getWallet().equalsIgnoreCase(token.getAddress())
                 || iconItem.useTextSymbol()) return;
 
-        if (iconItem.usePrimary())
-        {
+        if(token.getAddress().equals("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6"))
             currentRq = Glide.with(getContext())
-                    .load(iconItem.getUrl())
+                    .load(R.drawable.wjxn)
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();
-        }
-        else
-        {
-            loadFromAltRepo();
+        else {
+
+            if (iconItem.usePrimary())
+            {
+                currentRq = Glide.with(getContext())
+                        .load(iconItem.getUrl())
+                        .placeholder(R.drawable.ic_token_eth)
+                        .listener(requestListener)
+                        .into(viewTarget).getRequest();
+            }
+            else
+            {
+                loadFromAltRepo();
+            }
         }
     }
 
@@ -184,8 +193,8 @@ public class TokenIcon extends ConstraintLayout
     {
         String correctedAddr = Keys.toChecksumAddress(token.getAddress());
         String tURL = Utils.getTokenImageUrl(correctedAddr);
-        if(token.getAddress().equals("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6"))
-            tURL = "https://bscscan.com/token/images/jaxnetwork_32.png";
+//        if(token.getAddress().equals("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6"))
+//            tURL = "https://bscscan.com/token/images/jaxnetwork_32.png";
         return new IconItem(tURL, correctedAddr, token.tokenInfo.chainId);
     }
 

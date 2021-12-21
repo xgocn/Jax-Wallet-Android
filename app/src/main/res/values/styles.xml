@@ -191,8 +191,10 @@
     </style>
     <style name="BodyMaterialAlertDialog.MaterialComponents.Body.Text" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
         <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">@dimen/sp13</item>
     </style>
     <style name="TitleMaterialAlertDialog.MaterialComponents.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
         <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">@dimen/sp16</item>
     </style>
 </resources>

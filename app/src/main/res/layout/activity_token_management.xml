@@ -39,8 +39,8 @@
                 android:layout_marginEnd="@dimen/dp16"
                 android:maxLines="1"
                 android:maxLength="20"
-                android:textColor="@color/dove"
-                android:textColorHint="@color/dove"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/placeholder_color"
                 android:textSize="@dimen/sp17"/>
 
         </LinearLayout>

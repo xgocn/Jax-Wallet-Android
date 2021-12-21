@@ -27,7 +27,7 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/no_transactions_yet"
         android:textColor="@color/text_black"
-        android:textSize="@dimen/sp9"
+        android:textSize="@dimen/sp13"
         android:layout_marginTop="@dimen/dp20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -29,10 +29,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/dialog_icon"
             android:layout_centerHorizontal="true"
-            android:fontFamily="@font/font_light"
+            android:fontFamily="@font/font_bold"
             android:gravity="center"
             android:textColor="@color/text_black"
-            android:textSize="25sp"
+            android:textSize="@dimen/sp16"
             android:visibility="gone" />
 
         <TextView
@@ -42,10 +42,10 @@
             android:layout_below="@id/dialog_main_text"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/font_light"
+            android:fontFamily="@font/font_regular"
             android:gravity="center"
             android:textColor="@color/text_black"
-            android:textSize="16sp"
+            android:textSize="@dimen/sp11"
             android:visibility="gone" />
 
         <RelativeLayout
@@ -71,7 +71,7 @@
             android:paddingBottom="10dp"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/sp16"
             android:visibility="gone" />
 
         <Button
@@ -86,8 +86,8 @@
             android:paddingTop="10dp"
             android:paddingRight="20dp"
             android:textAllCaps="false"
-            android:textColor="@color/cancel_red"
-            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/sp16"
             android:visibility="gone" />
 
         <ProgressBar

@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="0dp"
-        app:cardUseCompatPadding="true"
+        app:cardUseCompatPadding="false"
         app:cardCornerRadius="@dimen/dp10">
         <RelativeLayout
             android:id="@+id/container_layout"
@@ -39,8 +39,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -48,10 +46,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingStart="16dp"
-                    android:paddingTop="10dp"
-                    android:paddingEnd="2dp"
-                    android:paddingBottom="10dp">
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="14dp"
+                    >
 
                     <com.alphawallet.app.widget.TokenIcon
                         android:id="@+id/token_icon"

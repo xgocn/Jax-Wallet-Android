@@ -31,7 +31,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/dp30"
                     android:layout_marginBottom="@dimen/dp30"
-                    android:src="@mipmap/ic_alpha" />
+                    android:src="@mipmap/ic_launcher_round" />
 
                 <TextView
                     android:id="@+id/peer_name"

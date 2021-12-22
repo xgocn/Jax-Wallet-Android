@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
-    app:cardUseCompatPadding="false"
+    app:cardUseCompatPadding="true"
     android:focusable="false">
 
     <RelativeLayout

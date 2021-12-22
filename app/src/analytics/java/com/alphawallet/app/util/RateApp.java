@@ -42,13 +42,13 @@ public class RateApp {
                     });
 
             AlertDialog dialog = builder.show();
-//            ratingBar.setOnRatingBarChangeListener((rb, rating, fromUser) -> {
-//                if (dialog.isShowing()) {
-//                    ratingBar.setNumStars((int)rating);
+            ratingBar.setOnRatingBarChangeListener((rb, rating, fromUser) -> {
+                if (dialog.isShowing()) {
+                    ratingBar.setNumStars((int)rating);
 //                    dialog.dismiss();
 //                    startRateFlow(context, preferenceRepository);
-//                }
-//            });
+                }
+            });
         }
     }
 

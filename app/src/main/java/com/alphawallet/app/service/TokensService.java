@@ -354,6 +354,7 @@ public class TokensService
         {
             networkFilter.addAll(ethereumNetworkRepository.getFilterNetworkList());
         }
+//            networkFilter.addAll(ethereumNetworkRepository.getFilterNetworkList());
 
         if (userUpdated) ethereumNetworkRepository.setHasSetNetworkFilters();
     }

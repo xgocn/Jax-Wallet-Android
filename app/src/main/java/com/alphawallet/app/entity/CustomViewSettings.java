@@ -6,9 +6,12 @@ import com.alphawallet.app.C;
 import com.alphawallet.app.entity.tokens.Token;
 import com.alphawallet.app.entity.tokens.TokenCardMeta;
 import com.alphawallet.app.entity.tokens.TokenInfo;
+import com.alphawallet.app.repository.PreferenceRepositoryType;
+import com.alphawallet.app.repository.SharedPreferenceRepository;
 import com.alphawallet.app.repository.entity.RealmToken;
 import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.ui.widget.entity.NetworkItem;
+import com.alphawallet.app.util.Utils;
 import com.alphawallet.ethereum.EthereumNetworkBase;
 
 import java.util.Arrays;
@@ -38,12 +41,12 @@ public class CustomViewSettings
     //If blank, enable the user filter select dialog, if there are any entries here, the select network dialog is disabled
     //Note: you should always enable the chainId corresponding to the chainIDs in the lockedTokens.
     private static final List<Long> lockedChains = Arrays.asList(
-            EthereumNetworkBase.MAINNET_ID, //EG only show Main, xdai, classic and two testnets. Don't allow user to select any others
+//            EthereumNetworkBase.MAINNET_ID, //EG only show Main, xdai, classic and two testnets. Don't allow user to select any others
             //EthereumNetworkBase.XDAI_ID,
             //EthereumNetworkBase.RINKEBY_ID, //You can mix testnets and mainnets, but probably shouldn't as it may result in people getting scammed
             //EthereumNetworkBase.GOERLI_ID,
-            EthereumNetworkBase.BINANCE_MAIN_ID,
-            EthereumNetworkBase.AVALANCHE_ID
+//            EthereumNetworkBase.BINANCE_MAIN_ID,
+//            EthereumNetworkBase.AVALANCHE_ID
     );
 
     //TODO: Wallet can only show the above tokens
@@ -70,7 +73,9 @@ public class CustomViewSettings
 
     public static boolean tokenCanBeDisplayed(TokenCardMeta token)
     {
+
         return token.type == ContractType.ETHEREUM || token.isEnabled || isLockedToken(token.getChain(), token.getAddress());
+//        return token.isEnabled;
     }
 
     private static boolean isLockedToken(long chainId, String contractAddress)

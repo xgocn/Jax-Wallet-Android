@@ -40,6 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="@dimen/dp14"
+                    android:layout_marginBottom="@dimen/dp6"
                     android:text="@string/value" />
 
                 <com.alphawallet.app.widget.ChainName
@@ -106,6 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp16"
+                android:layout_marginBottom="@dimen/dp6"
                 android:text="@string/subtitle_transaction_hash_num" />
 
             <com.alphawallet.app.widget.CopyTextView
@@ -120,6 +122,7 @@
                 style="@style/TransactionDetailsSubTitleStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp6"
                 android:text="@string/subtitle_network" />
 
             <LinearLayout
@@ -153,6 +156,7 @@
                 style="@style/TransactionDetailsSubTitleStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp6"
                 android:text="@string/subtitle_from" />
 
             <com.alphawallet.app.widget.CopyTextView
@@ -166,6 +170,7 @@
                 style="@style/TransactionDetailsSubTitleStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp6"
                 android:text="@string/subtitle_to" />
 
             <com.alphawallet.app.widget.CopyTextView

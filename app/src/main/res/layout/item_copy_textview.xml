@@ -4,6 +4,7 @@
     android:id="@+id/view_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="@dimen/dp9"
     android:orientation="horizontal">
 
     <TextView
@@ -14,9 +15,8 @@
         android:layout_weight="1"
         android:fontFamily="@font/font_bold"
         android:maxLines="2"
-        android:layout_marginHorizontal="@dimen/dp12"
-        android:lineHeight="12pt"
-        tools:text="0xbc9a1026a4bc6f0ba8bbe486d1d09da5732b39e4"
+        android:layout_marginRight="@dimen/dp12"
+        tools:text="0xbc9a1026a4bc6f0ba8bbe486d1d09da5732b39e4sddd"
         android:textColor="@color/text_black"
         android:textSize="@dimen/sp13" />
 

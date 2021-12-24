@@ -14,7 +14,8 @@
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
         android:layout_marginBottom="?actionBarSize"
-        android:background="@color/alabaster">
+        android:layout_margin="20dp"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list"

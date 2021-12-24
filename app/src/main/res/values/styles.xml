@@ -196,6 +196,7 @@
         <item name="android:layout_gravity">center_horizontal</item>
     </style>
     <style name="TitleMaterialAlertDialog.MaterialComponents.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:layout_width">match_parent</item>
         <item name="android:textColor">@color/text_black</item>
         <item name="android:textStyle">bold</item>
         <item name="font">@font/font_bold</item>
@@ -212,14 +213,14 @@
 
     <style name="Alert.Button.Positive" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/colorPrimary</item>
+        <item name="font">@font/font_bold</item>
         <item name="android:textSize">@dimen/sp16</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="Alert.Button.Neutral" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:textStyle">bold</item>
+        <item name="font">@font/font_bold</item>
         <item name="android:textSize">@dimen/sp16</item>
         <item name="android:textAllCaps">true</item>
     </style>

@@ -25,6 +25,7 @@ import com.alphawallet.app.ui.widget.entity.WarningData;
 import com.alphawallet.app.ui.widget.entity.WarningSortedItem;
 import com.alphawallet.app.ui.widget.holder.AssetInstanceScriptHolder;
 import com.alphawallet.app.ui.widget.holder.BinderViewHolder;
+import com.alphawallet.app.ui.widget.holder.DetailTokenHolder;
 import com.alphawallet.app.ui.widget.holder.ManageTokensHolder;
 import com.alphawallet.app.ui.widget.holder.TokenGridHolder;
 import com.alphawallet.app.ui.widget.holder.TokenHolder;
@@ -133,13 +134,13 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
         BinderViewHolder<?> holder = null;
         switch (viewType) {
             case TokenHolder.VIEW_TYPE: {
-                TokenHolder tokenHolder = new TokenHolder(parent, assetService, tokensService, realm, false);
+                TokenHolder tokenHolder = new TokenHolder(parent, assetService, tokensService, realm);
                 tokenHolder.setOnTokenClickListener(onTokenClickListener);
                 holder = tokenHolder;
                 break;
             }
-            case TokenHolder.VIEW_TYPE_DETAIL: {
-                TokenHolder tokenHolder = new TokenHolder(parent, assetService, tokensService, realm, true);
+            case DetailTokenHolder.VIEW_TYPE_DETAIL: {
+                DetailTokenHolder tokenHolder = new DetailTokenHolder(parent, assetService, tokensService, realm);
                 tokenHolder.setOnTokenClickListener(onTokenClickListener);
                 holder = tokenHolder;
                 break;
@@ -280,7 +281,7 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
             }
             else
             {
-                TokenSortedItem tsi = new TokenSortedItem(TokenHolder.VIEW_TYPE_DETAIL, token, token.nameWeight);
+                TokenSortedItem tsi = new TokenSortedItem(DetailTokenHolder.VIEW_TYPE_DETAIL, token, token.nameWeight);
                 if (debugView) tsi.debug();
                 position = items.add(tsi);
             }

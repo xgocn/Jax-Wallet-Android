@@ -35,14 +35,13 @@ import io.realm.RealmResults;
 
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 
-public class TokenHolder extends BinderViewHolder<TokenCardMeta> implements View.OnClickListener, View.OnLongClickListener {
+public class DetailTokenHolder extends BinderViewHolder<TokenCardMeta> implements View.OnClickListener, View.OnLongClickListener {
 
-    public static final int VIEW_TYPE = 1005;
+    public static final int VIEW_TYPE_DETAIL = 10060;
     public static final String EMPTY_BALANCE = "\u2014\u2014";
 
     private final TokenIcon tokenIcon;
     private final TextView infoEth;
-    private final TextView nameEth;
     private final TextView balanceEth;
     private final TextView balanceCurrency;
     private final TextView text24Hours;
@@ -67,15 +66,14 @@ public class TokenHolder extends BinderViewHolder<TokenCardMeta> implements View
 
     private RelativeLayout containerLayout;
 
-    public TokenHolder(ViewGroup parent, AssetDefinitionService assetService, TokensService tSvs, Realm r)
+    public DetailTokenHolder(ViewGroup parent, AssetDefinitionService assetService, TokensService tSvs, Realm r)
     {
 
-        super(R.layout.item_token, parent);
+        super(R.layout.item_token_detail, parent);
 
         tokenIcon = findViewById(R.id.token_icon);
         balanceEth = findViewById(R.id.eth_balance);
         infoEth = findViewById(R.id.eth_data);
-        nameEth = findViewById(R.id.eth_name);
         balanceCurrency = findViewById(R.id.balance_currency);
         text24Hours = findViewById(R.id.text_24_hrs);
         textAppreciation = findViewById(R.id.text_appreciation);
@@ -92,7 +90,7 @@ public class TokenHolder extends BinderViewHolder<TokenCardMeta> implements View
         tokensService = tSvs;
         realm = r;
 
-
+//        containerLayout.setBackgroundResource(R.drawable.button_round_border_white_fill);
     }
 
     @Override
@@ -125,9 +123,7 @@ public class TokenHolder extends BinderViewHolder<TokenCardMeta> implements View
             //setup name and value (put these together on a single string to make wrap-around text appear better).
             String nameValue =  token.getFullName(assetDefinition, token.getTokenCount());
             balanceEth.setText(token.getStringBalance());
-//            infoEth.setText(nameValue);
-            nameEth.setText(token.getShortSymbol());
-            infoEth.setText(token.getShortName());
+            infoEth.setText(nameValue);
 
             primaryElement = false;
 
@@ -353,6 +349,7 @@ public class TokenHolder extends BinderViewHolder<TokenCardMeta> implements View
 //        {
 //            lbl = EMPTY_BALANCE;
 //        }
+
         balanceCurrency.setText(lbl);
 //        balanceCurrency.setTextColor(getContext().getColor(R.color.text_black));
 
@@ -371,7 +368,6 @@ public class TokenHolder extends BinderViewHolder<TokenCardMeta> implements View
         lbl = getString(R.string.token_balance, "", formattedValue);
         lbl += " " + ticker.priceSymbol;
         textAppreciation.setText(lbl);
-
 //        textAppreciation.setTextColor(getContext().getColor(R.color.text_dark_gray));
 
 

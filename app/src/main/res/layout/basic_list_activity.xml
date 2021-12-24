@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:scrollbarAlwaysDrawVerticalTrack="true"
     android:scrollbars="vertical">
@@ -13,25 +12,15 @@
         android:id="@+id/layout_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?android:attr/actionBarSize"
-        android:background="@color/alabaster"
+        android:background="@color/background_color"
+        android:padding="@dimen/dp22"
         android:orientation="vertical">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/mercury" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/mercury" />
-
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

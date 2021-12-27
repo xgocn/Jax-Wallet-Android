@@ -36,8 +36,8 @@
 
         <ImageView
             android:id="@+id/no_recent_transactions"
-            android:layout_width="50dp"
-            android:layout_height="63dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:src="@drawable/empty_activity" />
 
@@ -49,7 +49,7 @@
             android:fontFamily="@font/font_regular"
             android:text="@string/no_recent_transactions_subtext"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/sp9" />
+            android:textSize="@dimen/sp11" />
     </LinearLayout>
 
     <ProgressBar

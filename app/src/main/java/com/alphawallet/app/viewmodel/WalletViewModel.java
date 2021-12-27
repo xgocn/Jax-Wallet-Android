@@ -22,6 +22,7 @@ import com.alphawallet.app.interact.GenericWalletInteract;
 import com.alphawallet.app.repository.PreferenceRepositoryType;
 import com.alphawallet.app.repository.TokenRepository;
 import com.alphawallet.app.router.AssetDisplayRouter;
+import com.alphawallet.app.router.ManageWalletsRouter;
 import com.alphawallet.app.router.TokenDetailRouter;
 import com.alphawallet.app.router.MyAddressRouter;
 import com.alphawallet.app.service.AssetDefinitionService;
@@ -55,6 +56,7 @@ public class WalletViewModel extends BaseViewModel
     private final ChangeTokenEnableInteract changeTokenEnableInteract;
     private final PreferenceRepositoryType preferenceRepository;
     private final MyAddressRouter myAddressRouter;
+    private final ManageWalletsRouter manageWalletsRouter;
     private long lastBackupCheck = 0;
 
     WalletViewModel(
@@ -66,6 +68,7 @@ public class WalletViewModel extends BaseViewModel
             TokensService tokensService,
             ChangeTokenEnableInteract changeTokenEnableInteract,
             MyAddressRouter myAddressRouter,
+            ManageWalletsRouter manageWalletsRouter,
             PreferenceRepositoryType preferenceRepository)
     {
         this.fetchTokensInteract = fetchTokensInteract;
@@ -76,6 +79,7 @@ public class WalletViewModel extends BaseViewModel
         this.tokensService = tokensService;
         this.changeTokenEnableInteract = changeTokenEnableInteract;
         this.myAddressRouter = myAddressRouter;
+        this.manageWalletsRouter = manageWalletsRouter;
         this.preferenceRepository = preferenceRepository;
     }
 
@@ -271,6 +275,11 @@ public class WalletViewModel extends BaseViewModel
     {
         tokensService.clearFocusToken(); //ensure if we do a refresh there's no focus token preventing correct update
         tokensService.onWalletRefreshSwipe();
+    }
+
+    public void showManageWallets(Context context, boolean clearStack)
+    {
+        manageWalletsRouter.open(context, clearStack);
     }
 
     public boolean isChainToken(long chainId, String tokenAddress)

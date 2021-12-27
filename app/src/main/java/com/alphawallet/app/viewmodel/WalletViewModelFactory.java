@@ -10,6 +10,7 @@ import com.alphawallet.app.interact.FetchTokensInteract;
 import com.alphawallet.app.interact.GenericWalletInteract;
 import com.alphawallet.app.repository.PreferenceRepositoryType;
 import com.alphawallet.app.router.AssetDisplayRouter;
+import com.alphawallet.app.router.ManageWalletsRouter;
 import com.alphawallet.app.router.TokenDetailRouter;
 import com.alphawallet.app.router.MyAddressRouter;
 import com.alphawallet.app.service.AssetDefinitionService;
@@ -24,6 +25,7 @@ public class WalletViewModelFactory implements ViewModelProvider.Factory {
     private final TokensService tokensService;
     private final ChangeTokenEnableInteract changeTokenEnableInteract;
     private final MyAddressRouter myAddressRouter;
+    private final ManageWalletsRouter manageWalletsRouter;
     private final PreferenceRepositoryType preferenceRepository;
 
     public WalletViewModelFactory(FetchTokensInteract fetchTokensInteract,
@@ -34,6 +36,7 @@ public class WalletViewModelFactory implements ViewModelProvider.Factory {
                                   TokensService tokensService,
                                   ChangeTokenEnableInteract changeTokenEnableInteract,
                                   MyAddressRouter myAddressRouter,
+                                  ManageWalletsRouter manageWalletsRouter,
                                   PreferenceRepositoryType preferenceRepository) {
         this.fetchTokensInteract = fetchTokensInteract;
         this.tokenDetailRouter = tokenDetailRouter;
@@ -43,6 +46,7 @@ public class WalletViewModelFactory implements ViewModelProvider.Factory {
         this.tokensService = tokensService;
         this.changeTokenEnableInteract = changeTokenEnableInteract;
         this.myAddressRouter = myAddressRouter;
+        this.manageWalletsRouter = manageWalletsRouter;
         this.preferenceRepository = preferenceRepository;
     }
 
@@ -58,6 +62,7 @@ public class WalletViewModelFactory implements ViewModelProvider.Factory {
                 tokensService,
                 changeTokenEnableInteract,
                 myAddressRouter,
+                manageWalletsRouter,
                 preferenceRepository);
     }
 }

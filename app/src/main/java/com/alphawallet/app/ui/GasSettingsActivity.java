@@ -477,7 +477,7 @@ public class GasSettingsActivity extends BaseActivity implements GasSettingsCall
             if (matcher.find())
             {
                 notice.setVisibility(View.VISIBLE);
-                notice.setText(getString(R.string.gas_message, matcher.group(4), getNetworkByChain(chainId)));
+                notice.setText(getString(R.string.gas_message, matcher.group(4), getNetworkByChain(chainId).name));
             }
         }
     }

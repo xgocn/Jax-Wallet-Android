@@ -12,7 +12,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/sp17">
+        android:padding="@dimen/dp22">
 
         <TextView
             android:id="@+id/text_title"
@@ -32,9 +32,7 @@
             android:layout_height="150dp"
             android:layout_below="@id/text_title"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="@dimen/dp14"
-            android:layout_marginTop="@dimen/dp14"
-            android:layout_marginEnd="@dimen/dp14"
+            android:layout_marginTop="90dp"
             android:layout_marginBottom="@dimen/dp14"
             android:scaleType="fitCenter"
             android:src="@drawable/tx_in_progress"
@@ -50,7 +48,8 @@
             custom:backgroundView="@drawable/background_round_big"
             custom:bold="true"
             custom:gravity="center_vertical"
-            custom:minHeightView="67"
+            custom:minHeightView="80"
+            custom:paddingView="25"
             custom:textColor="@color/text_black" />
 
         <TextView
@@ -62,8 +61,8 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/font_regular"
             android:lineSpacingMultiplier="1.3"
-            android:paddingStart="50dp"
-            android:paddingEnd="50dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
             android:text="@string/transaction_progress_detail"
             android:textAlignment="center"
             android:textColor="@color/text_black"

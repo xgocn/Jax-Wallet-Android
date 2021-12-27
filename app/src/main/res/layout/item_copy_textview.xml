@@ -4,7 +4,8 @@
     android:id="@+id/view_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/dp9"
+    android:paddingHorizontal="@dimen/dp14"
+    android:paddingVertical="@dimen/dp10"
     android:orientation="horizontal">
 
     <TextView
@@ -18,18 +19,17 @@
         android:layout_marginRight="@dimen/dp12"
         tools:text="0xbc9a1026a4bc6f0ba8bbe486d1d09da5732b39e4sddd"
         android:textColor="@color/text_black"
-        android:textSize="@dimen/sp13" />
+        android:textSize="@dimen/sp11" />
 
     <ImageView
         android:id="@+id/img_copy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="@dimen/dp12"
         android:clickable="true"
         android:contentDescription="@string/action_copy"
         android:focusable="true"
-        android:padding="@dimen/dp8"
         android:foreground="?android:attr/selectableItemBackground"
         android:src="@drawable/ic_copy" />
 

@@ -2,6 +2,7 @@ package com.alphawallet.app.ui;
 
 
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.getNetworkByChain;
 
 import android.content.Context;
 import android.content.Intent;
@@ -476,7 +477,7 @@ public class GasSettingsActivity extends BaseActivity implements GasSettingsCall
             if (matcher.find())
             {
                 notice.setVisibility(View.VISIBLE);
-                notice.setText(getString(R.string.gas_message, matcher.group(4)));
+                notice.setText(getString(R.string.gas_message, matcher.group(4), getNetworkByChain(chainId)));
             }
         }
     }

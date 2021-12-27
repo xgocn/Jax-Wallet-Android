@@ -761,7 +761,7 @@
     <string name="disconnect">Déconnecter</string>
     <string name="keep_connect">Rester Connecté(e)</string>
     <string name="beware_of_scammers"> Méfiez-vous des escrocs! \nNe partagez pas votre phrase seed.</string>
-    <string name="alphawallet_never_ask">AlphaWallet ne posera JAMAIS de questions sur votre phrase seed (en particulier sur Telegram).</string>
+    <string name="alphawallet_never_ask">JAXWallet ne posera JAMAIS de questions sur votre phrase seed (en particulier sur Telegram).</string>
     <string name="your_seed_phrase">Votre phrase seed (ne la partager avec personne)</string>
     <string name="hide_seed_text">OK, Cacher votre Phrase Seed</string>
     <string name="ens_not_match_wallet">Le nom ENS ne correspond pas à l\'adresse du portefeuille</string>

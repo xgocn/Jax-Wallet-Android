@@ -764,7 +764,7 @@
     <string name="disconnect">Ngắt kết nối</string>
     <string name="keep_connect">Giữ kết nối</string>
     <string name="beware_of_scammers">Beware of scammers!\nDon\'t share seed phrase.</string>
-    <string name="alphawallet_never_ask">AlphaWallet sẽ KHÔNG BAO GIỜ hỏi về cụm từ bí mật của bạn (đặc biệt là trên Telegram).</string>
+    <string name="alphawallet_never_ask">JAXWallet sẽ KHÔNG BAO GIỜ hỏi về cụm từ bí mật của bạn (đặc biệt là trên Telegram).</string>
     <string name="your_seed_phrase">Cụm từ bí mật của bạn (không chia sẻ với bất kỳ ai)</string>
     <string name="hide_seed_text">OK, ẩn cụm từ bí mật</string>
     <string name="ens_not_match_wallet">Tên ENS không khớp với địa chỉ ví</string>

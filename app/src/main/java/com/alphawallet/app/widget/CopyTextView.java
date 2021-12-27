@@ -64,8 +64,8 @@ public class CopyTextView extends LinearLayout {
             showToast = a.getBoolean(R.styleable.CopyTextView_showToast, true);
             boldFont = a.getBoolean(R.styleable.CopyTextView_bold, false);
             removePadding = a.getBoolean(R.styleable.CopyTextView_removePadding, false);
-            marginRight = a.getDimension(R.styleable.CopyTextView_marginRight, 0.0f);
-            padding = a.getInt(R.styleable.CopyTextView_marginRight, 0);
+            marginRight = a.getDimension(R.styleable.CopyTextView_marginRight, 10.0f);
+            padding = a.getInt(R.styleable.CopyTextView_paddingView, 8);
         } finally {
             a.recycle();
         }
@@ -80,6 +80,8 @@ public class CopyTextView extends LinearLayout {
         text.setGravity(gravity);
         layout.setBackgroundResource(background);
         layout.setMinimumHeight(height);
+
+        if(padding > 0)
         layout.setPadding(padding, padding, padding, padding);
 
         LayoutParams layoutParams = (LayoutParams) text.getLayoutParams();

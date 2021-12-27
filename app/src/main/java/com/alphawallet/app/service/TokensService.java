@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.LongSparseArray;
+import android.util.Pair;
 import android.util.SparseArray;
 
 import androidx.annotation.Nullable;
@@ -15,6 +16,7 @@ import com.alphawallet.app.entity.ContractLocator;
 import com.alphawallet.app.entity.ContractType;
 import com.alphawallet.app.entity.CustomViewSettings;
 import com.alphawallet.app.entity.NetworkInfo;
+import com.alphawallet.app.entity.ServiceSyncCallback;
 import com.alphawallet.app.entity.Wallet;
 import com.alphawallet.app.entity.nftassets.NFTAsset;
 import com.alphawallet.app.entity.tokens.Token;
@@ -85,6 +87,10 @@ public class TokensService
     private static boolean walletStartup = false;
     private long transferCheckChain;
     private final TokenFactory tokenFactory = new TokenFactory();
+    private long syncTimer;
+    private long syncStart;
+    private ServiceSyncCallback completionCallback;
+    private int syncCount = 0;
 
     @Nullable
     private Disposable eventTimer;
@@ -119,6 +125,7 @@ public class TokensService
         setCurrentAddress(ethereumNetworkRepository.getCurrentWalletAddress()); //set current wallet address at service startup
         appHasFocus = true;
         transferCheckChain = 0;
+        completionCallback = null;
     }
 
     private void checkUnknownTokens()
@@ -224,7 +231,7 @@ public class TokensService
             stopUpdateCycle();
             addLockedTokens();
             openSeaCheck = System.currentTimeMillis() + 3*DateUtils.SECOND_IN_MILLIS;
-            openseaService.resetOffsetRead();
+            if (openseaService != null) openseaService.resetOffsetRead();
         }
     }
 
@@ -595,7 +602,8 @@ public class TokensService
 
     private void checkOpenSea()
     {
-        if (openSeaQueryDisposable != null && !openSeaQueryDisposable.isDisposed()) return;
+        if ((openSeaQueryDisposable != null && !openSeaQueryDisposable.isDisposed())
+                || openseaService == null) return;
         NetworkInfo info;
         if (networkFilter.contains(MAINNET_ID))
             info = ethereumNetworkRepository.getNetworkByChain(MAINNET_ID);
@@ -1082,5 +1090,61 @@ public class TokensService
         }
 
         tokenStoreList.add(token);
+    }
+
+    public Single<Pair<Double, Double>> getFiatValuePair()
+    {
+        return tokenRepository.getTotalValue(currentAddress, networkFilter);
+    }
+
+    public Pair<Double, Double> getFiatValuePair(long chainId, String address)
+    {
+        Token token = getToken(chainId, address);
+        TokenTicker tt = token != null ? getTokenTicker(token) : null;
+        if (tt == null) return new Pair<>(0.0, 0.0);
+
+        return new Pair<>(Double.parseDouble(tt.price), Double.parseDouble(tt.percentChange24h));
+    }
+
+    public boolean isSynced()
+    {
+        return (syncTimer == 0);
+    }
+
+    public boolean startWalletSync(ServiceSyncCallback cb)
+    {
+        if (ethereumNetworkRepository.isMainNetSelected())
+        {
+            setCompletionCallback(cb, 0);
+            return true;
+        }
+        else
+        {
+            completionCallback = cb;
+            return false;
+        }
+    }
+
+    public void setCompletionCallback(ServiceSyncCallback cb, int sync)
+    {
+        syncCount = sync;
+        completionCallback = cb;
+        syncTimer = System.currentTimeMillis();
+
+        //Setup
+        baseTokenCheck.clear();
+        mainNetActive = true;
+        networkFilter.clear();
+
+        NetworkInfo[] networks = ethereumNetworkRepository.getAvailableNetworkList();
+
+        for (NetworkInfo info : networks)
+        {
+            if (info.hasRealValue())
+            {
+                networkFilter.add(info.chainId);
+                baseTokenCheck.add(info.chainId);
+            }
+        }
     }
 }

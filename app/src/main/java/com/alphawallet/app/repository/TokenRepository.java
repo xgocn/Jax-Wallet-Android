@@ -3,6 +3,7 @@ package com.alphawallet.app.repository;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -686,6 +687,8 @@ public class TokenRepository implements TokenRepositoryType {
 
         if (TextUtils.isEmpty(responseValue))
         {
+            Log.d("bad network", network.chainId+"");
+            Log.d("bad address", address);
             throw new Exception("Bad contract value");
         }
         else if (responseValue.equals("0x"))
@@ -1359,5 +1362,11 @@ public class TokenRepository implements TokenRepositoryType {
         }
 
         return false;
+    }
+
+    @Override
+    public Single<Pair<Double, Double>> getTotalValue(String currentAddress, List<Long> networkFilters)
+    {
+        return localSource.getTotalValue(currentAddress, networkFilters);
     }
 }

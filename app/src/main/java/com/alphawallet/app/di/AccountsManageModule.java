@@ -7,11 +7,13 @@ import com.alphawallet.app.interact.FindDefaultNetworkInteract;
 import com.alphawallet.app.interact.GenericWalletInteract;
 import com.alphawallet.app.interact.SetDefaultWalletInteract;
 import com.alphawallet.app.repository.EthereumNetworkRepositoryType;
+import com.alphawallet.app.repository.TokenRepositoryType;
 import com.alphawallet.app.repository.WalletRepositoryType;
 import com.alphawallet.app.router.HomeRouter;
 import com.alphawallet.app.router.ImportWalletRouter;
 import com.alphawallet.app.service.AssetDefinitionService;
 import com.alphawallet.app.service.KeyService;
+import com.alphawallet.app.service.TickerService;
 import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.viewmodel.WalletsViewModelFactory;
 
@@ -22,7 +24,7 @@ import dagger.Provides;
 class AccountsManageModule {
 
 	@Provides
-    WalletsViewModelFactory provideAccountsManageViewModelFactory(
+	WalletsViewModelFactory provideAccountsManageViewModelFactory(
 			SetDefaultWalletInteract setDefaultWalletInteract,
 			FetchWalletsInteract fetchWalletsInteract,
 			GenericWalletInteract genericWalletInteract,
@@ -30,7 +32,9 @@ class AccountsManageModule {
 			HomeRouter homeRouter,
 			FindDefaultNetworkInteract findDefaultNetworkInteract,
 			KeyService keyService,
-			TokensService tokensService,
+			EthereumNetworkRepositoryType ethereumNetworkRepository,
+			TokenRepositoryType tokenRepository,
+			TickerService tickerService,
 			AssetDefinitionService assetDefinitionService,
 			Context context)
 	{
@@ -41,35 +45,37 @@ class AccountsManageModule {
 				homeRouter,
 				findDefaultNetworkInteract,
 				keyService,
-				tokensService,
+				ethereumNetworkRepository,
+				tokenRepository,
+				tickerService,
 				assetDefinitionService,
 				context);
 	}
 
 	@Provides
-    SetDefaultWalletInteract provideSetDefaultAccountInteract(WalletRepositoryType accountRepository) {
+	SetDefaultWalletInteract provideSetDefaultAccountInteract(WalletRepositoryType accountRepository) {
 		return new SetDefaultWalletInteract(accountRepository);
 	}
 
 	@Provides
-    FetchWalletsInteract provideFetchAccountsInteract(WalletRepositoryType accountRepository) {
+	FetchWalletsInteract provideFetchAccountsInteract(WalletRepositoryType accountRepository) {
 		return new FetchWalletsInteract(accountRepository);
 	}
 
 	@Provides
-    GenericWalletInteract provideFindDefaultAccountInteract(WalletRepositoryType accountRepository) {
+	GenericWalletInteract provideFindDefaultAccountInteract(WalletRepositoryType accountRepository) {
 		return new GenericWalletInteract(accountRepository);
 	}
 
 	@Provides
-    ImportWalletRouter provideImportAccountRouter() {
+	ImportWalletRouter provideImportAccountRouter() {
 		return new ImportWalletRouter();
 	}
 
 	@Provides
-    HomeRouter provideHomeRouter() {
-	    return new HomeRouter();
-    }
+	HomeRouter provideHomeRouter() {
+		return new HomeRouter();
+	}
 
 	@Provides
 	FindDefaultNetworkInteract provideFindDefaultNetworkInteract(

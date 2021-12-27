@@ -1,5 +1,7 @@
 package com.alphawallet.app.repository;
 
+import android.util.Pair;
+
 import com.alphawallet.app.entity.ContractType;
 import com.alphawallet.app.entity.Wallet;
 import com.alphawallet.app.entity.nftassets.NFTAsset;
@@ -63,4 +65,6 @@ public interface TokenLocalSource {
 
     void updateNFTAssets(String wallet, Token erc721Token, List<BigInteger> additions, List<BigInteger> removals);
     void storeAsset(String wallet, Token token, BigInteger tokenId, NFTAsset asset);
+
+    Single<Pair<Double, Double>> getTotalValue(String currentAddress, List<Long> networkFilters);
 }

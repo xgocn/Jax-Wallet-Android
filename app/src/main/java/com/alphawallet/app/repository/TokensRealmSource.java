@@ -2,6 +2,7 @@ package com.alphawallet.app.repository;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Pair;
 
 import com.alphawallet.app.BuildConfig;
 import com.alphawallet.app.entity.ContractType;
@@ -27,6 +28,7 @@ import com.google.gson.JsonSyntaxException;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -333,6 +335,68 @@ public class TokensRealmSource implements TokenLocalSource {
                 writeAsset(r, token, tokenId, asset);
             });
         }
+    }
+
+    @Override
+    public Single<Pair<Double, Double>> getTotalValue(String currentAddress, List<Long> networkFilters) {
+        final Wallet wallet = new Wallet(currentAddress);
+        return calculateWalletValue(fetchTokenMetasForUpdate(wallet, networkFilters), wallet);
+    }
+
+    private Single<Pair<Double, Double>> calculateWalletValue(TokenCardMeta[] metas, Wallet wallet)
+    {
+        return Single.fromCallable(() -> {
+            //fetch all token tickers
+            Map<Long, Map<String, TokenTicker>> tickerMap = fetchAllTokenTickers();
+            BigDecimal historicalBalance = BigDecimal.ZERO;
+            BigDecimal newBalance = BigDecimal.ZERO;
+            BigDecimal hundred = BigDecimal.valueOf(100);
+            for (TokenCardMeta meta : metas)
+            {
+                long chainId = meta.getChain();
+                String address = meta.isEthereum() ? "eth" : meta.getAddress();
+                TokenTicker ticker = tickerMap.containsKey(chainId) ? tickerMap.get(chainId).get(address) : null;
+                if (ticker != null && meta.hasPositiveBalance() && !meta.isNFT()) //Currently we don't add NFT value. TODO: potentially get value from OpenSea
+                {
+                    Token t = fetchToken(chainId, wallet, meta.getAddress());
+                    BigDecimal correctedBalance = t.getCorrectedBalance(18);
+                    BigDecimal fiatValue = correctedBalance.multiply(new BigDecimal(ticker.price)).setScale(18, RoundingMode.DOWN);
+                    historicalBalance = historicalBalance.add(fiatValue.add(fiatValue.multiply((new BigDecimal(ticker.percentChange24h)
+                            .divide(hundred)).negate())));
+                    newBalance = newBalance.add(fiatValue);
+                }
+            }
+
+            return new Pair<>(newBalance.doubleValue(), historicalBalance.doubleValue());
+        });
+    }
+
+    private Map<Long, Map<String, TokenTicker>> fetchAllTokenTickers()
+    {
+        Map<Long, Map<String, TokenTicker>> tickerMap = new HashMap<>();
+        try (Realm realm = realmManager.getRealmInstance(TICKER_DB))
+        {
+            RealmResults<RealmTokenTicker> realmTickers = realm.where(RealmTokenTicker.class)
+                    .findAll();
+
+            for (RealmTokenTicker ticker : realmTickers)
+            {
+                Map<String, TokenTicker> networkMap = tickerMap.get(ticker.getChain());
+                if (networkMap == null)
+                {
+                    networkMap = new HashMap<>();
+                    tickerMap.put(ticker.getChain(), networkMap);
+                }
+
+                networkMap.put(ticker.getContract(), convertRealmTicker(ticker));
+            }
+        }
+        catch (Exception e)
+        {
+            //
+        }
+
+        return tickerMap;
     }
 
     @Override

@@ -65,7 +65,7 @@ public class CopyTextView extends LinearLayout {
             boldFont = a.getBoolean(R.styleable.CopyTextView_bold, false);
             removePadding = a.getBoolean(R.styleable.CopyTextView_removePadding, false);
             marginRight = a.getDimension(R.styleable.CopyTextView_marginRight, 10.0f);
-            padding = a.getInt(R.styleable.CopyTextView_paddingView, 8);
+            padding = a.getInt(R.styleable.CopyTextView_paddingView, 0);
         } finally {
             a.recycle();
         }

@@ -375,6 +375,9 @@ public class SendActivity extends BaseActivity implements AmountReadyCallback, S
         {
             case ADDRESS:
                 addressInput.setAddress(result.getAddress());
+                token = viewModel.getToken(result.chainId, wallet.address);
+                amountInput.setupToken(token, viewModel.getAssetDefinitionService(), viewModel.getTokenService(), this);
+                setupTokenContent();
                 break;
 
             case PAYMENT:

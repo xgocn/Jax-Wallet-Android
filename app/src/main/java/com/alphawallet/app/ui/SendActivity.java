@@ -375,10 +375,11 @@ public class SendActivity extends BaseActivity implements AmountReadyCallback, S
         {
             case ADDRESS:
                 addressInput.setAddress(result.getAddress());
-                token = viewModel.getToken(result.chainId, wallet.address);
-                if(overrideNetwork)
-                amountInput.setupToken(token, viewModel.getAssetDefinitionService(), viewModel.getTokenService(), this);
-                setupTokenContent();
+                if(overrideNetwork) {
+                    token = viewModel.getToken(result.chainId, wallet.address);
+                    amountInput.setupToken(token, viewModel.getAssetDefinitionService(), viewModel.getTokenService(), this);
+                    setupTokenContent();
+                }
                 break;
 
             case PAYMENT:
@@ -386,11 +387,13 @@ public class SendActivity extends BaseActivity implements AmountReadyCallback, S
                 String ethAmount = Convert.getConvertedValue(new BigDecimal(result.weiValue), Convert.Unit.ETHER.getFactor());
                 sendText.setVisibility(View.VISIBLE);
                 sendText.setText(R.string.transfer_request);
-                token = viewModel.getToken(result.chainId, wallet.address);
                 addressInput.setAddress(result.getAddress());
-                amountInput.setupToken(token, viewModel.getAssetDefinitionService(), viewModel.getTokenService(), this);
-                amountInput.setAmount(ethAmount);
-                setupTokenContent();
+                if(overrideNetwork) {
+                    token = viewModel.getToken(result.chainId, wallet.address);
+                    amountInput.setupToken(token, viewModel.getAssetDefinitionService(), viewModel.getTokenService(), this);
+                    amountInput.setAmount(ethAmount);
+                    setupTokenContent();
+                }
                 break;
 
             case TRANSFER:
@@ -404,9 +407,11 @@ public class SendActivity extends BaseActivity implements AmountReadyCallback, S
                 else if (resultToken.isERC20())
                 {
                     //ERC20 send request
-                    token = resultToken;
-                    setupTokenContent();
-                    amountInput.setupToken(token, viewModel.getAssetDefinitionService(), viewModel.getTokenService(), this);
+                    if(overrideNetwork) {
+                        token = resultToken;
+                        setupTokenContent();
+                        amountInput.setupToken(token, viewModel.getAssetDefinitionService(), viewModel.getTokenService(), this);
+                    }
                     //convert token amount into scaled value
                     String convertedAmount = Convert.getConvertedValue(result.tokenAmount, token.tokenInfo.decimals);
                     amountInput.setAmount(convertedAmount);

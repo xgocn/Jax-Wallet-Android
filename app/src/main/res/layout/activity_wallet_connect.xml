@@ -195,15 +195,16 @@
                 </LinearLayout>
 
             </LinearLayout>
-            <com.alphawallet.app.widget.FunctionButtonBar
-                android:id="@+id/layoutButtons"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp22"
-                android:visibility="gone" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
+    <com.alphawallet.app.widget.FunctionButtonBar
+        android:id="@+id/layoutButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp22"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
 
     <ProgressBar
         android:id="@+id/progress"

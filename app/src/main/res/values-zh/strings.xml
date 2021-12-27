@@ -816,4 +816,8 @@
     <string name="bep20">BEP20</string>
     <string name="avax">AVAX</string>
     <string name="action_verify">Verify</string>
+    <string name="wallet_total_change">%1$s (%2$.2f%%) 今天</string>
+    <string name="title_wallets_summary">Wallets</string>
+    <string name="summary">Summary</string>
+    <string name="summary_change_24h">%1$s (%2$s) 今天</string>
 </resources>

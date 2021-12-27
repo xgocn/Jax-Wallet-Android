@@ -1,9 +1,15 @@
 package com.alphawallet.app.ui.widget.adapter;
 
+import static com.alphawallet.app.entity.tokenscript.TokenscriptFunction.ZERO_ADDRESS;
+
 import android.content.Context;
 import android.os.Bundle;
-import androidx.recyclerview.widget.RecyclerView;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Pair;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.alphawallet.app.R;
 import com.alphawallet.app.entity.Wallet;
@@ -13,29 +19,34 @@ import com.alphawallet.app.ui.widget.entity.WalletClickCallback;
 import com.alphawallet.app.ui.widget.holder.BinderViewHolder;
 import com.alphawallet.app.ui.widget.holder.TextHolder;
 import com.alphawallet.app.ui.widget.holder.WalletHolder;
+import com.alphawallet.app.ui.widget.holder.WalletSummaryHeaderHolder;
+import com.alphawallet.app.ui.widget.holder.WalletSummaryHolder;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import io.realm.Realm;
 
-public class WalletsAdapter extends RecyclerView.Adapter<BinderViewHolder> implements WalletClickCallback
+public class WalletsSummaryAdapter extends RecyclerView.Adapter<BinderViewHolder> implements WalletClickCallback, Runnable
 {
     private final OnSetWalletDefaultListener onSetWalletDefaultListener;
     private final ArrayList<Wallet> wallets;
+    private final Map<String, Pair<Double, Double>> valueMap = new HashMap<>();
+    private final Handler handler = new Handler(Looper.getMainLooper());
     private Wallet defaultWallet = null;
+    private final Wallet summaryWallet = new Wallet(ZERO_ADDRESS);
     private final Context context;
     private final Realm realm;
-    private final GenericWalletInteract walletInteract;
 
-    public WalletsAdapter(Context ctx,
-            OnSetWalletDefaultListener onSetWalletDefaultListener, GenericWalletInteract genericWalletInteract) {
+    public WalletsSummaryAdapter(Context ctx,
+                                 OnSetWalletDefaultListener onSetWalletDefaultListener, GenericWalletInteract genericWalletInteract) {
         this.onSetWalletDefaultListener = onSetWalletDefaultListener;
         this.wallets = new ArrayList<>();
         this.context = ctx;
         this.realm = genericWalletInteract.getWalletRealm();
-        this.walletInteract = genericWalletInteract;
     }
 
     @NotNull
@@ -44,10 +55,13 @@ public class WalletsAdapter extends RecyclerView.Adapter<BinderViewHolder> imple
         BinderViewHolder binderViewHolder = null;
         switch (viewType) {
             case WalletHolder.VIEW_TYPE:
-                binderViewHolder = new WalletHolder(R.layout.item_wallet_manage, parent, this, realm);
-            break;
+                binderViewHolder = new WalletSummaryHolder(R.layout.item_wallet_summary_manage, parent, this, realm);
+                break;
             case TextHolder.VIEW_TYPE:
                 binderViewHolder = new TextHolder(R.layout.item_text_view, parent);
+                break;
+            case WalletSummaryHeaderHolder.VIEW_TYPE:
+                binderViewHolder = new WalletSummaryHeaderHolder(R.layout.item_wallet_summary_large_title, parent,this, realm);
                 break;
             default:
                 break;
@@ -57,20 +71,39 @@ public class WalletsAdapter extends RecyclerView.Adapter<BinderViewHolder> imple
 
     @Override
     public void onBindViewHolder(@NotNull BinderViewHolder holder, int position) {
+        Bundle bundle;
         switch (getItemViewType(position)) {
             case WalletHolder.VIEW_TYPE:
                 Wallet wallet = wallets.get(position);
-                Bundle bundle = new Bundle();
+                bundle = new Bundle();
                 bundle.putBoolean(
                         WalletHolder.IS_DEFAULT_ADDITION,
                         defaultWallet != null && defaultWallet.sameAddress(wallet.address));
                 bundle.putBoolean(WalletHolder.IS_LAST_ITEM, getItemCount() == 1);
+                bundle.putBoolean(WalletHolder.IS_SYNCED, wallet.isSynced);
+
+                if (valueMap.containsKey(wallet.address.toLowerCase()))
+                {
+                    Pair<Double, Double> valuePair = valueMap.get(wallet.address.toLowerCase());
+                    bundle.putDouble(WalletHolder.FIAT_VALUE, valuePair.first);
+                    bundle.putDouble(WalletHolder.FIAT_CHANGE, valuePair.second);
+                }
+
                 holder.bind(wallet, bundle);
                 break;
             case TextHolder.VIEW_TYPE:
                 wallet = wallets.get(position);
                 holder.bind(wallet.address);
                 break;
+            case WalletSummaryHeaderHolder.VIEW_TYPE:
+                wallet = summaryWallet;
+                bundle = new Bundle();
+                Pair<Double, Double> totalPair = getSummaryBalance();
+                bundle.putDouble(WalletHolder.FIAT_VALUE, totalPair.first);
+                bundle.putDouble(WalletHolder.FIAT_CHANGE, totalPair.second);
+                holder.bind(wallet, bundle);
+                break;
+
             default:
                 break;
         }
@@ -93,12 +126,83 @@ public class WalletsAdapter extends RecyclerView.Adapter<BinderViewHolder> imple
                 return WalletHolder.VIEW_TYPE;
             case TEXT_MARKER:
                 return TextHolder.VIEW_TYPE;
+            case LARGE_TITLE:
+                return WalletSummaryHeaderHolder.VIEW_TYPE;
         }
     }
 
     public void setDefaultWallet(Wallet wallet) {
         this.defaultWallet = wallet;
         notifyDataSetChanged();
+    }
+
+    private int getWalletIndex(String wallet)
+    {
+        for (int i = 0; i < wallets.size(); i++)
+        {
+            if (wallets.get(i).address.equalsIgnoreCase(wallet))
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public void setUnsyncedWalletValue(String wallet, Pair<Double, Double> value)
+    {
+        int index = getWalletIndex(wallet);
+        if (index >= 0)
+        {
+            valueMap.put(wallet.toLowerCase(), value);
+            notifyItemChanged(index);
+            updateWalletSummary();
+        }
+    }
+
+    private Pair<Double, Double> getSummaryBalance()
+    {
+        double totalValue = 0.0;
+        double totalOldValue = 0.0;
+        for (Pair<Double, Double> value : valueMap.values())
+        {
+            totalValue += value.first;
+            totalOldValue += value.second;
+        }
+
+        return new Pair<>(totalValue, totalOldValue);
+    }
+
+    private void updateWalletSummary()
+    {
+        handler.postDelayed(this, 1000); //updates can be bunched together
+    }
+
+    @Override
+    public void run()
+    {
+        notifyItemChanged(1);
+    }
+
+    public void completeWalletSync(String walletAddress, Pair<Double, Double> value)
+    {
+        int index = getWalletIndex(walletAddress);
+        if (index >= 0)
+        {
+            wallets.get(index).isSynced = true;
+            updateWalletState(walletAddress, value);
+        }
+    }
+
+    public void updateWalletState(String walletAddress, Pair<Double, Double> value)
+    {
+        int index = getWalletIndex(walletAddress);
+        if (index >= 0)
+        {
+            valueMap.put(walletAddress.toLowerCase(), value);
+            notifyItemChanged(index);
+            updateWalletSummary();
+        }
     }
 
     public void setWallets(Wallet[] wallets)
@@ -108,6 +212,14 @@ public class WalletsAdapter extends RecyclerView.Adapter<BinderViewHolder> imple
         boolean hasWatchWallet = false;
         if (wallets != null)
         {
+            Wallet summaryItem = new Wallet(context.getString(R.string.summary));
+            summaryItem.type = WalletType.TEXT_MARKER;
+            this.wallets.add(summaryItem);
+
+            Wallet largeTitle = new Wallet(context.getString(R.string.summary));
+            largeTitle.type = WalletType.LARGE_TITLE;
+            this.wallets.add(largeTitle); //index 1
+
             Wallet yourWallets = new Wallet(context.getString(R.string.your_wallets));
             yourWallets.type = WalletType.TEXT_MARKER;
             this.wallets.add(yourWallets);
@@ -120,12 +232,15 @@ public class WalletsAdapter extends RecyclerView.Adapter<BinderViewHolder> imple
                     case KEYSTORE_LEGACY:
                     case KEYSTORE:
                         hasLegacyWallet = true;
+                        w.isSynced = false;
                         break;
                     case HDKEY:
                         this.wallets.add(w);
+                        w.isSynced = false;
                         break;
                     case WATCH:
                         hasWatchWallet = true;
+                        w.isSynced = true;
                         break;
                     default:
                         break;
@@ -174,7 +289,8 @@ public class WalletsAdapter extends RecyclerView.Adapter<BinderViewHolder> imple
     @Override
     public void ensAvatar(Wallet wallet)
     {
-        walletInteract.updateWalletInfo(wallet, wallet.name, () -> { });
+        // we received a wallet avatar URL (wallet.ENSAvatar)
+        //TODO: Michael - does the view need to be updated?
     }
 
     public void onDestroy()

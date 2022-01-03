@@ -155,7 +155,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 //            FANTOM_ID, MATIC_ID, OPTIMISTIC_MAIN_ID, ARBITRUM_MAIN_ID, PALM_ID);
 
     private static final List<Long> hasValue = Arrays.asList(
-            MAINNET_ID, BINANCE_MAIN_ID, AVALANCHE_ID);
+            MAINNET_ID, BINANCE_MAIN_ID, AVALANCHE_ID, MATIC_ID);
 
     //List of network details. Note, the advantage of using LongSparseArray is efficiency and also
     //the entries are automatically sorted into numerical order

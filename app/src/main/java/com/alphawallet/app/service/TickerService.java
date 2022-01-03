@@ -520,7 +520,12 @@ public class TickerService
                 Arrays.<Type>asList(),
                 Collections.singletonList(new TypeReference<DynamicArray<Uint256>>() {}));
     }
-
+    /**
+     * Potentially used by forks to add a custom ticker
+     * @param chainId
+     * @param ticker
+     */
+    @SuppressWarnings("unused")
     public void addCustomTicker(long chainId, TokenTicker ticker)
     {
         if (ticker != null)
@@ -528,7 +533,13 @@ public class TickerService
             ethTickers.put(chainId, ticker);
         }
     }
-
+    /**
+     * Potentially used by forks
+     * @param chainId
+     * @param address
+     * @param ticker
+     */
+    @SuppressWarnings("unused")
     public void addCustomTicker(long chainId, String address, TokenTicker ticker)
     {
         if (ticker != null && address != null)

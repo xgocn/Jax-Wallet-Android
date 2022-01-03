@@ -108,7 +108,8 @@ public class Token
         if (tokenInfo != null) decimals = tokenInfo.decimals;
         String balanceStr = BalanceUtils.getScaledValueScientific(balance, decimals);
 //        if (balanceStr.equals("0") && balance.compareTo(BigDecimal.ZERO) > 0) { balanceStr = "~0"; }
-        return String.format("%.3f", Double.parseDouble(balanceStr));
+//        return String.format("%.3f", Double.parseDouble(balance.toString()));
+        return balanceStr;
     }
 
     public boolean hasPositiveBalance() {

@@ -9,12 +9,13 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 
 public class BalanceUtils
 {
     private static final String weiInEth  = "1000000000000000000";
-    private static final int showDecimalPlaces = 5;
+    private static final int showDecimalPlaces = 3;
     private static final String MACRO_PATTERN = "###,###,###,###,##0";
 
     private static String getDigitalPattern(int precision)
@@ -38,10 +39,10 @@ public class BalanceUtils
 
     private static String convertToLocale(String value)
     {
-        return value;
+//        return value;
 
         // TODO: Add localised values, need to do a global value rollout with override.
-        /*char separator = DecimalFormatSymbols.getInstance().getGroupingSeparator();
+        char separator = DecimalFormatSymbols.getInstance().getGroupingSeparator();
         if (separator != ',')
         {
             char decimalPoint = DecimalFormatSymbols.getInstance().getDecimalSeparator();
@@ -50,7 +51,7 @@ public class BalanceUtils
             value = value.replace('^', decimalPoint);
         }
 
-        return value;*/
+        return value;
     }
 
     public static BigDecimal weiToEth(BigDecimal wei) {
@@ -186,6 +187,7 @@ public class BalanceUtils
             DecimalFormat df = new DecimalFormat(getDigitalPattern(dPlaces));
             df.setRoundingMode(RoundingMode.DOWN);
             returnValue = convertToLocale(df.format(correctedValue));
+//            returnValue = String.format(getDigitalPattern(dPlaces), Double.parseDouble(correctedValue.toString()));
         }
 
         return returnValue;

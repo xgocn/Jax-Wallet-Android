@@ -164,7 +164,7 @@
 
     <style name="Button.Fill.Primary" parent="android:Widget">
         <item name="android:background">@drawable/button_round_default</item>
-        <item name="android:layout_height">@dimen/dp36</item>
+        <item name="android:layout_height">36dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/font_semibold</item>
@@ -176,7 +176,7 @@
     </style>
     <style name="Button.Border.Primary" parent="android:Widget">
         <item name="android:background">@drawable/button_round_border_default</item>
-        <item name="android:layout_height">@dimen/dp36</item>
+        <item name="android:layout_height">40dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:fontFamily">@font/font_semibold</item>
         <item name="android:textColor">@color/colorPrimary</item>

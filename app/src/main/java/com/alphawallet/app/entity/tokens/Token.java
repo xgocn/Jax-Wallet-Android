@@ -50,6 +50,10 @@ import okhttp3.Request;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static com.alphawallet.app.repository.TokenRepository.callSmartContractFunction;
+import static com.alphawallet.ethereum.EthereumNetworkBase.AVALANCHE_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.BINANCE_MAIN_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.MATIC_ID;
 
 public class Token
 {
@@ -267,9 +271,10 @@ public class Token
         switch (contractType)
         {
             case ERC20:
-            if(tokenInfo.chainId == 1) return R.string.erc20;
-            if(tokenInfo.chainId == 56) return R.string.bep20;
-            if(tokenInfo.chainId == 43114) return R.string.avax;
+            if(tokenInfo.chainId == MAINNET_ID) return R.string.erc20;
+            if(tokenInfo.chainId == BINANCE_MAIN_ID) return R.string.bep20;
+            if(tokenInfo.chainId == AVALANCHE_ID) return R.string.avax;
+            if(tokenInfo.chainId == MATIC_ID) return R.string.polygon;
             case ETHEREUM:
                 return 0; //don't display 'ethereum' as contract type
             default:
@@ -283,9 +288,10 @@ public class Token
         {
             case ERC20:
             case ETHEREUM:
-                if(tokenInfo.chainId == 1) return "Ethereum";
-                if(tokenInfo.chainId == 56) return "Binance";
-                if(tokenInfo.chainId == 43114) return "AVAX";
+                if(tokenInfo.chainId == MAINNET_ID) return "Ethereum";
+                if(tokenInfo.chainId == BINANCE_MAIN_ID) return "Binance";
+                if(tokenInfo.chainId == AVALANCHE_ID) return "AVAX";
+                if(tokenInfo.chainId == MATIC_ID) return "Polygon";
             default:
                 return "";
         }

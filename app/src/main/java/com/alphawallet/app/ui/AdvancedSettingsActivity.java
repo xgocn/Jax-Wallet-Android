@@ -162,7 +162,7 @@ public class AdvancedSettingsActivity extends BaseActivity {
 
         advancedSettingsLayout.addView(changeLanguage);
         advancedSettingsLayout.addView(changeCurrency);
-        advancedSettingsLayout.addView(tokenScriptManagement);
+//        advancedSettingsLayout.addView(tokenScriptManagement);
         advancedSettingsLayout.addView(fullScreenSettings);
 //        advancedSettingsLayout.addView(refreshTokenDatabase);
     }

@@ -619,11 +619,11 @@ public class TickerService
     private static final Map<Long, String> coinGeckoChainIdToAPIName = new HashMap<Long, String>(){{
         put(MAINNET_ID, "ethereum");
         put(XDAI_ID, "xdai");
-        put(BINANCE_MAIN_ID, "binance-smart-chain");
+        put(BINANCE_MAIN_ID, "binancecoin");
         put(MATIC_ID, "polygon-pos");
         put(CLASSIC_ID, "ethereum-classic");
         put(FANTOM_ID, "fantom");
-        put(AVALANCHE_ID, "avalanche");
+        put(AVALANCHE_ID, "avalanche-2");
         put(HECO_ID, "huobi-token");
         put(ARBITRUM_MAIN_ID, "arbitrum-one");
         put(66L, "okex-chain");

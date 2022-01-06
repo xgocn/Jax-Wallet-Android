@@ -118,7 +118,9 @@ public class WalletConnectSessionActivity extends BaseActivity
             recyclerView.setAdapter(adapter);
 //            recyclerView.addItemDecoration(new ListDivider(this));
             adapter.notifyDataSetChanged();
-            imgEmpty.setVisibility(View.GONE);
+            if(wcSessions.size() > 0)
+                imgEmpty.setVisibility(View.GONE);
+            else imgEmpty.setVisibility(View.VISIBLE);
         }
     }
 

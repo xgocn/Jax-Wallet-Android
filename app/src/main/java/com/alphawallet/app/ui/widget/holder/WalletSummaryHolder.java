@@ -29,6 +29,7 @@ import com.alphawallet.app.widget.UserAvatar;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import io.realm.Case;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -191,7 +192,7 @@ public class WalletSummaryHolder extends BinderViewHolder<Wallet> implements Vie
     private Wallet fetchWallet(Wallet w)
     {
         RealmWalletData realmWallet = realm.where(RealmWalletData.class)
-                .equalTo("address", w.address)
+                .equalTo("address", w.address, Case.INSENSITIVE)
                 .findFirst();
 
         if (realmWallet != null)

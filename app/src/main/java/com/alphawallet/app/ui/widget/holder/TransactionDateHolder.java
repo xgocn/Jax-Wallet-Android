@@ -40,7 +40,7 @@ public class TransactionDateHolder extends BinderViewHolder<Date> {
         }
         else
         {
-            java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM, LocaleUtils.getDeviceLocale(getContext()));
+            java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM, getContext().getResources().getConfiguration().locale);
             return dateFormat.format(date);
         }
     }

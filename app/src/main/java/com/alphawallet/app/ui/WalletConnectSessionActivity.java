@@ -55,7 +55,7 @@ public class WalletConnectSessionActivity extends BaseActivity
     private CustomAdapter adapter;
     private Wallet wallet;
     private List<WalletConnectSessionItem> wcSessions;
-    private ImageView imgEmpty;
+    private LinearLayout emptyBox;
 
     private final Handler handler = new Handler(Looper.getMainLooper());
 
@@ -73,7 +73,7 @@ public class WalletConnectSessionActivity extends BaseActivity
         wallet = getIntent().getParcelableExtra(WALLET);
         initViewModel();
 
-        imgEmpty = findViewById(R.id.empty_box);
+        emptyBox = findViewById(R.id.empty_box);
     }
 
     private void initViewModel()
@@ -119,8 +119,8 @@ public class WalletConnectSessionActivity extends BaseActivity
 //            recyclerView.addItemDecoration(new ListDivider(this));
             adapter.notifyDataSetChanged();
             if(wcSessions.size() > 0)
-                imgEmpty.setVisibility(View.GONE);
-            else imgEmpty.setVisibility(View.VISIBLE);
+                emptyBox.setVisibility(View.GONE);
+            else emptyBox.setVisibility(View.VISIBLE);
         }
     }
 

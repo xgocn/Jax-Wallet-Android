@@ -125,8 +125,8 @@ public class AssetContract implements Parcelable {
         {
             DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS", Locale.ROOT); //new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.mmmmmm", Locale.ROOT);
             Date dd = formatter.parse(creationDate);
-            DateFormat timeFormat = java.text.DateFormat.getTimeInstance(DateFormat.SHORT, LocaleUtils.getDeviceLocale(getApplicationContext()));
-            DateFormat dateFormat = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM, LocaleUtils.getDeviceLocale(getApplicationContext()));
+            DateFormat timeFormat = java.text.DateFormat.getTimeInstance(DateFormat.SHORT, getApplicationContext().getResources().getConfiguration().locale);
+            DateFormat dateFormat = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM, getApplicationContext().getResources().getConfiguration().locale);
             return dateFormat.format(dd) + " " + timeFormat.format(dd);
         }
         catch (Exception e)

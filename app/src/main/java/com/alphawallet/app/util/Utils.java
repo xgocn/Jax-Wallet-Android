@@ -699,15 +699,15 @@ public class Utils {
     public static String localiseUnixTime(Context ctx, long timeStampInSec)
     {
         Date date = new java.util.Date(timeStampInSec * DateUtils.SECOND_IN_MILLIS);
-        DateFormat timeFormat = java.text.DateFormat.getTimeInstance(DateFormat.SHORT, LocaleUtils.getDeviceLocale(ctx));
+        DateFormat timeFormat = java.text.DateFormat.getTimeInstance(DateFormat.SHORT, ctx.getResources().getConfiguration().locale);
         return timeFormat.format(date);
     }
 
     public static String localiseUnixDate(Context ctx, long timeStampInSec)
     {
         Date date = new java.util.Date(timeStampInSec * DateUtils.SECOND_IN_MILLIS);
-        DateFormat timeFormat = java.text.DateFormat.getTimeInstance(DateFormat.SHORT, LocaleUtils.getDeviceLocale(ctx));
-        DateFormat dateFormat = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM, LocaleUtils.getDeviceLocale(ctx));
+        DateFormat timeFormat = java.text.DateFormat.getTimeInstance(DateFormat.SHORT, ctx.getResources().getConfiguration().locale);
+        DateFormat dateFormat = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM, ctx.getResources().getConfiguration().locale);
         return timeFormat.format(date) + " | " + dateFormat.format(date);
     }
 

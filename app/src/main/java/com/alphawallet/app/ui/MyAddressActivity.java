@@ -186,6 +186,8 @@ public class MyAddressActivity extends BaseActivity implements AmountReadyCallba
 
         menu.findItem(R.id.action_show_contract)
                 .setVisible(false);
+        menu.findItem(R.id.action_networks)
+                .setVisible(false);
 
         return super.onCreateOptionsMenu(menu);
     }

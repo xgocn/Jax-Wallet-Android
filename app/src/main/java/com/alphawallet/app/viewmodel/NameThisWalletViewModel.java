@@ -14,7 +14,6 @@ import com.alphawallet.app.util.AWEnsResolver;
 
 import javax.annotation.Nullable;
 
-import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;

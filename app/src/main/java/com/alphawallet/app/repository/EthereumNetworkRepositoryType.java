@@ -5,7 +5,6 @@ import com.alphawallet.app.entity.KnownContract;
 import com.alphawallet.app.entity.NetworkInfo;
 import com.alphawallet.app.entity.Wallet;
 import com.alphawallet.app.entity.tokens.Token;
-import com.alphawallet.app.repository.entity.RealmToken;
 
 import org.web3j.protocol.Web3j;
 

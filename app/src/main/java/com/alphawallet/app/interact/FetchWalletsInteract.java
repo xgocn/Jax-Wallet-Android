@@ -5,9 +5,7 @@ import android.text.TextUtils;
 import com.alphawallet.app.repository.WalletRepositoryType;
 
 import io.reactivex.Single;
-import io.reactivex.SingleSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
 

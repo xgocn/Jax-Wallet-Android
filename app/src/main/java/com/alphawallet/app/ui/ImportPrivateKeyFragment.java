@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import com.alphawallet.app.ui.widget.OnImportPrivateKeyListener;
 
 import com.alphawallet.app.widget.LayoutCallbackListener;
-import com.alphawallet.token.tools.Numeric;
 import com.alphawallet.app.R;
 
 import com.alphawallet.app.widget.PasswordInputView;

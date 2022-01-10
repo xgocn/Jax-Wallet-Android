@@ -22,7 +22,6 @@ import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.ui.TokenActivity;
 import com.alphawallet.app.ui.widget.entity.TokenTransferData;
 import com.alphawallet.app.util.Utils;
-import com.alphawallet.app.widget.ChainName;
 import com.alphawallet.app.widget.TokenIcon;
 import com.alphawallet.token.entity.EventDefinition;
 import com.alphawallet.token.entity.TSTokenView;

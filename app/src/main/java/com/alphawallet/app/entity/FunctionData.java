@@ -1,8 +1,5 @@
 package com.alphawallet.app.entity;
 
-import com.alphawallet.app.C;
-import com.alphawallet.app.widget.FunctionButtonBar;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

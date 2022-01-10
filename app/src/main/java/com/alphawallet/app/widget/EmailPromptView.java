@@ -1,6 +1,5 @@
 package com.alphawallet.app.widget;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.text.InputType;
@@ -8,16 +7,13 @@ import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import androidx.annotation.LayoutRes;
 
 import com.alphawallet.app.R;
 import com.alphawallet.app.entity.StandardFunctionInterface;
-import com.alphawallet.app.ui.HomeActivity;
 import com.alphawallet.app.util.KeyboardUtils;
-import com.alphawallet.app.util.Utils;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.mailchimp.sdk.api.model.Contact;
 import com.mailchimp.sdk.api.model.ContactStatus;

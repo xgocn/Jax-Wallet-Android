@@ -1,6 +1,5 @@
 package com.alphawallet.app.service;
 
-import android.content.Context;
 import android.text.TextUtils;
 
 import com.alphawallet.app.BuildConfig;
@@ -14,17 +13,14 @@ import com.alphawallet.ethereum.EthereumNetworkBase;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InterruptedIOException;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Single;

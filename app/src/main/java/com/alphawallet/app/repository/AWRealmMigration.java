@@ -1,15 +1,10 @@
 package com.alphawallet.app.repository;
 
-import com.alphawallet.app.repository.entity.RealmGasSpread;
-
 import io.realm.DynamicRealm;
-import io.realm.DynamicRealmObject;
 import io.realm.FieldAttribute;
 import io.realm.RealmMigration;
-import io.realm.RealmObject;
 import io.realm.RealmObjectSchema;
 import io.realm.RealmSchema;
-import io.realm.annotations.PrimaryKey;
 
 
 /**

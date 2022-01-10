@@ -4,7 +4,6 @@ import com.alphawallet.app.entity.tokenscript.EventUtils;
 
 import org.web3j.protocol.Web3j;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;

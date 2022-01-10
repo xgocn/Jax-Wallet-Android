@@ -5,8 +5,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
-import androidx.core.content.ContextCompat;
-
 import com.alphawallet.app.R;
 import com.alphawallet.app.entity.tokens.Token;
 import com.alphawallet.app.repository.EventResult;
@@ -14,14 +12,12 @@ import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.ui.widget.entity.ENSHandler;
 import com.alphawallet.app.ui.widget.entity.StatusType;
 import com.alphawallet.app.util.Utils;
-import com.alphawallet.app.web3.entity.Address;
 import com.alphawallet.app.web3.entity.Web3Transaction;
 import com.alphawallet.token.tools.Numeric;
 import com.alphawallet.token.tools.ParseMagicLink;
 import com.google.gson.annotations.SerializedName;
 
 import org.web3j.crypto.Hash;
-import org.web3j.crypto.Keys;
 import org.web3j.rlp.RlpEncoder;
 import org.web3j.rlp.RlpList;
 import org.web3j.rlp.RlpString;
@@ -29,8 +25,6 @@ import org.web3j.rlp.RlpString;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Map;
-
-import static com.alphawallet.ethereum.EthereumNetworkBase.FUJI_TEST_ID;
 
 /**
  *

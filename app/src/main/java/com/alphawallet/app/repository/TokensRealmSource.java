@@ -37,7 +37,6 @@ import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Single;
-import io.reactivex.SingleSource;
 import io.realm.Case;
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -46,7 +45,6 @@ import io.realm.exceptions.RealmException;
 
 import static com.alphawallet.app.service.TickerService.TICKER_TIMEOUT;
 import static com.alphawallet.app.service.TokensService.EXPIRED_CONTRACT;
-import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 
 public class TokensRealmSource implements TokenLocalSource {
 

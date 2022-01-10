@@ -1,22 +1,13 @@
 package com.alphawallet.app.entity;
 
-import android.content.Context;
-
 import com.alphawallet.app.C;
 import com.alphawallet.app.entity.tokens.Token;
 import com.alphawallet.app.entity.tokens.TokenCardMeta;
 import com.alphawallet.app.entity.tokens.TokenInfo;
-import com.alphawallet.app.repository.PreferenceRepositoryType;
-import com.alphawallet.app.repository.SharedPreferenceRepository;
-import com.alphawallet.app.repository.entity.RealmToken;
-import com.alphawallet.app.service.TokensService;
-import com.alphawallet.app.ui.widget.entity.NetworkItem;
-import com.alphawallet.app.util.Utils;
 import com.alphawallet.ethereum.EthereumNetworkBase;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 

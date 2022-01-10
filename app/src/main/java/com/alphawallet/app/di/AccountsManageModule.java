@@ -14,7 +14,6 @@ import com.alphawallet.app.router.ImportWalletRouter;
 import com.alphawallet.app.service.AssetDefinitionService;
 import com.alphawallet.app.service.KeyService;
 import com.alphawallet.app.service.TickerService;
-import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.viewmodel.WalletsViewModelFactory;
 
 import dagger.Module;

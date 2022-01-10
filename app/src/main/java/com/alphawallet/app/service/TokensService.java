@@ -5,7 +5,6 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.LongSparseArray;
 import android.util.Pair;
-import android.util.SparseArray;
 
 import androidx.annotation.Nullable;
 
@@ -37,7 +36,6 @@ import org.web3j.crypto.Keys;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;

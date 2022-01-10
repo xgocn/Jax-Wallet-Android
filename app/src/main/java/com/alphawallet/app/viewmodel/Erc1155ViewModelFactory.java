@@ -4,8 +4,6 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.alphawallet.app.interact.FetchTransactionsInteract;
-import com.alphawallet.app.repository.OnRampRepositoryType;
-import com.alphawallet.app.router.MyAddressRouter;
 import com.alphawallet.app.service.AssetDefinitionService;
 import com.alphawallet.app.service.TokensService;
 

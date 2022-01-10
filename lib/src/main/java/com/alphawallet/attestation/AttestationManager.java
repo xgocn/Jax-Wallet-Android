@@ -1,6 +1,5 @@
 package com.alphawallet.attestation;
 
-import com.alphawallet.attestation.Attestation;
 import com.alphawallet.token.entity.Signable;
 import java.security.KeyPair;
 import java.security.PublicKey;

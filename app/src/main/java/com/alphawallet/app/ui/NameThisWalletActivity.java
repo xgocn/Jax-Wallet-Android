@@ -2,8 +2,6 @@ package com.alphawallet.app.ui;
 
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -13,12 +11,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.alphawallet.app.R;
 import com.alphawallet.app.entity.StandardFunctionInterface;
 import com.alphawallet.app.entity.Wallet;
-import com.alphawallet.app.repository.TokenRepository;
-import com.alphawallet.app.util.AWEnsResolver;
 import com.alphawallet.app.viewmodel.NameThisWalletViewModel;
 import com.alphawallet.app.viewmodel.NameThisWalletViewModelFactory;
-import com.alphawallet.app.viewmodel.NewSettingsViewModel;
-import com.alphawallet.app.viewmodel.NewSettingsViewModelFactory;
 import com.alphawallet.app.widget.FunctionButtonBar;
 import com.alphawallet.app.widget.InputView;
 
@@ -28,12 +22,7 @@ import java.util.Collections;
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
-import dagger.android.support.AndroidSupportInjection;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-
-import static com.alphawallet.ethereum.EthereumNetworkBase.MAINNET_ID;
 
 public class NameThisWalletActivity extends BaseActivity implements StandardFunctionInterface {
 

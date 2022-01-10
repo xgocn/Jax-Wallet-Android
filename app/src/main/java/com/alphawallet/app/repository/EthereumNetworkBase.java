@@ -5,7 +5,6 @@ package com.alphawallet.app.repository;
 
 import android.text.TextUtils;
 import android.util.LongSparseArray;
-import android.view.View;
 
 import com.alphawallet.app.C;
 import com.alphawallet.app.R;
@@ -40,7 +39,6 @@ import io.reactivex.Single;
 
 import static com.alphawallet.ethereum.EthereumNetworkBase.ARBITRUM_MAIN_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.ARBITRUM_TEST_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.ARBITRUM_TEST_RPC_URL;
 import static com.alphawallet.ethereum.EthereumNetworkBase.ARTIS_SIGMA1_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.ARTIS_TAU1_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.AVALANCHE_ID;
@@ -50,11 +48,8 @@ import static com.alphawallet.ethereum.EthereumNetworkBase.BINANCE_TEST_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.CLASSIC_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.CRONOS_TEST_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.FANTOM_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.FANTOM_RPC_URL;
 import static com.alphawallet.ethereum.EthereumNetworkBase.FANTOM_TEST_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.FANTOM_TEST_RPC_URL;
 import static com.alphawallet.ethereum.EthereumNetworkBase.FUJI_TEST_ID;
-import static com.alphawallet.ethereum.EthereumNetworkBase.FUJI_TEST_RPC_URL;
 import static com.alphawallet.ethereum.EthereumNetworkBase.GOERLI_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.HECO_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.HECO_TEST_ID;
@@ -71,8 +66,6 @@ import static com.alphawallet.ethereum.EthereumNetworkBase.RINKEBY_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.ROPSTEN_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.SOKOL_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.XDAI_ID;
-
-import androidx.core.content.ContextCompat;
 
 public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryType
 {

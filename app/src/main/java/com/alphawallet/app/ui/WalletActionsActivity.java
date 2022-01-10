@@ -34,7 +34,6 @@ import com.alphawallet.app.viewmodel.WalletActionsViewModelFactory;
 import com.alphawallet.app.widget.AWalletAlertDialog;
 import com.alphawallet.app.widget.InputAddress;
 import com.alphawallet.app.widget.SettingsItemView;
-import com.alphawallet.app.widget.UserAvatar;
 
 import javax.inject.Inject;
 

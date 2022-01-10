@@ -1,10 +1,7 @@
 package com.alphawallet.app.ui.widget.entity;
 
 import com.alphawallet.app.entity.ActivityMeta;
-import com.alphawallet.app.entity.Transaction;
-import com.alphawallet.app.entity.TransactionMeta;
 import com.alphawallet.app.ui.widget.holder.EventHolder;
-import com.alphawallet.app.ui.widget.holder.TransactionHolder;
 
 import java.util.Calendar;
 import java.util.Date;

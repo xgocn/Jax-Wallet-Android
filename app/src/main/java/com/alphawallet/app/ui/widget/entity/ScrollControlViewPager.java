@@ -4,11 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.MotionEvent;
-import android.view.ViewGroup;
-
-import com.alphawallet.app.util.Utils;
 
 /**
  * Created by James on 8/07/2019.

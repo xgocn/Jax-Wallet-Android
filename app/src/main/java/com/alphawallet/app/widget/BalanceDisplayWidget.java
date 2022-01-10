@@ -13,7 +13,6 @@ import com.alphawallet.app.entity.Transaction;
 import com.alphawallet.app.entity.tokens.Token;
 import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.util.BalanceUtils;
-import com.alphawallet.app.web3.entity.Web3Transaction;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

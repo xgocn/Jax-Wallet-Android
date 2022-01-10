@@ -1,7 +1,6 @@
 package com.alphawallet.app.ui.widget.entity;
 
 import android.content.Context;
-import android.text.Editable;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
 
@@ -10,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 
 import com.alphawallet.app.BuildConfig;
-import com.alphawallet.app.util.BalanceUtils;
 import com.alphawallet.app.util.LocaleUtils;
 
 import java.math.BigDecimal;

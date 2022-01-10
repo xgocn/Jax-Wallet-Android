@@ -9,8 +9,6 @@ import android.os.Bundle;
 
 import com.alphawallet.app.C;
 
-import static com.alphawallet.app.C.ADDED_TOKEN;
-
 public class HomeReceiver extends BroadcastReceiver
 {
     private final HomeCommsInterface homeCommsInterface;

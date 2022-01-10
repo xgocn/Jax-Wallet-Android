@@ -18,7 +18,6 @@ import androidx.appcompat.widget.AppCompatRadioButton;
 import com.alphawallet.app.BuildConfig;
 import com.alphawallet.app.C;
 import com.alphawallet.app.R;
-import com.alphawallet.app.entity.ContractType;
 import com.alphawallet.app.entity.nftassets.NFTAsset;
 import com.alphawallet.app.entity.tokens.Token;
 import com.alphawallet.app.ui.AssetDisplayActivity;
@@ -31,16 +30,11 @@ import com.alphawallet.token.entity.TicketRange;
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigInteger;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static com.alphawallet.app.util.Utils.getIdMap;
 
 /**
  * Created by James on 3/10/2018.

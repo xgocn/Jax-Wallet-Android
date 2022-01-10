@@ -21,7 +21,6 @@ import com.alphawallet.app.ui.WalletActionsActivity;
 import com.alphawallet.app.ui.widget.entity.AvatarWriteCallback;
 import com.alphawallet.app.ui.widget.entity.WalletClickCallback;
 import com.alphawallet.app.util.Utils;
-import com.alphawallet.app.widget.UserAvatar;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

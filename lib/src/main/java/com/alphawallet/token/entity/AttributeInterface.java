@@ -1,7 +1,5 @@
 package com.alphawallet.token.entity;
 
-import com.alphawallet.token.tools.TokenDefinition;
-
 import java.math.BigInteger;
 
 /**

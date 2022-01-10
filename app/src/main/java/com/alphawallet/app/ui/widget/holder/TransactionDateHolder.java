@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.alphawallet.app.R;
-import com.alphawallet.app.util.LocaleUtils;
 
 import java.util.Date;
 

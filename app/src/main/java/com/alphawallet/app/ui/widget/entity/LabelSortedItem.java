@@ -1,8 +1,5 @@
 package com.alphawallet.app.ui.widget.entity;
 
-import com.alphawallet.app.ui.widget.holder.TokenLabelViewHolder;
-import com.alphawallet.app.util.LocaleUtils;
-
 import java.util.Date;
 
 /**

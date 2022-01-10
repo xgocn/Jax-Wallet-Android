@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,7 +57,6 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjection;
 
 import static com.alphawallet.app.C.ADDED_TOKEN;
-import static com.alphawallet.app.repository.SharedPreferenceRepository.HIDE_ZERO_BALANCE_TOKENS;
 import static com.alphawallet.app.widget.AWalletAlertDialog.ERROR;
 
 public class AddTokenActivity extends BaseActivity implements AddressReadyCallback, StandardFunctionInterface

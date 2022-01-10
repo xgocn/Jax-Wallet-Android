@@ -2,11 +2,7 @@ package com.alphawallet.app.viewmodel;
 
 
 
-import com.alphawallet.app.repository.EthereumNetworkRepository;
 import com.alphawallet.app.repository.EthereumNetworkRepositoryType;
-
-import com.alphawallet.app.repository.EthereumNetworkBase;
-import com.alphawallet.ethereum.NetworkInfo;
 
 public class CustomNetworkViewModel extends BaseViewModel
 {

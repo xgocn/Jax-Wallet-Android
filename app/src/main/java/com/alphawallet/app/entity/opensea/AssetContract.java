@@ -5,20 +5,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.alphawallet.app.entity.tokens.Token;
-import com.alphawallet.app.util.LocaleUtils;
-import com.alphawallet.app.util.Utils;
-import com.alphawallet.token.util.DateTimeFactory;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 

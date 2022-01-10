@@ -2,8 +2,6 @@ package com.alphawallet.app.entity;
 
 import android.text.TextUtils;
 
-import org.bouncycastle.pqc.math.linearalgebra.CharUtils;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 

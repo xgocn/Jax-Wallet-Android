@@ -3,13 +3,9 @@ package com.alphawallet.app.ui.widget.holder;
 import static com.alphawallet.app.ui.widget.holder.WalletHolder.FIAT_CHANGE;
 import static com.alphawallet.app.ui.widget.holder.WalletHolder.FIAT_VALUE;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,10 +16,7 @@ import com.alphawallet.app.R;
 import com.alphawallet.app.entity.Wallet;
 import com.alphawallet.app.repository.entity.RealmWalletData;
 import com.alphawallet.app.service.TickerService;
-import com.alphawallet.app.ui.WalletActionsActivity;
 import com.alphawallet.app.ui.widget.entity.WalletClickCallback;
-import com.alphawallet.app.util.Blockies;
-import com.alphawallet.app.util.Utils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

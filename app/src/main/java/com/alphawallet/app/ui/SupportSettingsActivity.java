@@ -6,14 +6,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 
-import android.provider.MediaStore;
 import android.widget.LinearLayout;
 
 import com.alphawallet.app.BuildConfig;
 import com.alphawallet.app.C;
 import com.alphawallet.app.R;
 import com.alphawallet.app.entity.MediaLinks;
-import com.alphawallet.app.router.HelpRouter;
 import com.alphawallet.app.widget.SettingsItemView;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 

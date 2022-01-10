@@ -7,10 +7,7 @@ package com.alphawallet.app.ui.widget.entity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.util.TypedValue;
 
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;

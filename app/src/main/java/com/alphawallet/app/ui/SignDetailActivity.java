@@ -13,12 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alphawallet.app.C;
 import com.alphawallet.app.R;
 import com.alphawallet.app.repository.SignRecord;
-import com.alphawallet.app.util.LocaleUtils;
 import com.alphawallet.app.util.Utils;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by JB on 9/09/2020.

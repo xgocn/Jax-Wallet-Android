@@ -2,11 +2,10 @@ package com.alphawallet.app.web3;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Build;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
 import android.util.AttributeSet;
 import android.util.Base64;
 import android.util.Log;
@@ -44,7 +43,6 @@ import com.alphawallet.token.tools.TokenDefinition;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
 import java.io.LineNumberReader;
 import java.io.StringReader;
 import java.math.BigInteger;

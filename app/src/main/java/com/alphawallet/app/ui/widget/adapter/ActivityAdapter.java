@@ -29,7 +29,6 @@ import com.alphawallet.app.service.AssetDefinitionService;
 import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.ui.widget.entity.DateSortedItem;
 import com.alphawallet.app.ui.widget.entity.EventSortedItem;
-import com.alphawallet.app.ui.widget.entity.LabelSortedItem;
 import com.alphawallet.app.ui.widget.entity.SortedItem;
 import com.alphawallet.app.ui.widget.entity.TimestampSortedItem;
 import com.alphawallet.app.ui.widget.entity.TokenTransferData;

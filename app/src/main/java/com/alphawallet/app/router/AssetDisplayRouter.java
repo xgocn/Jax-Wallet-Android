@@ -1,7 +1,6 @@
 package com.alphawallet.app.router;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 
 import com.alphawallet.app.C;

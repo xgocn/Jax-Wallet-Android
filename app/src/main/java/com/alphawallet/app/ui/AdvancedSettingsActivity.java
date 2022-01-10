@@ -5,7 +5,6 @@ import static com.alphawallet.app.C.CHANGE_CURRENCY;
 import static com.alphawallet.app.C.EXTRA_CURRENCY;
 import static com.alphawallet.app.C.EXTRA_LOCALE;
 import static com.alphawallet.app.C.EXTRA_STATE;
-import static com.alphawallet.app.C.PAGE_LOADED;
 import static com.alphawallet.app.C.RESET_WALLET;
 
 import android.Manifest;
@@ -28,7 +27,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.alphawallet.app.C;
 import com.alphawallet.app.R;
-import com.alphawallet.app.repository.EthereumNetworkRepository;
 import com.alphawallet.app.util.LocaleUtils;
 import com.alphawallet.app.viewmodel.AdvancedSettingsViewModel;
 import com.alphawallet.app.viewmodel.AdvancedSettingsViewModelFactory;

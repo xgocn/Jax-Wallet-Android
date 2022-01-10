@@ -16,7 +16,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.alphawallet.app.util.DappBrowserUtils;
 import com.alphawallet.app.util.Utils;
 
-import java.net.URISyntaxException;
 import java.util.List;
 
 import com.alphawallet.app.R;

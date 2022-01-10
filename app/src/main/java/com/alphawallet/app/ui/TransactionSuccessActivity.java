@@ -15,9 +15,6 @@ import com.alphawallet.app.viewmodel.TransactionSuccessViewModelFactory;
 import com.alphawallet.app.widget.CopyTextView;
 import com.alphawallet.app.widget.FunctionButtonBar;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;

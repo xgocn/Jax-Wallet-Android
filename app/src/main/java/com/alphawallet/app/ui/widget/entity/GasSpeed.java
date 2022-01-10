@@ -1,8 +1,6 @@
 package com.alphawallet.app.ui.widget.entity;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.List;
 
 /**
  * Created by JB on 22/11/2020.

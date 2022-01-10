@@ -8,7 +8,6 @@ import androidx.preference.PreferenceManager;
 
 import com.alphawallet.app.C;
 import com.alphawallet.app.entity.CurrencyItem;
-import com.alphawallet.app.entity.WalletPage;
 
 import java.util.Locale;
 

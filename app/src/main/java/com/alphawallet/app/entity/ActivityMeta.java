@@ -1,9 +1,5 @@
 package com.alphawallet.app.entity;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 /**
  * Created by JB on 7/07/2020.
  */

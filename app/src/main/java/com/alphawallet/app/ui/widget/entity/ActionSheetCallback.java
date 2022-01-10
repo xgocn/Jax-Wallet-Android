@@ -1,7 +1,5 @@
 package com.alphawallet.app.ui.widget.entity;
 
-import android.app.Activity;
-
 import com.alphawallet.app.entity.SignAuthenticationCallback;
 import com.alphawallet.app.web3.entity.Web3Transaction;
 

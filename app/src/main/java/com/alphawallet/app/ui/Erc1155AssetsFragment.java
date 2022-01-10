@@ -29,7 +29,6 @@ import com.alphawallet.app.viewmodel.Erc1155AssetsViewModel;
 import com.alphawallet.app.viewmodel.Erc1155AssetsViewModelFactory;
 import com.alphawallet.ethereum.EthereumNetworkBase;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import javax.inject.Inject;

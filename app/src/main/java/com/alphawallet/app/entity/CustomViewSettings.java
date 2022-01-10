@@ -66,10 +66,9 @@ public class CustomViewSettings
     {
 
         return token.type == ContractType.ETHEREUM || token.isEnabled || isLockedToken(token.getChain(), token.getAddress());
-//        return token.isEnabled;
     }
 
-    private static boolean isLockedToken(long chainId, String contractAddress)
+    public static boolean isLockedToken(long chainId, String contractAddress)
     {
         for (TokenInfo tInfo : lockedTokens)
         {

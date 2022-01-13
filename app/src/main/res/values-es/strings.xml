@@ -822,4 +822,11 @@
     <string name="summary_change_24h">%1$s (%2$s) Today</string>
     <string name="polygon">Polygon</string>
     <string name="no_wallet_connect_sessions">No active WalletConnect sessions</string>
+    <string name="confirm_swap">Confirm A Swap</string>
+    <string name="label_transaction_fee">Transaction Fee</string>
+    <string name="label_markup_fee">Markup Fee</string>
+    <string name="waiting_confirm_swap">Waiting For Confirmation</string>
+    <string name="swapping">Swapping %1$s %2$s For  %3$s %4$s</string>
+    <string name="confirm_transaction_in_wallet">Confirm This Transaction In Your Wallet</string>
+    <string name="toolbar_header_swap">Swap</string>
 </resources>

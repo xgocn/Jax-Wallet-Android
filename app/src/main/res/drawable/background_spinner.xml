@@ -4,8 +4,8 @@
         <shape>
             <solid android:color="@android:color/transparent" />
             <stroke
-                android:width="1dp"
-                android:color="@color/colorPrimaryDark" />
+                android:width="2dp"
+                android:color="@color/placeholder_color" />
 
             <padding
                 android:bottom="10dp"
@@ -13,12 +13,13 @@
                 android:right="10dp"
                 android:top="15dp" />
 
-            <corners android:radius="23dp" />
+            <corners android:radius="5dp" />
         </shape>
     </item>
     <item>
         <bitmap
             android:gravity="end"
+            android:tint="@color/placeholder_color"
             android:src="@drawable/ic_dropdown_caret" />
     </item>
 </layer-list>

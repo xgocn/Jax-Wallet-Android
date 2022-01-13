@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dp22">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/image_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            android:contentDescription="@string/action_close"
+            android:src="@drawable/ic_close" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp8"
+            android:layout_marginBottom="@dimen/dp8"
+            android:layout_toStartOf="@id/logo"
+            android:layout_toEndOf="@id/image_close"
+            android:fontFamily="@font/font_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/waiting_confirm_swap"
+            android:textColor="@color/text_black"
+            android:textFontWeight="1"
+            android:textSize="@dimen/sp18" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:contentDescription="@string/app_name"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginVertical="@dimen/dp12">
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_swap"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp22"
+            android:fontFamily="@font/font_bold"
+            android:textSize="@dimen/sp14"
+            android:textColor="@color/text_black"
+            android:text="@string/swapping"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp22"
+            android:fontFamily="@font/font_bold"
+            android:textSize="@dimen/sp14"
+            android:textColor="@color/text_black"
+            android:text="@string/confirm_transaction_in_wallet"/>
+    </LinearLayout>
+</LinearLayout>

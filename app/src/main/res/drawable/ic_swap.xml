@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="26dp"
+    android:height="26dp"
+    android:viewportWidth="26"
+    android:viewportHeight="26">
+
+    <path
+        android:fillColor="#152172"
+        android:pathData="M 5 0 L 21 0 Q 26 0 26 5 L 26 21 Q 26 26 21 26 L 5 26 Q 0 26 0 21 L 0 5 Q 0 0 5 0 Z" />
+    <group>
+        <path
+            
+            android:strokeColor="#ffffff"
+            android:strokeWidth="1"
+            android:strokeMiterLimit="10"
+            android:strokeLineCap="round"
+            android:pathData="M6.31818 16.5625L8.86364 18.7291" />
+        <path
+            
+            android:strokeColor="#ffffff"
+            android:strokeWidth="1"
+            android:strokeMiterLimit="10"
+            android:strokeLineCap="round"
+            android:pathData="M11.4091 16.5625L8.86364 18.7291" />
+        <path
+            
+            android:strokeColor="#ffffff"
+            android:strokeWidth="1"
+            android:strokeMiterLimit="10"
+            android:strokeLineCap="round"
+            android:pathData="M8.86364 18.7291V10.0625C8.86364 9.20051 9.2659 8.37386 9.98195 7.76436C10.698 7.15487 11.6692 6.81246 12.6818 6.81246V6.81246" />
+        <path
+            
+            android:strokeColor="#ffffff"
+            android:strokeWidth="1"
+            android:strokeMiterLimit="10"
+            android:strokeLineCap="round"
+            android:pathData="M19.6818 8.4375L17.1364 6.27083" />
+        <path
+            
+            android:strokeColor="#ffffff"
+            android:strokeWidth="1"
+            android:strokeMiterLimit="10"
+            android:strokeLineCap="round"
+            android:pathData="M14.5909 8.4375L17.1364 6.27083" />
+        <path
+            
+            android:strokeColor="#ffffff"
+            android:strokeWidth="1"
+            android:strokeMiterLimit="10"
+            android:strokeLineCap="round"
+            android:pathData="M17.1364 6.27083V14.9375C17.1364 15.7995 16.7341 16.6261 16.018 17.2356C15.302 17.8451 14.3308 18.1875 13.3182 18.1875" />
+    </group>
+</vector>

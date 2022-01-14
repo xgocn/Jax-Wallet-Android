@@ -112,10 +112,10 @@ public class AWalletBottomNavigationView extends LinearLayout {
         settings.setImageResource(R.drawable.ic_tab_settings);
         activity.setImageResource(R.drawable.ic_tab_activity);
         //reset text colour
-        dappBrowserLabel.setTextColor(getContext().getColor(R.color.colorAccent));
-        walletLabel.setTextColor(getContext().getColor(R.color.colorAccent));
-        settingsLabel.setTextColor(getContext().getColor(R.color.colorAccent));
-        activityLabel.setTextColor(getContext().getColor(R.color.colorAccent));
+        dappBrowserLabel.setTextColor(getContext().getColor(R.color.colorPrimary));
+        walletLabel.setTextColor(getContext().getColor(R.color.colorPrimary));
+        settingsLabel.setTextColor(getContext().getColor(R.color.colorPrimary));
+        activityLabel.setTextColor(getContext().getColor(R.color.colorPrimary));
     }
 
     public interface OnBottomNavigationItemSelectedListener {

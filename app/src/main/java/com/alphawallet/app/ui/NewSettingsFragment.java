@@ -423,10 +423,10 @@ public class NewSettingsFragment extends BaseFragment {
         layoutBackup.setVisibility(View.VISIBLE);
         warningSeparator.setVisibility(View.VISIBLE);
         if (wallet != null) {
-            backupButton.setText(getString(R.string.back_up_wallet_action, wallet.address.substring(0, 5)));
+//            backupButton.setText(getString(R.string.back_up_wallet_action, wallet.address.substring(0, 5)));
             backupButton.setOnClickListener(v -> openBackupActivity(wallet));
-            backupTitle.setText(getString(R.string.wallet_not_backed_up));
-            layoutBackup.setBackgroundResource(R.drawable.background_warning_red_8dp);
+//            backupTitle.setText(getString(R.string.wallet_not_backed_up));
+//            layoutBackup.setBackgroundResource(R.drawable.background_warning_red_8dp);
             backupDetail.setText(getString(R.string.backup_wallet_detail));
             backupMenuButton.setOnClickListener(v -> {
                 showPopup(backupPopupAnchor, wallet.address);

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
     android:animateLayoutChanges="true"
-    android:background="@drawable/background_round_nofill_8dp"
+    android:background="@drawable/background_round_azure_16dp_filled"
     android:elevation="2dp"
     android:orientation="horizontal"
     android:paddingStart="16dp"
@@ -29,9 +29,9 @@
             android:layout_alignParentTop="true"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/font_bold"
-            android:text="@string/wallet_not_backed_up"
+            android:text="@string/claim_free_by_verifying_kyc"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp18" />
+            android:textSize="@dimen/sp20" />
 
         <TextView
             android:id="@+id/text_detail"
@@ -40,6 +40,7 @@
             android:layout_below="@id/text_title"
             android:layout_marginEnd="70dp"
             android:layout_marginBottom="24dp"
+            android:visibility="gone"
             android:fontFamily="@font/font_bold"
             android:text="@string/not_backed_up_detail"
             android:textColor="@color/white"
@@ -47,16 +48,16 @@
 
         <Button
             android:id="@+id/button_backup"
+            style="@style/Button.Border.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_detail"
             android:background="@drawable/background_white_4dp"
-            android:fontFamily="@font/font_bold"
             android:paddingLeft="17dp"
             android:paddingRight="17dp"
-            android:textAllCaps="false"
+            android:text="@string/start_verification"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp9" />
+            android:textSize="@dimen/sp11" />
 
         <View
             android:id="@+id/popup_anchor"

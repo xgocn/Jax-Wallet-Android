@@ -11,7 +11,6 @@
         android:id="@+id/text_add_hide_tokens"
         android:layout_width="wrap_content"
         style="@style/Button.Border.Primary"
-        android:fontFamily="@font/font_semibold"
         android:text="@string/add_hide_tokens"
         android:paddingHorizontal="20dp"
         />

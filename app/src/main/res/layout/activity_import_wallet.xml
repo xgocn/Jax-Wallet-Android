@@ -22,11 +22,7 @@
             android:layout_gravity="top"
             android:background="@drawable/background_tab_layout"
             app:tabGravity="center"
-            app:tabIndicatorColor="@color/colorTabHighlight"
-            app:tabIndicatorFullWidth="true"
-            app:tabSelectedTextColor="@color/colorTabHighlight"
-            app:tabTextAppearance="@style/WalletTabTextAppearance"
-            app:tabTextColor="@color/white" />
+             />
 
         <View
             android:layout_width="match_parent"

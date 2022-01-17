@@ -35,8 +35,8 @@ public class CustomSpinnerAdapter extends SimpleAdapter {
         //  HashMap<String, Object> data = (HashMap<String, Object>) getItem(position);
         ((TextView) convertView.findViewById(R.id.imageNameSpinner))
                 .setText((String) dataRecieved.get(position).get("Name"));
-        ((ImageView) convertView.findViewById(R.id.imageIconSpinner))
-                .setBackgroundResource((int) dataRecieved.get(position).get("Icon"));
+//        ((ImageView) convertView.findViewById(R.id.imageIconSpinner))
+//                .setBackgroundResource((int) dataRecieved.get(position).get("Icon"));
         return convertView;
     }
 }

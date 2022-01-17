@@ -73,11 +73,11 @@ public class SwapItem extends LinearLayout implements AdapterView.OnItemClickLis
             spinnerList.add(map);
         }
 
-        CustomSpinnerAdapter adapter = new CustomSpinnerAdapter(this.context,
-                (List<? extends Map<String, ?>>) spinnerList, R.layout.item_spinner_view, new String[] { "Name",
-                "Icon" }, new int[] { R.id.imageNameSpinner,
-                R.id.imageIconSpinner });
-        tokenSpinner.setAdapter(adapter);
+//        CustomSpinnerAdapter adapter = new CustomSpinnerAdapter(this.context,
+//                (List<? extends Map<String, ?>>) spinnerList, R.layout.item_spinner_view, new String[] { "Name",
+//                "Icon" }, new int[] { R.id.imageNameSpinner,
+//                R.id.imageIconSpinner });
+//        tokenSpinner.setAdapter(adapter);
     }
 
     private void setupViewListeners()

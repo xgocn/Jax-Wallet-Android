@@ -264,7 +264,7 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
         attachFragment(currentFragment);
         if ((web3 == null || viewModel == null) && getActivity() != null) //trigger reload
         {
-            ((HomeActivity)getActivity()).resetFragment(WalletPage.DAPP_BROWSER);
+//            ((HomeActivity)getActivity()).resetFragment(WalletPage.DAPP_BROWSER);
         }
         else
         {
@@ -1591,7 +1591,7 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
     {
         if (web3 == null)
         {
-            if (getActivity() != null) ((HomeActivity)getActivity()).resetFragment(WalletPage.DAPP_BROWSER);
+//            if (getActivity() != null) ((HomeActivity)getActivity()).resetFragment(WalletPage.DAPP_BROWSER);
         }
         else
         {

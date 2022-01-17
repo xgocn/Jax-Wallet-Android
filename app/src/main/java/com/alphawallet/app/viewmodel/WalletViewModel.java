@@ -231,19 +231,19 @@ public class WalletViewModel extends BaseViewModel
 
     public void checkBackup()
     {
-        if (TextUtils.isEmpty(getWalletAddr()) || System.currentTimeMillis() < (lastBackupCheck + BALANCE_BACKUP_CHECK_INTERVAL)) return;
+//        if (TextUtils.isEmpty(getWalletAddr()) || System.currentTimeMillis() < (lastBackupCheck + BALANCE_BACKUP_CHECK_INTERVAL)) return;
         lastBackupCheck = System.currentTimeMillis();
         double walletUSDValue = tokensService.getUSDValue();
 
-        if (walletUSDValue > 0.0)
-        {
+//        if (walletUSDValue > 0.0)
+//        {
             final BigDecimal calcValue = BigDecimal.valueOf(walletUSDValue);
             genericWalletInteract.getBackupWarning(getWalletAddr())
                     .map(needsBackup -> calculateBackupWarning(needsBackup, calcValue))
                     .subscribeOn(Schedulers.computation())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(backupEvent::postValue, this::onTokenBalanceError).isDisposed();
-        }
+//        }
     }
 
     private void onTokenBalanceError(Throwable throwable)

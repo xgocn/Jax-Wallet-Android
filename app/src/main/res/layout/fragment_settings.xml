@@ -23,8 +23,13 @@
                 android:layout_width="match_parent"
                 android:background="@drawable/background_bottom_border"
                 android:layout_height="wrap_content" />
-
+            <LinearLayout
+                android:paddingHorizontal="@dimen/dp22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <include layout="@layout/item_warning" />
+
+            </LinearLayout>
             <include layout="@layout/item_update" />
 
             <View

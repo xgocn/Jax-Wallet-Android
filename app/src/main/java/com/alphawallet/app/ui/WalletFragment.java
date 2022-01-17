@@ -470,25 +470,28 @@ public class WalletFragment extends BaseFragment implements
                 break;
             case WALLET_HAS_LOW_VALUE:
                 wData = new WarningData(this);
-                wData.title = getString(R.string.time_to_backup_wallet);
-                wData.detail = getString(R.string.recommend_monthly_backup);
-                wData.buttonText = getString(R.string.back_up_wallet_action, viewModel.getWalletAddr().substring(0, 5));
-                wData.colour = R.color.slate_grey;
-                wData.buttonColour = R.color.backup_grey;
-                wData.wallet = viewModel.getWallet();
+//                wData.title = getString(R.string.time_to_backup_wallet);
+//                wData.detail = getString(R.string.recommend_monthly_backup);
+//                wData.buttonText = getString(R.string.back_up_wallet_action, viewModel.getWalletAddr().substring(0, 5));
+//                wData.colour = R.color.slate_grey;
+//                wData.buttonColour = R.color.backup_grey;
+//                wData.wallet = viewModel.getWallet();
                 adapter.addWarning(wData);
                 break;
             case WALLET_HAS_HIGH_VALUE:
                 wData = new WarningData(this);
-                wData.title = getString(R.string.wallet_not_backed_up);
-                wData.detail = getString(R.string.not_backed_up_detail);
-                wData.buttonText = getString(R.string.back_up_wallet_action, viewModel.getWalletAddr().substring(0, 5));
-                wData.colour = R.color.warning_red;
-                wData.buttonColour = R.color.warning_dark_red;
-                wData.wallet = viewModel.getWallet();
+//                wData.title = getString(R.string.wallet_not_backed_up);
+//                wData.detail = getString(R.string.not_backed_up_detail);
+//                wData.buttonText = getString(R.string.back_up_wallet_action, viewModel.getWalletAddr().substring(0, 5));
+//                wData.colour = R.color.warning_red;
+//                wData.buttonColour = R.color.warning_dark_red;
+//                wData.wallet = viewModel.getWallet();
                 adapter.addWarning(wData);
                 break;
         }
+
+//        wData = new WarningData(this);
+//        adapter.addWarning(wData);
     }
 
     private void onError(ErrorEnvelope errorEnvelope) {

@@ -427,7 +427,7 @@ public class NewSettingsFragment extends BaseFragment {
             backupButton.setOnClickListener(v -> openBackupActivity(wallet));
 //            backupTitle.setText(getString(R.string.wallet_not_backed_up));
 //            layoutBackup.setBackgroundResource(R.drawable.background_warning_red_8dp);
-            backupDetail.setText(getString(R.string.backup_wallet_detail));
+//            backupDetail.setText(getString(R.string.backup_wallet_detail));
             backupMenuButton.setOnClickListener(v -> {
                 showPopup(backupPopupAnchor, wallet.address);
             });

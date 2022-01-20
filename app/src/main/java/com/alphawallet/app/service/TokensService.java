@@ -550,7 +550,7 @@ public class TokensService
 
         if (balanceChange && BuildConfig.DEBUG)
         {
-            Log.d(TAG, "Change Registered: * " + t.getFullName());
+            Log.d(TAG, "Balance Change Registered: * " + t.getFullName());
         }
 
         //update check time

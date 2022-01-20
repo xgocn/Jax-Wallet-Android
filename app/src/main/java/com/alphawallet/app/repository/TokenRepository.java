@@ -1,6 +1,7 @@
 package com.alphawallet.app.repository;
 
 import android.content.Context;
+import android.nfc.Tag;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
@@ -8,6 +9,7 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.alphawallet.app.BuildConfig;
 import com.alphawallet.app.entity.ContractLocator;
 import com.alphawallet.app.entity.ContractType;
 import com.alphawallet.app.entity.NetworkInfo;
@@ -562,13 +564,18 @@ public class TokenRepository implements TokenRepositoryType {
 
     private BigDecimal getEthBalance(Wallet wallet, long chainId)
     {
+
         //in case chain has an override
         if (EthereumNetworkRepository.getChainOverrideAddress(chainId).length() > 0)
         {
+            if(BuildConfig.DEBUG)
+                Log.d(TAG, chainId + " Chain has override");
             return checkUint256Balance(wallet, chainId, EthereumNetworkRepository.getChainOverrideAddress(chainId));
         }
 
         try {
+            if(BuildConfig.DEBUG)
+                Log.d(TAG, "Getting Eth balance for " + chainId);
             return new BigDecimal(getService(chainId).ethGetBalance(wallet.address, DefaultBlockParameterName.LATEST)
                     .send()
                     .getBalance());

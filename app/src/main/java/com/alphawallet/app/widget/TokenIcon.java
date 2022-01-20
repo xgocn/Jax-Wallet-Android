@@ -166,27 +166,49 @@ public class TokenIcon extends ConstraintLayout
                 || token.getWallet().equalsIgnoreCase(token.getAddress())
                 || iconItem.useTextSymbol()) return;
 
+        if (iconItem.usePrimary())
+        {
+            currentRq = Glide.with(getContext())
+                    .load(iconItem.getUrl())
+                    .placeholder(R.drawable.ic_token_eth)
+                    .listener(requestListener)
+                    .into(viewTarget).getRequest();
+        }
+        else
+        {
+            loadFromAltRepo();
+        }
+
         if(token.getAddress().equals("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6"))
             currentRq = Glide.with(getContext())
                     .load(R.drawable.wjxn)
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();
-        else {
-
-            if (iconItem.usePrimary())
-            {
-                currentRq = Glide.with(getContext())
-                        .load(iconItem.getUrl())
-                        .placeholder(R.drawable.ic_token_eth)
-                        .listener(requestListener)
-                        .into(viewTarget).getRequest();
-            }
-            else
-            {
-                loadFromAltRepo();
-            }
-        }
+        if(token.getAddress().equals("0xc43860f43daa9448c483c103af5c851ec5b6ad3e"))
+            currentRq = Glide.with(getContext())
+                    .load(R.drawable.wjxn)
+                    .placeholder(R.drawable.ic_token_eth)
+                    .listener(requestListener)
+                    .into(viewTarget).getRequest();
+        if(token.getAddress().equals("0xb04357981b2edb608723fc105fef0b6a7096de80"))
+            currentRq = Glide.with(getContext())
+                    .load(R.drawable.jusd)
+                    .placeholder(R.drawable.ic_token_eth)
+                    .listener(requestListener)
+                    .into(viewTarget).getRequest();
+        if(token.getAddress().equals("0xc9df73ad8342be29f2155d0b0edd3afa3b303b32"))
+            currentRq = Glide.with(getContext())
+                    .load(R.drawable.jinr)
+                    .placeholder(R.drawable.ic_token_eth)
+                    .listener(requestListener)
+                    .into(viewTarget).getRequest();
+        if(token.getAddress().equals("0x25f2efe24d627fc3ddaf07f9a47310286f172f07"))
+            currentRq = Glide.with(getContext())
+                    .load(R.drawable.jax1)
+                    .placeholder(R.drawable.ic_token_eth)
+                    .listener(requestListener)
+                    .into(viewTarget).getRequest();
     }
 
     private IconItem getIconUrl(Token token)

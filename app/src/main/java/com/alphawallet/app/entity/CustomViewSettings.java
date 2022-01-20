@@ -25,7 +25,11 @@ public class CustomViewSettings
             // new TokenInfo(String TokenAddress, String TokenName, String TokenSymbol, int TokenDecimals, boolean isEnabled, long ChainId)
             //new TokenInfo("0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", "USD Coin", "USDC", 6, true, EthereumNetworkBase.MAINNET_ID),
             //new TokenInfo("0x6C8c6b02E7b2BE14d4fA6022Dfd6d75921D90E4E", "Compound BAT", "CBAT", 8, true, EthereumNetworkBase.MAINNET_ID)
-            new TokenInfo("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6", "Wrapped JAXNET", "WJXN", 0, true, EthereumNetworkBase.BINANCE_MAIN_ID)
+            new TokenInfo("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6", "Wrapped JAXNET", "WJXN", 0, true, EthereumNetworkBase.BINANCE_MAIN_ID),
+            new TokenInfo("0xc43860f43daA9448C483C103Af5C851ec5B6aD3e", "Wrapped Jaxnet", "WJXN", 0, true, EthereumNetworkBase.BINANCE_TEST_ID),
+            new TokenInfo("0x25F2EFE24d627FC3DDaf07F9A47310286f172f07", "Wrapped JAX", "WJAX", 0, true, EthereumNetworkBase.BINANCE_TEST_ID),
+            new TokenInfo("0xB04357981b2Edb608723Fc105fEF0B6a7096de80", "Wrapped Rupee", "JINR", 0, true, EthereumNetworkBase.BINANCE_TEST_ID),
+            new TokenInfo("0xC9DF73Ad8342Be29F2155D0b0edd3AFA3b303B32", "Wrapped Dollar", "JUSD", 0, true, EthereumNetworkBase.BINANCE_TEST_ID)
     );
 
     //List of chains that wallet can show

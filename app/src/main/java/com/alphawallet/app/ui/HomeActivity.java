@@ -129,7 +129,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
     public HomeActivity()
     {
         if (CustomViewSettings.hideDappBrowser()) dappBrowserFragment = new Fragment();
-        else dappBrowserFragment = new BrowserFragment();
+        else dappBrowserFragment = new DappBrowserFragment();
         settingsFragment = new NewSettingsFragment();
         walletFragment = new WalletFragment();
         activityFragment = new ActivityFragment();
@@ -531,7 +531,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 {
                     showPage(DAPP_BROWSER);
                 }
-//                ((DappBrowserFragment) dappBrowserFragment).selected();
+                ((DappBrowserFragment) dappBrowserFragment).selected();
                 return true;
             }
 //            case SWAP:
@@ -1101,16 +1101,16 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                 if (resultCode == RESULT_OK) backupWalletSuccess(keyBackup);
                 else backupWalletFail(keyBackup, noLockScreen);
                 break;
-//            case SignTransactionDialog.REQUEST_CODE_CONFIRM_DEVICE_CREDENTIALS:
-//                switch (getSelectedItem())
-//                {
-//                    case DAPP_BROWSER:
-//                        ((DappBrowserFragment) dappBrowserFragment).pinAuthorisation(resultCode == RESULT_OK);
-//                        break;
-//                    default:
-//                        break;
-//                }
-//                break;
+            case SignTransactionDialog.REQUEST_CODE_CONFIRM_DEVICE_CREDENTIALS:
+                switch (getSelectedItem())
+                {
+                    case DAPP_BROWSER:
+                        ((DappBrowserFragment) dappBrowserFragment).pinAuthorisation(resultCode == RESULT_OK);
+                        break;
+                    default:
+                        break;
+                }
+                break;
             case C.UPDATE_LOCALE:
                 updateLocale(data);
                 break;
@@ -1138,7 +1138,7 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
                     String url = data.getStringExtra(C.DAPP_URL_LOAD);
                     long chainId = data.getLongExtra(C.EXTRA_CHAIN_ID, MAINNET_ID);
                     ((DappBrowserFragment)dappBrowserFragment).switchNetworkAndLoadUrl(chainId, url);
-//                    showPage(DAPP_BROWSER);
+                    showPage(DAPP_BROWSER);
                 }
                 else if (data != null && resultCode == Activity.RESULT_OK && data.hasExtra(C.EXTRA_TXHASH))
                 {

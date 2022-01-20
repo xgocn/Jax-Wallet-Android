@@ -264,7 +264,7 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
         attachFragment(currentFragment);
         if ((web3 == null || viewModel == null) && getActivity() != null) //trigger reload
         {
-//            ((HomeActivity)getActivity()).resetFragment(WalletPage.DAPP_BROWSER);
+            ((HomeActivity)getActivity()).resetFragment(WalletPage.DAPP_BROWSER);
         }
         else
         {
@@ -443,17 +443,18 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
     private void initView(@NotNull View view) {
         web3 = view.findViewById(R.id.web3view);
         urlTv = view.findViewById(R.id.url_tv);
-        Bundle savedState = readBundleFromLocal();
-        if (savedState != null)
-        {
-            web3.restoreState(savedState);
-            String lastUrl = savedState.getString(CURRENT_URL);
-            loadOnInit = TextUtils.isEmpty(lastUrl) ? getDefaultDappUrl() : lastUrl;
-        }
-        else
-        {
+//        Bundle savedState = readBundleFromLocal();
+//        if (savedState != null)
+//        {
+//            web3.restoreState(savedState);
+//            String lastUrl = savedState.getString(CURRENT_URL);
+//            loadOnInit = TextUtils.isEmpty(lastUrl) ? getDefaultDappUrl() : lastUrl;
+//        }
+//        else
+//        {
+//            loadOnInit = getDefaultDappUrl();
+//        }
             loadOnInit = getDefaultDappUrl();
-        }
 
         progressBar = view.findViewById(R.id.progressBar);
         urlTv = view.findViewById(R.id.url_tv);
@@ -736,7 +737,7 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
     {
         if (toolbar != null)
         {
-            toolbar.getMenu().setGroupVisible(R.id.dapp_browser_menu, true);
+            toolbar.getMenu().setGroupVisible(R.id.dapp_browser_menu, false);
             expandCollapseView(layoutNavigation, true);
             clear.setVisibility(View.GONE);
             urlTv.dismissDropDown();
@@ -1591,7 +1592,7 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
     {
         if (web3 == null)
         {
-//            if (getActivity() != null) ((HomeActivity)getActivity()).resetFragment(WalletPage.DAPP_BROWSER);
+            if (getActivity() != null) ((HomeActivity)getActivity()).resetFragment(WalletPage.DAPP_BROWSER);
         }
         else
         {
@@ -2198,7 +2199,8 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
     private String getDefaultDappUrl()
     {
         String customHome = viewModel.getHomePage(getContext());
-        return customHome != null ? customHome : EthereumNetworkRepository.defaultDapp(activeNetwork != null ? activeNetwork.chainId : 0);
+//        return customHome != null ? customHome : EthereumNetworkRepository.defaultDapp(activeNetwork != null ? activeNetwork.chainId : 0);
+        return EthereumNetworkRepository.defaultDapp(0);
     }
 
     @Override

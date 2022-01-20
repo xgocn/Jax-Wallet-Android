@@ -50,6 +50,7 @@ import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthBlockNumber;
 import org.web3j.protocol.core.methods.response.EthCall;
+import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.utils.Numeric;
 
 import java.io.IOException;
@@ -576,9 +577,8 @@ public class TokenRepository implements TokenRepositoryType {
         try {
             if(BuildConfig.DEBUG)
                 Log.d(TAG, "Getting Eth balance for " + chainId);
-            return new BigDecimal(getService(chainId).ethGetBalance(wallet.address, DefaultBlockParameterName.LATEST)
-                    .send()
-                    .getBalance());
+            EthGetBalance ethGetBalance = getService(chainId).ethGetBalance(wallet.address, DefaultBlockParameterName.LATEST).send();
+            return new BigDecimal(ethGetBalance.getBalance());
         }
         catch (IOException e)
         {

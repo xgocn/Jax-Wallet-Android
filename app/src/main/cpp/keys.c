@@ -113,7 +113,7 @@ Java_com_alphawallet_app_service_TransactionsNetworkClient_getBSCExplorerKey( JN
 #if (HAS_KEYS == 1)
     return getBSCExplorerKey(env);
 #else
-    return (*env)->NewStringUTF(env, "");
+    return (*env)->NewStringUTF(env, "6MRQ6WMY5F9DSR372BCBF9GCN6R6ZY8IWH");
 #endif
 }
 

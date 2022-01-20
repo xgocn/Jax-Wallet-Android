@@ -412,6 +412,10 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
                 }
                 else
                 {
+                    if (BuildConfig.DEBUG) {
+                        Log.e("transaction url", fullUrl);
+                        Log.e("transaction network issue", result);
+                    }
                     return getEtherscanTransactions(result);
                 }
             }

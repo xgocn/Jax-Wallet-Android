@@ -374,7 +374,7 @@ public class TransactionsService
     {
         final String currentWallet = tokensService.getCurrentAddress();
         Transaction[] pendingTxs = fetchPendingTransactions();
-        if (BuildConfig.DEBUG) Log.d(TAG, "Checking " + pendingTxs.length + " Transactions");
+        if (BuildConfig.DEBUG) Log.d(TAG, "Checking pending " + pendingTxs.length + " Transactions");
         for (final Transaction tx : pendingTxs)
         {
             Web3j web3j = TokenRepository.getWeb3jService(tx.chainId);

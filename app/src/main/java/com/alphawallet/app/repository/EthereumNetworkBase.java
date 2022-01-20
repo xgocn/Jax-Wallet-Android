@@ -50,6 +50,7 @@ import static com.alphawallet.ethereum.EthereumNetworkBase.CRONOS_TEST_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.FANTOM_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.FANTOM_TEST_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.FUJI_TEST_ID;
+import static com.alphawallet.ethereum.EthereumNetworkBase.FUJI_TEST_RPC_URL;
 import static com.alphawallet.ethereum.EthereumNetworkBase.GOERLI_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.HECO_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.HECO_TEST_ID;
@@ -186,10 +187,10 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 //                    SOKOL_RPC_URL,
 //                    "https://blockscout.com/poa/sokol/tx/", SOKOL_ID,
 //                    SOKOL_RPC_URL, "https://blockscout.com/poa/sokol/api?"));
-//            put(RINKEBY_ID, new NetworkInfo(C.RINKEBY_NETWORK_NAME, C.ETH_SYMBOL,
-//                    RINKEBY_RPC_URL,
-//                    "https://rinkeby.etherscan.io/tx/", RINKEBY_ID,
-//                    RINKEBY_FALLBACK_RPC_URL, "https://api-rinkeby.etherscan.io/api?"));
+            put(RINKEBY_ID, new NetworkInfo(C.RINKEBY_NETWORK_NAME, C.ETH_SYMBOL,
+                    RINKEBY_RPC_URL,
+                    "https://rinkeby.etherscan.io/tx/", RINKEBY_ID,
+                    RINKEBY_FALLBACK_RPC_URL, "https://api-rinkeby.etherscan.io/api?"));
 //            put(GOERLI_ID, new NetworkInfo(C.GOERLI_NETWORK_NAME, C.GOERLI_SYMBOL,
 //                    GOERLI_RPC_URL,
 //                    "https://goerli.etherscan.io/tx/", GOERLI_ID,
@@ -218,10 +219,10 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
                     AVALANCHE_RPC_URL,
                     "https://cchain.explorer.avax.network/tx/", AVALANCHE_ID,
                     AVALANCHE_RPC_URL, "https://api.covalenthq.com/v1/" + COVALENT));
-//            put(FUJI_TEST_ID, new NetworkInfo(C.FUJI_TEST_NETWORK, C.AVALANCHE_SYMBOL,
-//                    FUJI_TEST_RPC_URL,
-//                    "https://cchain.explorer.avax-test.network/tx/", FUJI_TEST_ID,
-//                    FUJI_TEST_RPC_URL, "https://api.covalenthq.com/v1/" + COVALENT));
+            put(FUJI_TEST_ID, new NetworkInfo(C.FUJI_TEST_NETWORK, C.AVALANCHE_SYMBOL,
+                    FUJI_TEST_RPC_URL,
+                    "https://cchain.explorer.avax-test.network/tx/", FUJI_TEST_ID,
+                    FUJI_TEST_RPC_URL, "https://api.covalenthq.com/v1/" + COVALENT));
 //            put(FANTOM_ID, new NetworkInfo(C.FANTOM_NETWORK, C.FANTOM_SYMBOL,
 //                    FANTOM_RPC_URL,
 //                    "https://ftmscan.com/tx/", FANTOM_ID,
@@ -805,8 +806,8 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 
     public static String defaultDapp(long chainId)
     {
-        String dapp = (chainId == MATIC_ID || chainId == MATIC_TEST_ID) ? POLYGON_HOMEPAGE : DEFAULT_HOMEPAGE;
-        return dapp;
+//        String dapp = (chainId == MATIC_ID || chainId == MATIC_TEST_ID) ? POLYGON_HOMEPAGE : DEFAULT_HOMEPAGE;
+        return DEFAULT_HOMEPAGE;
     }
 
     public static boolean isWithinHomePage(String url)

@@ -28,8 +28,8 @@ public class CustomViewSettings
             new TokenInfo("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6", "Wrapped JAXNET", "WJXN", 0, true, EthereumNetworkBase.BINANCE_MAIN_ID),
             new TokenInfo("0xc43860f43daA9448C483C103Af5C851ec5B6aD3e", "Wrapped Jaxnet", "WJXN", 0, true, EthereumNetworkBase.BINANCE_TEST_ID),
             new TokenInfo("0x25F2EFE24d627FC3DDaf07F9A47310286f172f07", "Wrapped JAX", "WJAX", 0, true, EthereumNetworkBase.BINANCE_TEST_ID),
-            new TokenInfo("0xB04357981b2Edb608723Fc105fEF0B6a7096de80", "Wrapped Rupee", "JINR", 0, true, EthereumNetworkBase.BINANCE_TEST_ID),
-            new TokenInfo("0xC9DF73Ad8342Be29F2155D0b0edd3AFA3b303B32", "Wrapped Dollar", "JUSD", 0, true, EthereumNetworkBase.BINANCE_TEST_ID)
+            new TokenInfo("0xB04357981b2Edb608723Fc105fEF0B6a7096de80", "JAX Rupee", "JINR", 0, true, EthereumNetworkBase.BINANCE_TEST_ID),
+            new TokenInfo("0xC9DF73Ad8342Be29F2155D0b0edd3AFA3b303B32", "JAX Dollar", "JUSD", 0, true, EthereumNetworkBase.BINANCE_TEST_ID)
     );
 
     //List of chains that wallet can show

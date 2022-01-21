@@ -193,13 +193,13 @@ public class TokenIcon extends ConstraintLayout
                     .into(viewTarget).getRequest();
         if(token.getAddress().equals("0xb04357981b2edb608723fc105fef0b6a7096de80"))
             currentRq = Glide.with(getContext())
-                    .load(R.drawable.jusd)
+                    .load(R.drawable.jinr)
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();
         if(token.getAddress().equals("0xc9df73ad8342be29f2155d0b0edd3afa3b303b32"))
             currentRq = Glide.with(getContext())
-                    .load(R.drawable.jinr)
+                    .load(R.drawable.jusd)
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();

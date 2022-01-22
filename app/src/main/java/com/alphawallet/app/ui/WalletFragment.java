@@ -233,10 +233,10 @@ public class WalletFragment extends BaseFragment implements
             for (RealmToken t : realmTokens)
             {
                 if (t.getUpdateTime() > lastUpdateTime) lastUpdateTime = t.getUpdateTime();
-//                if(!CustomViewSettings.isLockedToken(t.getChainId(), t.getTokenAddress())) {
+                if(!CustomViewSettings.isLockedToken(t.getChainId(), t.getTokenAddress())) {
                     if (!viewModel.getTokensService().getNetworkFilters().contains(t.getChainId())) continue;
                     if (viewModel.isChainToken(t.getChainId(), t.getTokenAddress())) continue;
-//                }
+                }
 
                 String balance = TokensRealmSource.convertStringBalance(t.getBalance(), t.getContractType());
 

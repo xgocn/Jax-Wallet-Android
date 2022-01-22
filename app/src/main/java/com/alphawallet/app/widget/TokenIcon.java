@@ -209,18 +209,14 @@ public class TokenIcon extends ConstraintLayout
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();
-        if(token.getAddress().equals("0x1badca0c7b0687a8d20035df371756c3f1d2471e"))
-            currentRq = Glide.with(getContext())
-                    .load(R.drawable.busd)
-                    .placeholder(R.drawable.ic_token_eth)
-                    .listener(requestListener)
-                    .into(viewTarget).getRequest();
     }
 
     private IconItem getIconUrl(Token token)
     {
         String correctedAddr = Keys.toChecksumAddress(token.getAddress());
         String tURL = Utils.getTokenImageUrl(correctedAddr);
+//        if(token.getAddress().equals("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6"))
+//            tURL = "https://bscscan.com/token/images/jaxnetwork_32.png";
         return new IconItem(tURL, correctedAddr, token.tokenInfo.chainId);
     }
 

@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font_regular"
                 android:layout_marginTop="1dp"
-                android:text="@string/toolbar_header_swap"
+                android:text="@string/browser_label"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/sp8" />
         </LinearLayout>

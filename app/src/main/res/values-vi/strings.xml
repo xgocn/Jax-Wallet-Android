@@ -521,7 +521,7 @@
     <string name="back_up_now">Sao lưu ngay bây giờ!</string>
     <string name="key_secure">Không chia sẻ mã khóa của bạn</string>
     <string name="lock_key_upgrade">Khóa cụm từ bí mật của bạn để tăng tính bảo mật</string>
-    <string name="upgrade_key_security_detail">Bảo mật AlphaWallet đang được nâng cấp lên mức tốt nhất có thể đạt được. Khóa cụm từ bí mật của bạn bằng sinh trắc học.</string>
+    <string name="upgrade_key_security_detail">Bảo mật JAXWallet đang được nâng cấp lên mức tốt nhất có thể đạt được. Khóa cụm từ bí mật của bạn bằng sinh trắc học.</string>
     <string name="action_upgrade_key">Nâng cấp khóa bảo mật</string>
     <string name="backup_wallet_detail">Chúng tôi thực sự khuyên bạn nên sao lưu ví của mình.</string>
     <string name="skip_upgrade">Bỏ qua nâng cấp</string>

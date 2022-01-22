@@ -505,7 +505,7 @@
     <string name="back_up_now">马上备份！</string>
     <string name="key_secure">不要让其它人看到</string>
     <string name="lock_key_upgrade">锁定助记词以提高安全性</string>
-    <string name="upgrade_key_security_detail">AlphaWallet 的安全性正在升级为最佳状态。使用生物识别技术锁定您的助记词。</string>
+    <string name="upgrade_key_security_detail">JAXWallet 的安全性正在升级为最佳状态。使用生物识别技术锁定您的助记词。</string>
     <string name="action_upgrade_key">升级密钥安全性</string>
     <string name="backup_wallet_detail">我们强烈建议您备份钱包。</string>
     <string name="skip_upgrade">跳过升级</string>

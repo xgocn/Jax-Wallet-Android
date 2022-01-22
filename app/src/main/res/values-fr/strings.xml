@@ -518,7 +518,7 @@
     <string name="back_up_now">Sauvegarder maintenant</string>
     <string name="key_secure">Ne partager pas votre clé</string>
     <string name="lock_key_upgrade">Vérouiller votre phrase seed pour augmenter votre sécurité</string>
-    <string name="upgrade_key_security_detail">La sécurité de AlphaWallet est mise à niveau vers la meilleure version possible. Verrouillez votre phrase seed avec la biométrie.</string>
+    <string name="upgrade_key_security_detail">La sécurité de JAXWallet est mise à niveau vers la meilleure version possible. Verrouillez votre phrase seed avec la biométrie.</string>
     <string name="action_upgrade_key">Améliorer la sécurité de la clé</string>
     <string name="backup_wallet_detail">Nous vous recommandons vivement de sauvegarder votre portefeuille.</string>
     <string name="skip_upgrade">Passer l\'amélioration</string>

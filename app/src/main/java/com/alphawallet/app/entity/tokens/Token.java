@@ -855,7 +855,7 @@ public class Token
         BigInteger bi = getTransferValueRaw(txInput);
         if (bi.compareTo(BigInteger.ZERO) > 0)
         {
-            return BalanceUtils.getScaledValueMinimal(new BigDecimal(bi),
+            return BalanceUtils.getScaledValueFixed(new BigDecimal(bi),
                     tokenInfo.decimals, transactionBalancePrecision);
         }
         else

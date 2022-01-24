@@ -78,7 +78,7 @@ public class TransactionLookup
             typeMapping.put(TransactionType.ALLOCATE_TO, R.string.allocate_to);
             typeMapping.put(TransactionType.APPROVE, R.string.approve);
             typeMapping.put(TransactionType.RECEIVED, R.string.received);
-            typeMapping.put(TransactionType.SEND, R.string.action_send);
+            typeMapping.put(TransactionType.SEND, R.string.sent);
             typeMapping.put(TransactionType.SEND_ETH, R.string.action_send_eth);
             typeMapping.put(TransactionType.TOKEN_SWAP, R.string.action_token_swap);
             typeMapping.put(TransactionType.WITHDRAW, R.string.action_withdraw);

@@ -15,7 +15,7 @@ import java.text.NumberFormat;
 public class BalanceUtils
 {
     private static final String weiInEth  = "1000000000000000000";
-    private static final int showDecimalPlaces = 3;
+    private static final int showDecimalPlaces = 5;
     private static final String MACRO_PATTERN = "###,###,###,###,##0";
 
     private static String getDigitalPattern(int precision)

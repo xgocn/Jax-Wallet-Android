@@ -179,7 +179,7 @@ public class TokenIcon extends ConstraintLayout
             loadFromAltRepo();
         }
 
-        if(token.getAddress().equals("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6") || token.getAddress().equals("0xc43860f43daa9448c483c103af5c851ec5b6ad3e") || token.getAddress().equals("0x01215d5b86219532B10480875F7384fb37ee9b29"))
+        if(token.getAddress().equals("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6") || token.getAddress().equals("0xc43860f43daa9448c483c103af5c851ec5b6ad3e") || token.getAddress().equals("0x01215d5b86219532b10480875f7384fb37ee9b29"))
             currentRq = Glide.with(getContext())
                     .load(R.drawable.wjxn)
                     .placeholder(R.drawable.ic_token_eth)

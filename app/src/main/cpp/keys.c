@@ -123,7 +123,7 @@ Java_com_alphawallet_app_service_TransactionsNetworkClient_getEtherscanKey( JNIE
 #if (HAS_KEYS == 1)
     return getDecryptedKey(env, etherscanKey);
 #else
-    const jstring key = "6U31FTHW3YYHKW6CYHKKGDPHI9HEJ9PU5F";
+    const jstring key = "MKSXIBRBF28X3VU4QXW8PNG4MTSN5QIMXX";
     return (*env)->NewStringUTF(env, key);
 #endif
 }
@@ -134,7 +134,7 @@ Java_com_alphawallet_app_service_GasService_getEtherscanKey( JNIEnv* env, jobjec
 #if (HAS_KEYS == 1)
     return getDecryptedKey(env, etherscanKey);
 #else
-    const jstring key = "6U31FTHW3YYHKW6CYHKKGDPHI9HEJ9PU5F";
+    const jstring key = "MKSXIBRBF28X3VU4QXW8PNG4MTSN5QIMXX";
     return (*env)->NewStringUTF(env, key);
 #endif
 }

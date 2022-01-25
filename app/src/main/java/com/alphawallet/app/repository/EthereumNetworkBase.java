@@ -72,7 +72,7 @@ public abstract class EthereumNetworkBase implements EthereumNetworkRepositoryTy
 {
     public static final String COVALENT = "[COVALENT]";
 
-    public static final String DEFAULT_HOMEPAGE = "https://beta.jax.money/excahnge.php";
+    public static final String DEFAULT_HOMEPAGE = "https://beta.jax.money/exchange.php";
 
     private static final String POLYGON_HOMEPAGE = "https://alphawallet.com/browser-item-category/polygon/";
 

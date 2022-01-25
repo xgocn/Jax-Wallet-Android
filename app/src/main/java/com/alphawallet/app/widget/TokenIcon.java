@@ -179,31 +179,31 @@ public class TokenIcon extends ConstraintLayout
             loadFromAltRepo();
         }
 
-        if(token.getAddress().equals("0xca1262e77fb25c0a4112cfc9bad3ff54f617f2e6") || token.getAddress().equals("0xc43860f43daa9448c483c103af5c851ec5b6ad3e") || token.getAddress().equals("0x01215d5b86219532b10480875f7384fb37ee9b29"))
+        if(token.getShortSymbol().equals("WJXN"))
             currentRq = Glide.with(getContext())
                     .load(R.drawable.wjxn)
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();
-        if(token.getAddress().equals("0xb04357981b2edb608723fc105fef0b6a7096de80") || token.getAddress().equals("0x5a27eb16b36b6b60cc406f96f9983de94313ccc7"))
+        if(token.getShortSymbol().equals("JAXRE"))
             currentRq = Glide.with(getContext())
                     .load(R.drawable.jinr)
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();
-        if(token.getAddress().equals("0xc9df73ad8342be29f2155d0b0edd3afa3b303b32") || token.getAddress().equals("0xffdae29c05e41eef9f633054a5bdd2f616dc3bc4"))
+        if(token.getShortSymbol().equals("JAXUD"))
             currentRq = Glide.with(getContext())
                     .load(R.drawable.jusd)
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();
-        if(token.getAddress().equals("0x25f2efe24d627fc3ddaf07f9a47310286f172f07") || token.getAddress().equals("0xbca789602add7d7eeb749cc507e00f3ba3fcbcc9"))
+        if(token.getShortSymbol().equals("WJAX"))
             currentRq = Glide.with(getContext())
                     .load(R.drawable.jax1)
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();
-        if(token.getAddress().equals("0x1badca0c7b0687a8d20035df371756c3f1d2471e") || token.getAddress().equals("0xe37987197309da313f733130bcd6cb750c43fb83"))
+        if(token.getShortSymbol().equals("BUSD"))
             currentRq = Glide.with(getContext())
                     .load(R.drawable.busd)
                     .placeholder(R.drawable.ic_token_eth)

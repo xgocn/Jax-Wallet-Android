@@ -359,7 +359,7 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
                 }
                 break;
             case FILTER_CURRENCY:
-                if (!token.isEthereum())
+                if (!CustomViewSettings.isLockedToken(token.getChain(), token.getAddress()))
                 {
                     allowThroughFilter = false;
                 }

@@ -166,6 +166,14 @@ public class ActivityFragment extends BaseFragment implements View.OnClickListen
                 transferData.add(ttd);
                 nextTransferTime--;
             }
+
+            //For clarity, show only 1 item if it was part of a chain; ie don't show raw transaction
+            if (transfers.size() > 1 && transferData.size() == 1)
+            {
+                TokenTransferData oldTf = transferData.get(0);
+                transferData.clear();
+                transferData.add(new TokenTransferData(oldTf.hash, tm.chainId, oldTf.tokenAddress, oldTf.eventName, oldTf.transferDetail, tm.getTimeStamp()));
+            }
         }
 
         return transferData;

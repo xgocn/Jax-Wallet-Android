@@ -198,6 +198,8 @@ public class ActivityAdapter extends RecyclerView.Adapter<BinderViewHolder<?>> i
         notifyDataSetChanged();
     }
 
+    public Wallet getWallet() { return this.wallet; }
+
     @Override
     public long getItemId(int position)
     {

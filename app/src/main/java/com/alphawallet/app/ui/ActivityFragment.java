@@ -161,10 +161,12 @@ public class ActivityFragment extends BaseFragment implements View.OnClickListen
             long nextTransferTime = transfers.size() == 1 ? tm.getTimeStamp() : tm.getTimeStamp() - 1; // if there's only 1 transfer, keep the transaction timestamp
             for (RealmTransfer rt : transfers)
             {
-                TokenTransferData ttd = new TokenTransferData(rt.getHash(), tm.chainId,
-                        rt.getTokenAddress(), rt.getEventName(), rt.getTransferDetail(), nextTransferTime);
-                transferData.add(ttd);
-                nextTransferTime--;
+                if (rt.getTransferDetail().contains(adapter.getWallet().address)) {
+                    TokenTransferData ttd = new TokenTransferData(rt.getHash(), tm.chainId,
+                            rt.getTokenAddress(), rt.getEventName(), rt.getTransferDetail(), nextTransferTime);
+                    transferData.add(ttd);
+                    nextTransferTime--;
+                }
             }
 
             //For clarity, show only 1 item if it was part of a chain; ie don't show raw transaction

@@ -520,10 +520,10 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
                     EtherscanEvent[] events = getEtherscanEvents(fetchTransactions);
 
                     //Now update tokens if we don't already know this token
-                    writeTokens(walletAddress, networkInfo, events, svs);
+//                    writeTokens(walletAddress, networkInfo, events, svs);
 
                     //we know all these events are relevant to the wallet, and they are all ERC20 events
-                    writeEvents(instance, events, walletAddress, networkInfo, nftCheck);
+                    writeEvents(instance, events, walletAddress, networkInfo, nftCheck, svs);
 
                     //and update the top block read
                     lastBlockChecked = Long.parseLong(events[events.length - 1].blockNumber);
@@ -925,7 +925,7 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
     }
 
     private void writeEvents(Realm instance, EtherscanEvent[] events, String walletAddress,
-                             @NonNull NetworkInfo networkInfo, final boolean isNFT) throws Exception
+                             @NonNull NetworkInfo networkInfo, final boolean isNFT, TokensService svs) throws Exception
     {
         String TO_TOKEN = "[TO_ADDRESS]";
         String FROM_TOKEN = "[FROM_ADDRESS]";
@@ -938,15 +938,19 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
             //write event list
             for (EtherscanEvent ev : events)
             {
-                boolean scanAsNFT = isNFT || ((ev.tokenDecimal == null || ev.tokenDecimal.length() == 0) && (ev.tokenID != null && ev.tokenID.length() > 0));
-                Transaction tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo);
+                Token token = svs.getToken(networkInfo.chainId, ev.contractAddress);
+                if(token != null) {
 
-                //find tx name
-                String activityName = tx.getEventName(walletAddress);
-                String valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : ev.value); //Etherscan sometimes interprets NFT transfers as FT's
-                storeTransferData(r, tx.hash, valueList, activityName, ev.contractAddress);
-                //ensure we have fetched the transaction for each hash
-                writeTransaction(r, tx, ev.contractAddress, txFetches);
+                    boolean scanAsNFT = isNFT || ((ev.tokenDecimal == null || ev.tokenDecimal.length() == 0) && (ev.tokenID != null && ev.tokenID.length() > 0));
+                    Transaction tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo);
+
+                    //find tx name
+                    String activityName = tx.getEventName(walletAddress);
+                    String valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : ev.value); //Etherscan sometimes interprets NFT transfers as FT's
+                    storeTransferData(r, tx.hash, valueList, activityName, ev.contractAddress);
+                    //ensure we have fetched the transaction for each hash
+                    writeTransaction(r, tx, ev.contractAddress, txFetches);
+                }
             }
         });
 

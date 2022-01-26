@@ -359,7 +359,7 @@ public class TokensAdapter extends RecyclerView.Adapter<BinderViewHolder> {
                 }
                 break;
             case FILTER_CURRENCY:
-                if (!CustomViewSettings.isLockedToken(token.getChain(), token.getAddress()))
+                if (!CustomViewSettings.isLockedToken(token.getChain(), token.getAddress()) || token.getAddress().equalsIgnoreCase("0xa271eb1Fd83a256af213370bF8ADb11EB4d1BfBE"))
                 {
                     allowThroughFilter = false;
                 }

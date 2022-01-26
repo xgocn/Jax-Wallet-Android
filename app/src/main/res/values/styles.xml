@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -187,35 +187,38 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
-    <style name="Body_ThemeOverlay.MaterialComponents.MaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="materialAlertDialogTitleTextStyle">@style/TitleMaterialAlertDialog.MaterialComponents.Title.Text</item>
         <item name="materialAlertDialogBodyTextStyle">@style/BodyMaterialAlertDialog.MaterialComponents.Body.Text</item>
-    </style>
-    <style name="BodyMaterialAlertDialog.MaterialComponents.Body.Text" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
-        <item name="android:textColor">@color/dove</item>
-        <item name="android:textSize">@dimen/sp16</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-    </style>
-    <style name="TitleMaterialAlertDialog.MaterialComponents.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:textColor">@color/text_black</item>
-        <item name="android:textStyle">bold</item>
-        <item name="font">@font/font_bold</item>
-        <item name="android:textSize">@dimen/sp20</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-    </style>
-
-    <style name="AlertDialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="materialAlertDialogTitlePanelStyle">@style/TitlePaneStyleCenter</item>
         <item name="buttonBarPositiveButtonStyle">@style/Alert.Button.Positive</item>
         <item name="buttonBarNegativeButtonStyle">@style/Alert.Button.Neutral</item>
         <item name="buttonBarNeutralButtonStyle">@style/Alert.Button.Neutral</item>
     </style>
 
+    <style name="BodyMaterialAlertDialog.MaterialComponents.Body.Text" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/dove</item>
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="font">@font/font_regular</item>
+        <item name="android:font" tools:targetApi="o">@font/font_bold</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+    <style name="TitleMaterialAlertDialog.MaterialComponents.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked">
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:font" tools:targetApi="o">@font/font_bold</item>
+        <item name="android:textSize">@dimen/sp20</item>
+    </style>
+
+    <style name="TitlePaneStyleCenter" parent="MaterialAlertDialog.MaterialComponents.Title.Panel.CenterStacked">
+        <item name="android:padding">@dimen/dp16</item>
+    </style>
+
     <style name="Alert.Button.Positive" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="font">@font/font_bold</item>
+        <item name="android:font" tools:targetApi="o">@font/font_bold</item>
         <item name="android:textSize">@dimen/sp16</item>
         <item name="android:textAllCaps">true</item>
     </style>
@@ -223,6 +226,7 @@
     <style name="Alert.Button.Neutral" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="font">@font/font_bold</item>
+        <item name="android:font" tools:targetApi="o">@font/font_bold</item>
         <item name="android:textSize">@dimen/sp16</item>
         <item name="android:textAllCaps">true</item>
     </style>

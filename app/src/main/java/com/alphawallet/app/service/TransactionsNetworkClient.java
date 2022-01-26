@@ -51,6 +51,7 @@ import okhttp3.Request;
 import static com.alphawallet.app.repository.EthereumNetworkBase.COVALENT;
 import static com.alphawallet.app.repository.TokenRepository.getWeb3jService;
 import static com.alphawallet.app.repository.TokensRealmSource.databaseKey;
+import static com.alphawallet.app.repository.TransactionsRealmCache.fill;
 import static com.alphawallet.ethereum.EthereumNetworkBase.ARTIS_TAU1_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.BINANCE_MAIN_ID;
 import static com.alphawallet.ethereum.EthereumNetworkBase.BINANCE_TEST_ID;
@@ -355,7 +356,7 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
                     realmTx = r.createObject(RealmTransaction.class, tx.hash);
                 }
 
-                TransactionsRealmCache.fill(realmTx, tx);
+                fill(realmTx, tx);
                 r.insertOrUpdate(realmTx);
             }
         });
@@ -1005,9 +1006,15 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
             realmTx.setContractAddress(contractAddress);
         }
 
-        if (realmTx.getInput() == null || realmTx.getInput().length() <= 10 || txFetches == null)
+        if (txFetches.size() == 0 || realmTx.getInput() == null || realmTx.getInput().length() <= 10)
         {
-            TransactionsRealmCache.fill(realmTx, tx);
+//            TransactionsRealmCache.fill(realmTx, tx);
+            RealmTransaction finalRealmTx = realmTx;
+            instance.executeTransactionAsync(r -> {
+//                RealmTransaction item = r.createObject(RealmTransaction.class, ethTx.getHash());
+                fill(finalRealmTx, tx);
+                r.insertOrUpdate(finalRealmTx);
+            });
             realmTx.setContractAddress(contractAddress); //for indexing by contract (eg Token Activity)
         }
     }

@@ -273,14 +273,30 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
     private void getRelatedTransactionList(List<Transaction> txList, EtherscanTransaction[] myTxs, String walletAddress, long chainId)
     {
         txList.clear();
-        for (EtherscanTransaction etx : myTxs)
-        {
-            Transaction tx = etx.createTransaction(walletAddress, chainId);
-            if (tx != null)
-            {
-                txList.add(tx);
+        double total = 0.0;
+        String priorTxHash="";
+        int index = 0;
+        for (int i = 0; i < myTxs.length; i++) {
+            EtherscanTransaction etx = myTxs[i];
+            if(etx.getHash().equals(priorTxHash) && !etx.getTo().equalsIgnoreCase(walletAddress)) { // multi transaction by one hash and not receive
+                total += etx.getValue();
+                EtherscanTransaction etxTemp = myTxs[index];
+                etxTemp.setValue(total);
+                Transaction tx = etxTemp.createTransaction(walletAddress, chainId);
+                if (tx != null)
+                    txList.add(index, tx);
+            } else {
+                Transaction tx = etx.createTransaction(walletAddress, chainId);
+                if (tx != null)
+                {
+                    txList.add(tx);
+                    priorTxHash = etx.getHash();
+                    index = i;
+                    total = 0.0;
+                }
             }
         }
+
     }
 
     private EtherscanTransaction[] getEtherscanTransactions(String response) throws JSONException

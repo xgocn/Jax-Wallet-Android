@@ -42,7 +42,29 @@ public class EtherscanTransaction
         return tx;
     }
 
+    public Transaction createTransaction(String walletAddress, long chainId, String value)
+    {
+        Transaction tx = new Transaction(hash, isError, blockNumber, timeStamp, nonce, "", "", value, gas, gasPrice, input,
+                gasUsed, chainId, contractAddress);
+
+        if (walletAddress != null)
+        {
+            if (!tx.getWalletInvolvedInTransaction(walletAddress))
+            {
+                tx = null;
+            }
+        }
+
+        return tx;
+    }
+
     public String getHash() { return hash; }
+
+    public String getTo() { return to; }
+
+    public Double getValue() { return Double.parseDouble(value); }
+
+    public void setValue(double value) { this.value = value+"";}
 
     public EtherscanTransaction(CovalentTransaction transaction, Transaction tx)
     {

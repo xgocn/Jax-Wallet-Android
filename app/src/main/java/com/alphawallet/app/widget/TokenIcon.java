@@ -187,13 +187,13 @@ public class TokenIcon extends ConstraintLayout
                     .into(viewTarget).getRequest();
         if(token.getShortSymbol().equals("JAXRE"))
             currentRq = Glide.with(getContext())
-                    .load(R.drawable.jinr)
+                    .load(R.drawable.jinr1)
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();
         if(token.getShortSymbol().equals("JAXUD"))
             currentRq = Glide.with(getContext())
-                    .load(R.drawable.jusd)
+                    .load(R.drawable.jusd1)
                     .placeholder(R.drawable.ic_token_eth)
                     .listener(requestListener)
                     .into(viewTarget).getRequest();

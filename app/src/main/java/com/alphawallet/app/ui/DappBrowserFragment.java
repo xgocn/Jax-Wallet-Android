@@ -1247,7 +1247,15 @@ public class DappBrowserFragment extends BaseFragment implements OnSignTransacti
                 if (token.isEthereum() || TextUtils.isEmpty(transaction.payload) || transaction.payload.equals("0x"))
                 {
                     //should be MIN_GAS limit
-                    confirmationDialog.setGasEstimate(BigInteger.valueOf(GAS_LIMIT_MIN));
+//                    confirmationDialog.setGasEstimate(BigInteger.valueOf(GAS_LIMIT_MIN));
+                    viewModel.calculateGasEstimate(wallet, Numeric.hexStringToByteArray(transaction.payload),
+                            activeNetwork.chainId, transaction.recipient.toString(), new BigDecimal(transaction.value))
+                            .map(limit -> convertToGasLimit(limit, transaction.gasLimit))
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(estimate -> confirmationDialog.setGasEstimate(estimate),
+                                    Throwable::printStackTrace)
+                            .isDisposed();
                 }
                 else
                 {

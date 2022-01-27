@@ -508,6 +508,18 @@ public class Utils {
         return valueFromInput;
     }
 
+    public static String getAddress(String address) {
+        if (isAddressValid(address))
+        {
+            address = Keys.toChecksumAddress(address);
+            return address;
+        }
+        else
+        {
+            return "0x";
+        }
+    }
+
     public static String formatAddress(String address) {
         if (isAddressValid(address))
         {
@@ -516,13 +528,20 @@ public class Utils {
             String firstSix = address.substring(0, 6);
             String lastSix = address.substring(address.length() - 4);
             StringBuilder formatted = new StringBuilder(result);
-//            return formatted.append(firstSix).append("...").append(lastSix).toString().toLowerCase();
-            return address;
+            return formatted.append(firstSix).append("...").append(lastSix).toString().toLowerCase();
         }
         else
         {
             return "0x";
         }
+    }
+
+    public static String formatElipse(String address) {
+        String result = "";
+        String firstSix = address.substring(0, 10);
+        String lastSix = address.substring(address.length() - 4);
+        StringBuilder formatted = new StringBuilder(result);
+        return formatted.append(firstSix).append("...").append(lastSix).toString().toLowerCase();
     }
 
     /**

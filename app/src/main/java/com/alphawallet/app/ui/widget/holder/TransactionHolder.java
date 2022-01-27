@@ -109,7 +109,7 @@ public class TransactionHolder extends BinderViewHolder<TransactionMeta> impleme
     private void setupTransactionDetail(Token token)
     {
         String detailStr = token.getTransactionDetail(getContext(), transaction, tokensService);
-        address.setText(detailStr);
+        address.setText(Utils.formatElipse(detailStr));
     }
 
     @Override

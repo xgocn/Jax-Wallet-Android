@@ -250,11 +250,11 @@ public class ENSHandler implements Runnable
             HashMap<String, String> ensMap = getENSHistoryFromPrefs(ctx);
             String ensName = ensMap.get(ethAddress.toLowerCase());
             if (ensName == null) ensName = ensMap.get(checkSumAddr);
-            return ensName != null ? ensName : Utils.formatAddress(ethAddress);
+            return ensName != null ? ensName : Utils.getAddress(ethAddress);
         }
         else
         {
-            return Utils.formatAddress(ethAddress);
+            return Utils.getAddress(ethAddress);
         }
     }
 

@@ -206,11 +206,11 @@ public class TransactionDetailViewModel extends BaseViewModel {
         if (tx == null || tx.gas.startsWith("0x"))
         {
             //fetch Transaction from chain
-//            Web3j web3j = getWeb3jService(chainId);
-//            disposable = EventUtils.getTransactionDetails(txHash, web3j)
-//                    .subscribeOn(Schedulers.io())
-//                    .observeOn(Schedulers.io())
-//                    .subscribe(ethTx -> storeTx(ethTx, wallet, chainId, web3j), this::onError);
+            Web3j web3j = getWeb3jService(chainId);
+            disposable = EventUtils.getTransactionDetails(txHash, web3j)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(Schedulers.io())
+                    .subscribe(ethTx -> storeTx(ethTx, wallet, chainId, web3j), this::onError);
         }
         else
         {

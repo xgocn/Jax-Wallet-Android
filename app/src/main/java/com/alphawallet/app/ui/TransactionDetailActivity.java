@@ -23,7 +23,9 @@ import com.alphawallet.app.entity.TransactionData;
 import com.alphawallet.app.entity.Wallet;
 import com.alphawallet.app.entity.tokens.Token;
 import com.alphawallet.app.repository.EthereumNetworkRepository;
+import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.ui.widget.entity.ActionSheetCallback;
+import com.alphawallet.app.ui.widget.entity.ENSHandler;
 import com.alphawallet.app.util.BalanceUtils;
 import com.alphawallet.app.util.Utils;
 import com.alphawallet.app.viewmodel.TransactionDetailViewModel;
@@ -118,8 +120,20 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
         CopyTextView fromValue = findViewById(R.id.from);
         CopyTextView txHashView = findViewById(R.id.txn_hash);
 
+        token = viewModel.getToken(transaction.chainId, transaction.to);
+
+        String to;
+
+        String detailStr = token.getTransactionDetail(this, transaction, viewModel.getTokenService());
+        if(detailStr.contains("to")) {
+            to = detailStr.replace("to: ", "");
+//            to = detailStr;
+        } else {
+            to = transaction.to;
+        }
+
         fromValue.setText(transaction.from != null ? transaction.from : "");
-        toValue.setText(transaction.to != null ? transaction.to : "");
+        toValue.setText(to);
         txHashView.setText(transaction.hash != null ? transaction.hash : "");
         ((TextView) findViewById(R.id.txn_time)).setText(Utils.localiseUnixDate(getApplicationContext(), transaction.timeStamp));
 
@@ -129,7 +143,7 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
         ((TextView) findViewById(R.id.network)).setText(chainName);
         ((ImageView) findViewById(R.id.network_icon)).setImageResource(EthereumNetworkRepository.getChainLogo(transaction.chainId));
 
-        token = viewModel.getToken(transaction.chainId, transaction.to);
+
 
         ChainName chainName = findViewById(R.id.chain_name);
         chainName.setChainID(transaction.chainId);

@@ -356,7 +356,7 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
                     realmTx = r.createObject(RealmTransaction.class, tx.hash);
                 }
 
-                fill(realmTx, tx);
+                TransactionsRealmCache.fill(realmTx, tx);
                 r.insertOrUpdate(realmTx);
             }
         });
@@ -1003,18 +1003,13 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
         }
         else if (realmTx.getContractAddress() == null || !realmTx.getContractAddress().equalsIgnoreCase(contractAddress))
         {
+            TransactionsRealmCache.fill(realmTx, tx);
             realmTx.setContractAddress(contractAddress);
         }
 
-        if (txFetches.size() == 0 || realmTx.getInput() == null || realmTx.getInput().length() <= 10)
+        if (realmTx.getInput() == null || realmTx.getInput().length() <= 10 || txFetches == null)
         {
-//            TransactionsRealmCache.fill(realmTx, tx);
-            RealmTransaction finalRealmTx = realmTx;
-            instance.executeTransactionAsync(r -> {
-//                RealmTransaction item = r.createObject(RealmTransaction.class, ethTx.getHash());
-                fill(finalRealmTx, tx);
-                r.insertOrUpdate(finalRealmTx);
-            });
+            TransactionsRealmCache.fill(realmTx, tx);
             realmTx.setContractAddress(contractAddress); //for indexing by contract (eg Token Activity)
         }
     }

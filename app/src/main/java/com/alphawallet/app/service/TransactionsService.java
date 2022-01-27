@@ -398,12 +398,12 @@ public class TransactionsService
                         if (receipt != null)
                         {
                             //get timestamp and write tx
-//                            EventUtils.getBlockDetails(fetchedTx.getBlockHash(), web3j)
-//                                    .map(ethBlock -> storeRawTx(ethBlock, tx.chainId, receipt, txDetails, currentWallet))
-//                                    .map(this::triggerTokenMoveCheck)
-//                                    .subscribeOn(Schedulers.io())
-//                                    .observeOn(AndroidSchedulers.mainThread())
-//                                    .subscribe().isDisposed();
+                            EventUtils.getBlockDetails(fetchedTx.getBlockHash(), web3j)
+                                    .map(ethBlock -> storeRawTx(ethBlock, tx.chainId, receipt, txDetails, currentWallet))
+                                    .map(this::triggerTokenMoveCheck)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe().isDisposed();
                         }
                     }).exceptionally(throwable -> {
                         if (BuildConfig.DEBUG) throwable.printStackTrace();

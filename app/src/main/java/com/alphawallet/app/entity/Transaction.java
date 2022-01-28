@@ -139,7 +139,7 @@ public class Transaction implements Parcelable
 		this.nonce = -1;
 		this.from = wallet;
 		this.to = tx.recipient.toString();
-		this.contractAddress = tx.contract.toString();
+		this.contractAddress = tx.contract != null ? tx.contract.toString(): "";
 		this.value = tx.value.toString();
 		this.gas = tx.gasLimit.toString();
 		this.gasPrice = tx.gasPrice.toString();

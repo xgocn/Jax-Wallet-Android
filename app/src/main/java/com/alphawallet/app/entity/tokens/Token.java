@@ -442,7 +442,7 @@ public class Token
     public String getOperationName(Transaction transaction, Context ctx)
     {
         String name;
-        if (isEthereum() && !transaction.hasInput())
+        if (!transaction.hasInput())
         {
             if (transaction.value.equals("0") && transaction.hasInput())
             {
@@ -532,7 +532,7 @@ public class Token
      */
     public String getTransactionResultValue(Transaction transaction, int precision)
     {
-        if (isEthereum() && !transaction.hasInput())
+        if (!transaction.hasInput())
         {
             //basic eth transaction
             return getTransactionValue(transaction, precision) + " " + getSymbol();

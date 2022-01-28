@@ -120,7 +120,7 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
         CopyTextView fromValue = findViewById(R.id.from);
         CopyTextView txHashView = findViewById(R.id.txn_hash);
 
-        token = viewModel.getToken(transaction.chainId, transaction.to);
+        token = viewModel.getToken(transaction.chainId, transaction.contractAddress);
 
         String to;
 

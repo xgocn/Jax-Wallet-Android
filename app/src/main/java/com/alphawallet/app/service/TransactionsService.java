@@ -87,7 +87,7 @@ public class TransactionsService
         if (TextUtils.isEmpty(tokensService.getCurrentAddress())) return;
 
         currentChainIndex = 0;
-        nftCheck = true; //check nft first to filter out NFT tokens
+        nftCheck = false; //check nft first to filter out NFT tokens
 
         transactionsClient.checkRequiresAuxReset(tokensService.getCurrentAddress());
 
@@ -95,11 +95,11 @@ public class TransactionsService
             fetchTransactionDisposable.dispose();
         fetchTransactionDisposable = null;
         //reset transaction timers
-        if (transactionCheckCycle == null || transactionCheckCycle.isDisposed())
-        {
-            transactionCheckCycle = Observable.interval(0, 15, TimeUnit.SECONDS)
-                    .doOnNext(l -> checkTransactionQueue()).subscribe();
-        }
+//        if (transactionCheckCycle == null || transactionCheckCycle.isDisposed())
+//        {
+//            transactionCheckCycle = Observable.interval(0, 15, TimeUnit.SECONDS)
+//                    .doOnNext(l -> checkTransactionQueue()).subscribe();
+//        }
 
         if (tokenTransferCheckCycle == null || tokenTransferCheckCycle.isDisposed())
         {

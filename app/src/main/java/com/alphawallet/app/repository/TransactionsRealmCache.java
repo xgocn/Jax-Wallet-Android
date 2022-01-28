@@ -388,6 +388,7 @@ public class TransactionsRealmCache implements TransactionLocalSource {
         item.setNonce(transaction.nonce);
         item.setFrom(transaction.from);
         item.setTo(transaction.to);
+        item.setContractAddress(transaction.contractAddress);
         item.setValue(transaction.value);
         item.setGas(transaction.gas);
         item.setGasPrice(transaction.gasPrice);
@@ -407,6 +408,7 @@ public class TransactionsRealmCache implements TransactionLocalSource {
                 rawItem.getNonce(),
                 rawItem.getFrom(),
                 rawItem.getTo(),
+                rawItem.getContractAddress(),
                 rawItem.getValue(),
                 rawItem.getGas(),
                 rawItem.getGasPrice(),

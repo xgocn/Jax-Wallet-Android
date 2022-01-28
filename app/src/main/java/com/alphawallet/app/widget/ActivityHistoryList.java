@@ -118,7 +118,7 @@ public class ActivityHistoryList extends LinearLayout
         {
             TransactionMeta tm = new TransactionMeta(item.getHash(), item.getTimeStamp(), item.getTo(), item.getChainId(), item.getBlockNumber());
             metas.add(tm);
-            metas.addAll(getRelevantTransfersForHash(tm, wallet));
+//            metas.addAll(getRelevantTransfersForHash(tm, wallet));
             if (tm.isPending) hasPending = true;
         }
 

@@ -274,27 +274,12 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
     private void getRelatedTransactionList(List<Transaction> txList, EtherscanTransaction[] myTxs, String walletAddress, long chainId)
     {
         txList.clear();
-        double total = 0.0;
-        String priorTxHash="";
-        int index = 0;
-        for (int i = 0; i < myTxs.length; i++) {
-            EtherscanTransaction etx = myTxs[i];
-            if(etx.getHash().equals(priorTxHash) && !etx.getTo().equalsIgnoreCase(walletAddress)) { // multi transaction by one hash and not receive
-                total += etx.getValue();
-                EtherscanTransaction etxTemp = myTxs[index];
-                etxTemp.setValue(total);
-                Transaction tx = etxTemp.createTransaction(walletAddress, chainId);
-                if (tx != null)
-                    txList.add(index, tx);
-            } else {
-                Transaction tx = etx.createTransaction(walletAddress, chainId);
-                if (tx != null)
-                {
-                    txList.add(tx);
-                    priorTxHash = etx.getHash();
-                    index = i;
-                    total = 0.0;
-                }
+        for (EtherscanTransaction etx : myTxs)
+        {
+            Transaction tx = etx.createTransaction(walletAddress, chainId);
+            if (tx != null)
+            {
+                txList.add(tx);
             }
         }
 
@@ -379,21 +364,23 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
             sb.append(networkInfo.etherscanAPI);
             sb.append("module=account&action=txlist&address=");
             sb.append(tokenAddress);
-            if (ascending)
-            {
-                sb.append("&startblock=");
-                sb.append(firstBlock);
-                sb.append("&endblock=999999999&sort=");
-            }
-            else
-            {
-                sb.append("&startblock=0");
-                sb.append("&endblock=");
-                sb.append(firstBlock);
-                sb.append("&sort=");
-            }
-
-            sb.append(sort);
+//            if (ascending)
+//            {
+//                sb.append("&startblock=");
+//                sb.append(firstBlock);
+//                sb.append("&endblock=999999999&sort=");
+//            }
+//            else
+//            {
+//                sb.append("&startblock=0");
+//                sb.append("&endblock=999999999");
+//                sb.append(firstBlock);
+//                sb.append("&sort=");
+//            }
+//            sb.append(sort);
+            sb.append("&startblock=");
+            sb.append(firstBlock);
+            sb.append("&endblock=999999999&sort=asc");
             if (page > 0)
             {
                 sb.append("&page=");
@@ -745,7 +732,7 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
         }
         else
         {
-            return isNFT ? rd.getResultReceivedTime() : rd.getResultTime();
+            return !isNFT ? rd.getResultReceivedTime() : rd.getResultTime();
         }
     }
 
@@ -934,20 +921,35 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
         String VALUES = "from,address," + FROM_TOKEN + ",to,address," + TO_TOKEN + ",amount,uint256," + AMOUNT_TOKEN;
 
         Map<String, Transaction> txFetches = new HashMap<>();
-
         instance.executeTransaction(r -> {
+            int index=0;
+            String oldHash="";
+            double total=0;
             //write event list
-            for (EtherscanEvent ev : events)
+            for (int i = 0; i < events.length; i ++)
             {
+                EtherscanEvent ev = events[i];
+                boolean isSend = ev.from.equalsIgnoreCase(walletAddress);
                 Token token = svs.getToken(networkInfo.chainId, ev.contractAddress);
+                boolean scanAsNFT = isNFT || ((ev.tokenDecimal == null || ev.tokenDecimal.length() == 0) && (ev.tokenID != null && ev.tokenID.length() > 0));
+                Transaction tx = new Transaction();
+                String valueList="";
                 if(token != null) {
-
-                    boolean scanAsNFT = isNFT || ((ev.tokenDecimal == null || ev.tokenDecimal.length() == 0) && (ev.tokenID != null && ev.tokenID.length() > 0));
-                    Transaction tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo);
-
-                    //find tx name
+                    if(ev.hash.equals(oldHash)) {
+                        total += Double.parseDouble(ev.value);
+                        if(isSend) {
+                            tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo, total+"");
+                            valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : total+""); //Etherscan sometimes interprets NFT transfers as FT's
+                        }
+                    } else {
+                        total = 0;
+                        index = i;
+                        oldHash = ev.hash;
+                        //find tx name
+                        tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo, scanAsNFT ? ev.tokenID : ev.value);
+                        valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : ev.value); //Etherscan sometimes interprets NFT transfers as FT's
+                    }
                     String activityName = tx.getEventName(walletAddress);
-                    String valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : ev.value); //Etherscan sometimes interprets NFT transfers as FT's
                     storeTransferData(r, tx.hash, valueList, activityName, ev.contractAddress);
                     //ensure we have fetched the transaction for each hash
                     writeTransaction(r, tx, ev.contractAddress, txFetches);
@@ -1003,7 +1005,6 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
         }
         else if (realmTx.getContractAddress() == null || !realmTx.getContractAddress().equalsIgnoreCase(contractAddress))
         {
-            TransactionsRealmCache.fill(realmTx, tx);
             realmTx.setContractAddress(contractAddress);
         }
 
@@ -1012,6 +1013,9 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
             TransactionsRealmCache.fill(realmTx, tx);
             realmTx.setContractAddress(contractAddress); //for indexing by contract (eg Token Activity)
         }
+        TransactionsRealmCache.fill(realmTx, tx);
+        realmTx.setContractAddress(contractAddress); //for indexing by contract (eg Token Activity)
+
     }
 
     /**

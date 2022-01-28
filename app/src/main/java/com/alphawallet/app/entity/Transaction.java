@@ -46,6 +46,7 @@ public class Transaction implements Parcelable
     public final int nonce;
     public final String from;
     public final String to;
+	public final String contractAddress;
     public final String value;
     public final String gas;
     public final String gasPrice;
@@ -77,6 +78,7 @@ public class Transaction implements Parcelable
 		gasUsed = "";
 		input = "";
 		error = "";
+		contractAddress = "";
 		chainId = 0;
 	}
 
@@ -103,6 +105,7 @@ public class Transaction implements Parcelable
 			int nonce,
 			String from,
 			String to,
+			String contractAddress,
 			String value,
 			String gas,
 			String gasPrice,
@@ -117,6 +120,7 @@ public class Transaction implements Parcelable
 		this.nonce = nonce;
 		this.from = from;
 		this.to = to;
+		this.contractAddress = contractAddress;
 		this.value = value;
 		this.gas = gas;
 		this.gasPrice = gasPrice;
@@ -135,6 +139,7 @@ public class Transaction implements Parcelable
 		this.nonce = -1;
 		this.from = wallet;
 		this.to = tx.recipient.toString();
+		this.contractAddress = tx.contract.toString();
 		this.value = tx.value.toString();
 		this.gas = tx.gasLimit.toString();
 		this.gasPrice = tx.gasPrice.toString();
@@ -147,7 +152,7 @@ public class Transaction implements Parcelable
 	public Transaction(org.web3j.protocol.core.methods.response.Transaction ethTx, long chainId, boolean isSuccess, long timeStamp)
 	{
 		// Get contract address if constructor
-		String contractAddress = ethTx.getCreates() != null ? ethTx.getCreates() : "";
+		contractAddress = ethTx.getCreates() != null ? ethTx.getCreates() : "";
 		int nonce = ethTx.getNonceRaw() != null ? Numeric.toBigInt(ethTx.getNonceRaw()).intValue() : 0;
 
 		if (!TextUtils.isEmpty(contractAddress)) //must be a constructor
@@ -205,6 +210,7 @@ public class Transaction implements Parcelable
 		this.input = input;
 		this.gasUsed = gasUsed;
 		this.chainId = chainId;
+		this.contractAddress = contractAddress;
 	}
 
 	protected Transaction(Parcel in)
@@ -216,6 +222,7 @@ public class Transaction implements Parcelable
 		nonce = in.readInt();
 		from = in.readString();
 		to = in.readString();
+		contractAddress = in.readString();
 		value = in.readString();
 		gas = in.readString();
 		gasPrice = in.readString();
@@ -250,6 +257,7 @@ public class Transaction implements Parcelable
 		dest.writeInt(nonce);
 		dest.writeString(from);
 		dest.writeString(to);
+		dest.writeString(contractAddress);
 		dest.writeString(value);
 		dest.writeString(gas);
 		dest.writeString(gasPrice);
@@ -328,7 +336,7 @@ public class Transaction implements Parcelable
 		}
 		else
 		{
-			return "";
+			return contractAddress;
 		}
 	}
 

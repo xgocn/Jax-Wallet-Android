@@ -117,8 +117,8 @@ public class ActivityHistoryList extends LinearLayout
         for (RealmTransaction item : realmTransactions)
         {
             TransactionMeta tm = new TransactionMeta(item.getHash(), item.getTimeStamp(), item.getTo(), item.getChainId(), item.getBlockNumber());
-            metas.add(tm);
-//            metas.addAll(getRelevantTransfersForHash(tm, wallet));
+//            metas.add(tm);
+            metas.addAll(getRelevantTransfersForHash(tm, wallet));
             if (tm.isPending) hasPending = true;
         }
 
@@ -149,22 +149,22 @@ public class ActivityHistoryList extends LinearLayout
             long nextTransferTime = transfers.size() == 1 ? tm.getTimeStamp() : tm.getTimeStamp() - 1; // if there's only 1 transfer, keep the transaction timestamp
             for (RealmTransfer rt : transfers)
             {
-                if (rt.getTransferDetail().contains(wallet.address))
-                {
+//                if (rt.getTransferDetail().contains(wallet.address)) {
+
                     TokenTransferData ttd = new TokenTransferData(rt.getHash(), tm.chainId,
                             rt.getTokenAddress(), rt.getEventName(), rt.getTransferDetail(), nextTransferTime);
                     transferData.add(ttd);
                     nextTransferTime--;
-                }
+//                }
             }
 
             //For clarity, show only 1 item if it was part of a chain; ie don't show raw transaction
-            if (transfers.size() > 1 && transferData.size() == 1)
-            {
-                TokenTransferData oldTf = transferData.get(0);
-                transferData.clear();
-                transferData.add(new TokenTransferData(oldTf.hash, tm.chainId, oldTf.tokenAddress, oldTf.eventName, oldTf.transferDetail, tm.getTimeStamp()));
-            }
+//            if (transfers.size() > 1 && transferData.size() > 1)
+//            {
+//                TokenTransferData oldTf = transferData.get(transferData.size()-1);
+//                transferData.clear();
+//                transferData.add(new TokenTransferData(oldTf.hash, tm.chainId, oldTf.tokenAddress, oldTf.eventName, oldTf.transferDetail, tm.getTimeStamp()));
+//            }
         }
 
         return transferData;

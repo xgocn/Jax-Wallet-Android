@@ -137,10 +137,10 @@ public class ActivityFragment extends BaseFragment implements View.OnClickListen
         {
             if (am instanceof TransactionMeta)
             {
-//                List<TokenTransferData> tokenTransfers = getTokenTransfersForHash((TransactionMeta)am);
+                List<TokenTransferData> tokenTransfers = getTokenTransfersForHash((TransactionMeta)am);
 //                if (tokenTransfers.size() != 1) { filteredList.add(am); } //only 1 token transfer ? No need to show the underlying transaction
-//                filteredList.addAll(tokenTransfers);
-                filteredList.add(am);
+                filteredList.addAll(tokenTransfers);
+//                filteredList.add(am);
             }
         }
 
@@ -160,26 +160,24 @@ public class ActivityFragment extends BaseFragment implements View.OnClickListen
         {
             //list of transfers, descending in time to give ordered list
             long nextTransferTime = transfers.size() == 1 ? tm.getTimeStamp() : tm.getTimeStamp() - 1; // if there's only 1 transfer, keep the transaction timestamp
-            int index = 0;
             for (int i = 0; i < transfers.size(); i++)
             {
                 RealmTransfer rt = transfers.get(i);
-                if (rt.getTransferDetail().contains(adapter.getWallet().address)) {
-                    index = i;
+//                if (rt.getTransferDetail().contains(adapter.getWallet().address)) {
                     TokenTransferData ttd = new TokenTransferData(rt.getHash(), tm.chainId,
                             rt.getTokenAddress(), rt.getEventName(), rt.getTransferDetail(), nextTransferTime);
                     transferData.add(ttd);
                     nextTransferTime--;
-                }
+//                }
             }
 
             //For clarity, show only 1 item if it was part of a chain; ie don't show raw transaction
-            if (transfers.size() > 1 && transferData.size() == 1)
-            {
-                TokenTransferData oldTf = transferData.get(index);
-                transferData.clear();
-                transferData.add(new TokenTransferData(oldTf.hash, tm.chainId, oldTf.tokenAddress, oldTf.eventName, oldTf.transferDetail, tm.getTimeStamp()));
-            }
+//            if (transfers.size() > 1 && transferData.size() > 1)
+//            {
+//                TokenTransferData oldTf = transferData.get(transferData.size());
+//                transferData.clear();
+//                transferData.add(new TokenTransferData(oldTf.hash, tm.chainId, oldTf.tokenAddress, oldTf.eventName, oldTf.transferDetail, tm.getTimeStamp()));
+//            }
         }
 
         return transferData;

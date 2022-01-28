@@ -41,9 +41,8 @@ public class EtherscanEvent
 
         String input = Numeric.toHexString(TokenRepository.createTokenTransferData(to, valueBI)); //write the input to the transaction to ensure this is correctly handled elsewhere in the wallet
 
-        Transaction tx = new Transaction(hash, "0", blockNumber, timeStamp, nonce, from, to, value, gas, gasPrice, input,
+        return new Transaction(hash, "0", blockNumber, timeStamp, nonce, from, contractAddress, "0", gas, gasPrice, input,
                 gasUsed, networkInfo.chainId, false);
-        return tx;
     }
 
     public Transaction createNFTTransaction(@NotNull NetworkInfo networkInfo)

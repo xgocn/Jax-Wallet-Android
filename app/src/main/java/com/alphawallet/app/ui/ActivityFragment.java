@@ -163,12 +163,12 @@ public class ActivityFragment extends BaseFragment implements View.OnClickListen
             for (int i = 0; i < transfers.size(); i++)
             {
                 RealmTransfer rt = transfers.get(i);
-//                if (rt.getTransferDetail().contains(adapter.getWallet().address)) {
+                if (rt.getTransferDetail().contains(adapter.getWallet().address.toLowerCase())) {
                     TokenTransferData ttd = new TokenTransferData(rt.getHash(), tm.chainId,
                             rt.getTokenAddress(), rt.getEventName(), rt.getTransferDetail(), nextTransferTime);
                     transferData.add(ttd);
                     nextTransferTime--;
-//                }
+                }
             }
 
             //For clarity, show only 1 item if it was part of a chain; ie don't show raw transaction

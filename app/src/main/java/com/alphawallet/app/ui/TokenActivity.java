@@ -34,6 +34,7 @@ import com.alphawallet.app.repository.EventResult;
 import com.alphawallet.app.repository.TransactionsRealmCache;
 import com.alphawallet.app.repository.entity.RealmAuxData;
 import com.alphawallet.app.repository.entity.RealmTransaction;
+import com.alphawallet.app.repository.entity.RealmTransfer;
 import com.alphawallet.app.ui.widget.entity.ActionSheetCallback;
 import com.alphawallet.app.ui.widget.entity.TokenTransferData;
 import com.alphawallet.app.util.BalanceUtils;
@@ -80,6 +81,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 import static com.alphawallet.app.C.ETH_SYMBOL;
 import static com.alphawallet.app.entity.TransactionDecoder.FUNCTION_LENGTH;
@@ -143,6 +145,7 @@ public class TokenActivity extends BaseActivity implements PageReadyCallback, St
             isFromTokenHistory = getIntent().getBooleanExtra(C.EXTRA_STATE, false);
             transferData = getIntent().getParcelableExtra(C.EXTRA_TOKEN_ID);
         }
+
         //TODO: Send event details
         icon = findViewById(R.id.token_icon);
 
@@ -212,6 +215,7 @@ public class TokenActivity extends BaseActivity implements PageReadyCallback, St
             intent.putExtra(C.EXTRA_TXHASH, transactionHash);
             intent.putExtra(C.EXTRA_CHAIN_ID, token.tokenInfo.chainId);
             intent.putExtra(C.Key.WALLET, viewModel.getWallet());
+            intent.putExtra(C.EXTRA_TOKEN_ID, transferData);
             intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
             txDetailPage.launch(intent);
         }
@@ -297,19 +301,22 @@ public class TokenActivity extends BaseActivity implements PageReadyCallback, St
         //date
         eventTime.setText(Utils.localiseUnixTime(getApplicationContext(), transaction.timeStamp));
         //icon
-        token = getOperationToken(transaction);
+        token = viewModel.getToken(transaction.chainId, transferData.tokenAddress);
+
         String sym = token != null ? token.tokenInfo.symbol : ETH_SYMBOL;
         icon.bindData(token, viewModel.getAssetDefinitionService());
         //status
         if (token != null) icon.setStatusIcon(token.getTxStatus(transaction));
 
-        String operationName = token.getOperationName(transaction, this);
+
+//        String operationName = token.getOperationName(transaction, this);
 
         transaction.getDestination(token);
-        eventAction.setText(operationName);
+        eventAction.setText(transferData.getEventName());
         eventActionSymbol.setText(sym);
         //amount
-        String transactionValue = token.getTransactionResultValue(transaction, TRANSACTION_BALANCE_PRECISION);
+//        String transactionValue = token.getTransactionResultValue(transaction, TRANSACTION_BALANCE_PRECISION);
+        String transactionValue = transferData.getEventAmount(token, transaction);
 
         if (!token.shouldShowSymbol(transaction) && transaction.input.length() >= FUNCTION_LENGTH)
         {

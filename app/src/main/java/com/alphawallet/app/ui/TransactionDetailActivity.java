@@ -3,6 +3,7 @@ package com.alphawallet.app.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.alphawallet.app.repository.EthereumNetworkRepository;
 import com.alphawallet.app.service.TokensService;
 import com.alphawallet.app.ui.widget.entity.ActionSheetCallback;
 import com.alphawallet.app.ui.widget.entity.ENSHandler;
+import com.alphawallet.app.ui.widget.entity.TokenTransferData;
 import com.alphawallet.app.util.BalanceUtils;
 import com.alphawallet.app.util.Utils;
 import com.alphawallet.app.viewmodel.TransactionDetailViewModel;
@@ -38,6 +40,7 @@ import com.alphawallet.app.widget.ChainName;
 import com.alphawallet.app.widget.CopyTextView;
 import com.alphawallet.app.widget.FunctionButtonBar;
 import com.alphawallet.app.widget.SignTransactionDialog;
+import com.mailchimp.sdk.api.model.Tag;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -61,6 +64,7 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
     private TransactionDetailViewModel viewModel;
 
     private Transaction transaction;
+    private TokenTransferData transferData;
     private TextView amount;
     private Token token;
     private String chainName;
@@ -82,6 +86,7 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
         viewModel.transactionFinalised().observe(this, this::txWritten);
         viewModel.transactionError().observe(this, this::txError);
 
+        transferData = getIntent().getParcelableExtra(C.EXTRA_TOKEN_ID);
         String txHash = getIntent().getStringExtra(C.EXTRA_TXHASH);
         long chainId = getIntent().getLongExtra(C.EXTRA_CHAIN_ID, MAINNET_ID);
         wallet = getIntent().getParcelableExtra(WALLET);
@@ -120,7 +125,7 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
         CopyTextView fromValue = findViewById(R.id.from);
         CopyTextView txHashView = findViewById(R.id.txn_hash);
 
-        token = viewModel.getToken(transaction.chainId, transaction.contractAddress);
+        token = viewModel.getToken(transaction.chainId, transferData.tokenAddress);
 
         String to;
 
@@ -132,8 +137,8 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
             to = transaction.to;
         }
 
-        fromValue.setText(transaction.from != null ? transaction.from : "");
-        toValue.setText(to);
+        fromValue.setText(transferData.getFromAddress());
+        toValue.setText(transferData.getToAddress());
         txHashView.setText(transaction.hash != null ? transaction.hash : "");
         ((TextView) findViewById(R.id.txn_time)).setText(Utils.localiseUnixDate(getApplicationContext(), transaction.timeStamp));
 
@@ -234,7 +239,7 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
     private void setupWalletDetails()
     {
         String operationName = token.getOperationName(transaction, this);
-        String transactionOperation = token.getTransactionResultValue(transaction, TRANSACTION_BALANCE_PRECISION);
+        String transactionOperation = transferData.getEventAmount(token, transaction) + " " + token.getShortSymbol();
         amount.setText(Utils.isContractCall(this, operationName) ? "" : transactionOperation);
     }
 
@@ -271,7 +276,7 @@ public class TransactionDetailActivity extends BaseActivity implements StandardF
         String operationName = null;
         if (token != null)
         {
-            operationName = token.getOperationName(transaction, getApplicationContext());
+            operationName = getString(transferData.getEventName());
         }
         else
         {

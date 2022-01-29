@@ -112,7 +112,7 @@ public class TransferHolder extends BinderViewHolder<TokenTransferData> implemen
             if (view != null) itemView = view.tokenView;
         }
 
-        String transactionValue = getEventAmount(data, tx);
+        String transactionValue = data.getEventAmount(token, tx);
 
         if (TextUtils.isEmpty(transactionValue))
         {
@@ -150,40 +150,7 @@ public class TransferHolder extends BinderViewHolder<TokenTransferData> implemen
         fromTokenView = true;
     }
 
-    private String getEventAmount(TokenTransferData eventData, Transaction tx)
-    {
-        tx.getDestination(token); //build decoded input
-        Map<String, EventResult> resultMap = eventData.getEventResultMap();
-        String value = "";
-        switch (eventData.eventName)
-        {
-            case "received":
-                value = "+ ";
-                //drop through
-            case "sent":
-                if (value.length() == 0) value = "- ";
-                if (resultMap.get("amount") != null)
-                {
-                    value = token.convertValue(value, resultMap.get("amount").value, TRANSACTION_BALANCE_PRECISION);
-                }
-                break;
-            case "approvalObtained":
-            case "ownerApproved":
-                if (resultMap.get("value") != null)
-                {
-                    value = token.convertValue(value, resultMap.get("value").value, TRANSACTION_BALANCE_PRECISION);
-                }
-                break;
-            default:
-                if (token != null)
-                {
-                    value = token.isEthereum() ? token.getTransactionValue(tx, TRANSACTION_BALANCE_PRECISION) : tx.getOperationResult(token, TRANSACTION_BALANCE_PRECISION);
-                }
-                break;
-        }
 
-        return value;
-    }
 
     private String getTitle(TokenTransferData eventData, Transaction tx)
     {

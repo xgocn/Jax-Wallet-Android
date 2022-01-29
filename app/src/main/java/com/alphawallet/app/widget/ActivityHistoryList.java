@@ -52,6 +52,7 @@ public class ActivityHistoryList extends LinearLayout
     private final ProgressBar loadingTransactions;
     private final Handler handler = new Handler(Looper.getMainLooper());
     private final Context context;
+    private Token token;
 
     public ActivityHistoryList(Context context, @Nullable AttributeSet attrs)
     {
@@ -74,7 +75,7 @@ public class ActivityHistoryList extends LinearLayout
     public void startActivityListeners(Realm realm, Wallet wallet, Token token, TokensService svs, BigInteger tokenId, final int historyCount)
     {
         this.realm = realm;
-
+        this.token = token;
         activityAdapter.setItemLimit(historyCount);
 
         //stop any existing listeners (could be view refresh)
@@ -141,6 +142,7 @@ public class ActivityHistoryList extends LinearLayout
         //get matching entries for this transaction
         RealmResults<RealmTransfer> transfers = realm.where(RealmTransfer.class)
                 .equalTo("hash", tm.hash)
+                .equalTo("tokenAddress", token.getAddress())
                 .findAll();
 
         if (transfers != null && transfers.size() > 0)
@@ -149,13 +151,13 @@ public class ActivityHistoryList extends LinearLayout
             long nextTransferTime = transfers.size() == 1 ? tm.getTimeStamp() : tm.getTimeStamp() - 1; // if there's only 1 transfer, keep the transaction timestamp
             for (RealmTransfer rt : transfers)
             {
-//                if (rt.getTransferDetail().contains(wallet.address)) {
+                if (rt.getTransferDetail().contains(wallet.address.toLowerCase())) {
 
                     TokenTransferData ttd = new TokenTransferData(rt.getHash(), tm.chainId,
                             rt.getTokenAddress(), rt.getEventName(), rt.getTransferDetail(), nextTransferTime);
                     transferData.add(ttd);
                     nextTransferTime--;
-//                }
+                }
             }
 
             //For clarity, show only 1 item if it was part of a chain; ie don't show raw transaction
@@ -190,8 +192,7 @@ public class ActivityHistoryList extends LinearLayout
     {
         return realm.where(RealmTransaction.class)
                 .sort("timeStamp", Sort.DESCENDING)
-                .beginGroup().not().equalTo("input", "0x").and().equalTo("to", tokenAddress, Case.INSENSITIVE)
-                             .or().equalTo("contractAddress", tokenAddress).endGroup()
+                .beginGroup().not().equalTo("input", "0x").and().equalTo("contractAddress", tokenAddress).endGroup()
                 .equalTo("chainId", chainId)
                 .limit(count);
     }

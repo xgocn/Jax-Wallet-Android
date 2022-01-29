@@ -339,10 +339,10 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
                 if (realmTx == null)
                 {
                     realmTx = r.createObject(RealmTransaction.class, tx.hash);
+                    TransactionsRealmCache.fill(realmTx, tx);
+                    r.insertOrUpdate(realmTx);
                 }
 
-                TransactionsRealmCache.fill(realmTx, tx);
-                r.insertOrUpdate(realmTx);
             }
         });
     }
@@ -378,9 +378,12 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
 //                sb.append("&sort=");
 //            }
 //            sb.append(sort);
+            long endblock = Long.parseLong("999999999");
             sb.append("&startblock=");
             sb.append(firstBlock);
-            sb.append("&endblock=999999999&sort=asc");
+            sb.append("&endblock=");
+            sb.append(endblock);
+            sb.append("&sort=asc");
             if (page > 0)
             {
                 sb.append("&page=");
@@ -640,8 +643,9 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
         if (currentBlock == 0) currentBlock = 1;
 
         String APIKEY_TOKEN = networkInfo.etherscanAPI.contains("etherscan") ? ETHERSCAN_API_KEY : "";
+        long endblock = currentBlock + Long.parseLong("999999999");
         String fullUrl = networkInfo.etherscanAPI + "module=account&action=" + queryType +
-                "&startblock=" + currentBlock + "&endblock=9999999999" +
+                "&startblock=" + currentBlock + "&endblock=" + endblock +
                 "&address=" + walletAddress +
                 "&page=1&offset=" + TRANSFER_RESULT_MAX +
                 "&sort=asc" + APIKEY_TOKEN;
@@ -941,11 +945,10 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
 
                 if(token != null) {
                     if(ev.hash.equals(oldHash) && ev.contractAddress.equals(oldContract) && activityName.equals(oldEvent)) {
-                        String oldValueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : total+"");
                         total += Double.parseDouble(ev.value);
                         tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo, total+"");
                         valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : total+""); //Etherscan sometimes interprets NFT transfers as FT's
-                        storeTransferData(r, tx.hash, oldValueList, valueList, activityName, ev.contractAddress);
+                        storeTransferData(r, tx.hash, valueList, activityName, ev.contractAddress);
                     } else {
                         total = Double.parseDouble(ev.value);
                         oldHash = ev.hash;
@@ -954,7 +957,7 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
                         //find tx name
                         tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo, scanAsNFT ? ev.tokenID : ev.value);
                         valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : ev.value); //Etherscan sometimes interprets NFT transfers as FT's
-                        storeTransferData(r, tx.hash, valueList, valueList, activityName, ev.contractAddress);
+                        storeTransferData(r, tx.hash, valueList, activityName, ev.contractAddress);
                     }
 
                     //ensure we have fetched the transaction for each hash
@@ -966,13 +969,13 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
         fetchRequiredTransactions(instance, networkInfo.chainId, txFetches);
     }
 
-    private void storeTransferData(Realm instance, String hash, String oldvalueList, String valueList, String activityName, String tokenAddress)
+    private void storeTransferData(Realm instance, String hash, String valueList, String activityName, String tokenAddress)
     {
         RealmTransfer matchingEntry = instance.where(RealmTransfer.class)
                 .equalTo("hash", hash)
                 .equalTo("tokenAddress", tokenAddress)
                 .equalTo("eventName", activityName)
-                .equalTo("transferDetail", oldvalueList)
+//                .equalTo("transferDetail", oldvalueList)
                 .findFirst();
 
         if (matchingEntry == null) //prevent duplicates
@@ -981,7 +984,7 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
             realmTransfer.setHash(hash);
             realmTransfer.setTokenAddress(tokenAddress);
             realmTransfer.setEventName(activityName);
-            realmTransfer.setTransferDetail(oldvalueList);
+            realmTransfer.setTransferDetail(valueList);
         }
         else
         {

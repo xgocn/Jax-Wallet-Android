@@ -26,7 +26,7 @@
             android:padding="20dp"
             >
 
-            <com.alphawallet.app.widget.InputAddress
+            <com.jaxwallet.app.widget.InputAddress
                 android:id="@+id/input_address_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,14 +37,14 @@
                 custom:show_header="true"
                 custom:show_paste="true"/>
 
-            <com.alphawallet.app.widget.InputView
+            <com.jaxwallet.app.widget.InputView
                 android:id="@+id/input_symbol"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 custom:label="@string/hint_contract_symbol" />
 
-            <com.alphawallet.app.widget.InputView
+            <com.jaxwallet.app.widget.InputView
                 android:id="@+id/input_decimal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,14 +52,14 @@
                 custom:inputType="number"
                 custom:label="@string/hint_contract_decimals" />
 
-            <com.alphawallet.app.widget.InputView
+            <com.jaxwallet.app.widget.InputView
                 android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 custom:label="@string/hint_contract_name" />
 
-            <com.alphawallet.app.widget.InputView
+            <com.jaxwallet.app.widget.InputView
                 android:id="@+id/input_token_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,12 +104,12 @@
                 android:visibility="gone"
                 android:orientation="horizontal">
 
-                <com.alphawallet.app.widget.TokenIcon
+                <com.jaxwallet.app.widget.TokenIcon
                     android:id="@+id/token_icon"
                     android:layout_width="60dp"
                     android:layout_height="60dp"/>
 
-                <com.alphawallet.app.widget.ChainName
+                <com.jaxwallet.app.widget.ChainName
                     android:id="@+id/chain_name"
                     android:layout_marginStart="@dimen/dp8"
                     android:layout_width="wrap_content"
@@ -122,7 +122,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.alphawallet.app.widget.FunctionButtonBar
+    <com.jaxwallet.app.widget.FunctionButtonBar
         android:id="@+id/layoutButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

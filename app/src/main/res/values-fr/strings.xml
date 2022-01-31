@@ -217,7 +217,7 @@
     <string name="ethereum_blockchain">Blockchain Ethereum</string>
     <string name="issuer">Emetter:</string>
     <string name="root_title">SECURITE DE L\'APPAREIL COMPROMISE</string>
-    <string name="root_body">Votre téléphone est rooté mais les clés sont toujours protégées par le cryptage sécurisé Android. Le vecteur d\'attaque proviendrait d\'une application de clavier ou d\'une visionneuse de presse-papiers apprenant votre clé lorsque vous la saisissez. AlphaWallet fait de son mieux pour atténuer ce risque en désactivant la suggestion automatique du clavier. Si vous exécutez root, nous vous recommandons d\'utiliser uniquement des applications de clavier grand public, d\'exécuter une application antivirus de bonne qualité et d\'utiliser un gestionnaire de racine open source respecté tel que Magisk ou SuperSU pour limiter l\'accès aux privilèges root. En fin de compte, la sécurité clé est de votre responsabilité.</string>
+    <string name="root_body">Votre téléphone est rooté mais les clés sont toujours protégées par le cryptage sécurisé Android. Le vecteur d\'attaque proviendrait d\'une application de clavier ou d\'une visionneuse de presse-papiers apprenant votre clé lorsque vous la saisissez. JAX Wallet fait de son mieux pour atténuer ce risque en désactivant la suggestion automatique du clavier. Si vous exécutez root, nous vous recommandons d\'utiliser uniquement des applications de clavier grand public, d\'exécuter une application antivirus de bonne qualité et d\'utiliser un gestionnaire de racine open source respecté tel que Magisk ou SuperSU pour limiter l\'accès aux privilèges root. En fin de compte, la sécurité clé est de votre responsabilité.</string>
     <string name="contact_us">Avez-vous toujours besoin d\'aide? Contactez nous</string>
     <string name="confirm_sale_title">Confirmer la Vente?</string>
     <string name="dialog_cancel_back">Annuler et revenir en arrière</string>
@@ -282,7 +282,7 @@
     <string name="erc875">ERC 875</string>
     <string name="erc875legacy">ERC 875*</string>
     <string name="what_is_eth">Ethereum est une plate-forme informatique distribuée et un système d\'exploitation open source, public et basé sur la blockchain, avec une fonctionnalité de contrat intelligent (script). C\'est l\'infrastructure des produits et services blockchain.\n\nETH/Ether est une crypto-monnaie dont la blockchain est générée par la plateforme Ethereum. L\'éther peut être transféré entre comptes et utilisé pour compenser les nœuds de minage des participants pour les calculs effectués. Ethereum fournit une machine virtuelle décentralisée complète de Turing, la machine virtuelle Ethereum (EVM), peut exécuter des scripts à l\'aide d\'un réseau international de nœuds publics. «Gas», un mécanisme interne de tarification des transactions, est utilisé pour atténuer le spam et allouer des ressources sur le réseau.</string>
-    <string name="why_alphawallet_eth">Actuellement, Ethereum est la meilleure et la plus grande blockchain pour le développement d\'applications et de services de contrats intelligents. AlphaWallet supporte la blockchain Ethereum et aide à améliorer sa technologie.</string>
+    <string name="why_alphawallet_eth">Actuellement, Ethereum est la meilleure et la plus grande blockchain pour le développement d\'applications et de services de contrats intelligents. JAX Wallet supporte la blockchain Ethereum et aide à améliorer sa technologie.</string>
     <string name="how_i_get_money">Vous pouvez convertir votre Ethereum en monnaie fiat et les tranférer sur votre compte bancaire avec n\'importe quel échange crypto.</string>
     <string name="how_i_transfer_into_wallet">Vous pouvez fournir l\'adresse de votre portefeuille à l\'envoyeur. Ils peuvent vous transférer de l\'ETH avec votre adresse de portefeuille.</string>
     <string name="ticket_import_valid">Tickets Valides pour l\'Import</string>
@@ -339,15 +339,15 @@
     <string name="ticket_not_valid">Token Invalide</string>
     <string name="ticket_not_valid_body">Aucun contrat valide à cette adresse sur ce réseau. Le contrat pourrait avoir été résilié ou il peut être sur un réseau différent. Essayez de changer pour \'Ropsten (Test)\'.</string>
     <string name="new_version_title">Mise à jour disponible</string>
-    <string name="new_version">Mise à jour de la version disponible sur le site AlphaWallet.</string>
+    <string name="new_version">Mise à jour de la version disponible sur le site JAX Wallet.</string>
     <string name="confirm_update">Télécharger et Installer</string>
     <string name="dialog_later">Plus tard</string>
-    <string name="alphawallet_update">Mise à jour Alphawallet </string>
+    <string name="alphawallet_update">Mise à jour JAX wallet </string>
     <string name="install_error">Mise à jour impossible</string>
     <string name="require_write_permission">L\'autorisation d\'écriture de stockage n\'est pas donnée.</string>
     <string name="dialog_not_again">Passer jusqu\'à la prochaine version</string>
     <string name="enable_xml_override_dir">Activer XML Override</string>
-    <string name="explain_xml_override">Activer le XML Override créera un répertoire \'AlphaWallet\' dans la mémoire de votre téléphone. Les fichiers de configuration du token (XML) peuvent être déposés dans ce répertoire, ce qui remplacera les configurations du token par défaut ou réseau.</string>
+    <string name="explain_xml_override">Activer le XML Override créera un répertoire \'JAX Wallet\' dans la mémoire de votre téléphone. Les fichiers de configuration du token (XML) peuvent être déposés dans ce répertoire, ce qui remplacera les configurations du token par défaut ou réseau.</string>
     <string name="ask_user_about_xml_override">Souhaitez-vous activer le répertoire de remplacement de configuration de token?</string>
     <string name="label_contract">Contrat</string>
     <string name="toolbar_header_browser">Navigateur DApp</string>
@@ -440,7 +440,7 @@
     <string name="select_active_networks">Selectionner Réseaux Actifs</string>
     <string name="collectibles">Objects de Collections</string>
     <string name="token_function">Fonctions du Token</string>
-    <string name="channel_description">Chaine de notifications Alphawallet</string>
+    <string name="channel_description">Chaine de notifications JAX wallet</string>
     <string name="error_camera_permission_denied">La permission d\'utiliser la caméra a été refusée</string>
     <string name="confirm_tokenscript_transaction">Confirmer la transaction TokenScript</string>
     <string name="tokenscript_send_native">Envoyer %1$s %2$s to %3$s (%4$s)</string>

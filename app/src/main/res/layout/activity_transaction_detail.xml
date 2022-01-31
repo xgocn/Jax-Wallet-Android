@@ -7,7 +7,7 @@
 
     <include layout="@layout/layout_simple_toolbar" />
 
-    <com.alphawallet.app.widget.FunctionButtonBar
+    <com.jaxwallet.app.widget.FunctionButtonBar
         android:layout_alignParentBottom="true"
         android:id="@+id/layoutButtons"
         android:paddingHorizontal="@dimen/sp17"
@@ -43,7 +43,7 @@
                     android:layout_marginBottom="@dimen/dp6"
                     android:text="@string/value" />
 
-                <com.alphawallet.app.widget.ChainName
+                <com.jaxwallet.app.widget.ChainName
                     android:id="@+id/chain_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
                 android:layout_marginBottom="@dimen/dp6"
                 android:text="@string/subtitle_transaction_hash_num" />
 
-            <com.alphawallet.app.widget.CopyTextView
+            <com.jaxwallet.app.widget.CopyTextView
                 android:id="@+id/txn_hash"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
                 android:layout_marginBottom="@dimen/dp6"
                 android:text="@string/subtitle_from" />
 
-            <com.alphawallet.app.widget.CopyTextView
+            <com.jaxwallet.app.widget.CopyTextView
                 android:id="@+id/from"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
                 android:layout_marginBottom="@dimen/dp6"
                 android:text="@string/subtitle_to" />
 
-            <com.alphawallet.app.widget.CopyTextView
+            <com.jaxwallet.app.widget.CopyTextView
                 android:id="@+id/to"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

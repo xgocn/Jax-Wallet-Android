@@ -56,7 +56,7 @@
     </LinearLayout>
 
 
-    <com.alphawallet.app.widget.ChainName
+    <com.jaxwallet.app.widget.ChainName
         android:id="@+id/chain_name"
         android:layout_gravity="center_vertical|end"
         android:layout_width="wrap_content"

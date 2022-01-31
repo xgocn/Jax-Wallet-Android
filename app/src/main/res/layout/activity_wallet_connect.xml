@@ -166,7 +166,7 @@
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical">
 
-                        <com.alphawallet.app.widget.ChainName
+                        <com.jaxwallet.app.widget.ChainName
                             android:id="@+id/chain_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
                             custom:layout_constraintBottom_toBottomOf="parent"
                             custom:layout_constraintEnd_toEndOf="parent" />
 
-                        <com.alphawallet.app.widget.TokenIcon
+                        <com.jaxwallet.app.widget.TokenIcon
                             android:id="@+id/chain_icon"
                             android:layout_width="@dimen/token_icon"
                             android:layout_height="@dimen/token_icon"
@@ -201,7 +201,7 @@
 
         </LinearLayout>
 
-    <com.alphawallet.app.widget.FunctionButtonBar
+    <com.jaxwallet.app.widget.FunctionButtonBar
         android:id="@+id/layoutButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

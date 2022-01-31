@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <com.alphawallet.app.widget.PasswordInputView
+        <com.jaxwallet.app.widget.PasswordInputView
             android:id="@+id/input_private_key"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

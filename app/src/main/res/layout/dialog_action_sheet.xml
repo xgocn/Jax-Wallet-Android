@@ -50,40 +50,40 @@
 
     </RelativeLayout>
 
-    <com.alphawallet.app.widget.BalanceDisplayWidget
+    <com.jaxwallet.app.widget.BalanceDisplayWidget
         android:id="@+id/balance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.alphawallet.app.widget.AddressDetailView
+    <com.jaxwallet.app.widget.AddressDetailView
         android:id="@+id/requester"
         android:visibility="gone"
         custom:label="@string/requester_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <com.alphawallet.app.widget.GasWidget
+    <com.jaxwallet.app.widget.GasWidget
         android:id="@+id/gas_widgetx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.alphawallet.app.widget.TransactionDetailWidget
+    <com.jaxwallet.app.widget.TransactionDetailWidget
         android:id="@+id/detail_widget"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <com.alphawallet.app.widget.AddressDetailView
+    <com.jaxwallet.app.widget.AddressDetailView
         android:id="@+id/recipient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <com.alphawallet.app.widget.AmountDisplayWidget
+    <com.jaxwallet.app.widget.AmountDisplayWidget
         android:id="@+id/amount_display"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>
 
-    <com.alphawallet.app.widget.AssetDetailView
+    <com.jaxwallet.app.widget.AssetDetailView
         android:id="@+id/asset_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -94,12 +94,12 @@
         android:layout_height="1dp"
         android:background="@color/mercury" />
 
-    <com.alphawallet.app.widget.ConfirmationWidget
+    <com.jaxwallet.app.widget.ConfirmationWidget
         android:id="@+id/confirmation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <com.alphawallet.app.widget.FunctionButtonBar
+    <com.jaxwallet.app.widget.FunctionButtonBar
         android:id="@+id/layoutButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

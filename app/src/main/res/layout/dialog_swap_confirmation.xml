@@ -45,7 +45,7 @@
             android:visibility="gone"/>
 
     </RelativeLayout>
-    <com.alphawallet.app.widget.SwapTransactionView
+    <com.jaxwallet.app.widget.SwapTransactionView
         android:id="@+id/from_view"
         android:layout_marginTop="@dimen/dp12"
         android:layout_width="match_parent"
@@ -60,7 +60,7 @@
             android:layout_height="26dp"
             android:src="@drawable/ic_swap"/>
     </LinearLayout>
-    <com.alphawallet.app.widget.SwapTransactionView
+    <com.jaxwallet.app.widget.SwapTransactionView
         android:id="@+id/to_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -160,7 +160,7 @@
                 android:text="0.00"/>
         </LinearLayout>
     </LinearLayout>
-    <com.alphawallet.app.widget.FunctionButtonBar
+    <com.jaxwallet.app.widget.FunctionButtonBar
         android:id="@+id/layoutButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

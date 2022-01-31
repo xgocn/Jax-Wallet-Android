@@ -15,7 +15,7 @@
 
         android:orientation="vertical">
 
-        <com.alphawallet.app.widget.InputAddress
+        <com.jaxwallet.app.widget.InputAddress
             android:id="@+id/input_watch_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

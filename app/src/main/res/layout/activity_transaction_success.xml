@@ -38,7 +38,7 @@
             android:src="@drawable/tx_in_progress"
             android:visibility="visible" />
 
-        <com.alphawallet.app.widget.CopyTextView
+        <com.jaxwallet.app.widget.CopyTextView
             android:id="@+id/tx_hash"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:textColor="@color/text_black"
             android:textSize="@dimen/sp11" />
 
-        <com.alphawallet.app.widget.FunctionButtonBar
+        <com.jaxwallet.app.widget.FunctionButtonBar
             android:id="@+id/layoutButtons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

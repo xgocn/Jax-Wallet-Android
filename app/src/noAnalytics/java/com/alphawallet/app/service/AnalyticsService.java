@@ -1,4 +1,4 @@
-package com.alphawallet.app.service;
+package com.jaxwallet.app.service;
 
 import android.content.Context;
 

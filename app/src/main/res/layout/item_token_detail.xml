@@ -43,7 +43,7 @@
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="14dp">
 
-                <com.alphawallet.app.widget.TokenIcon
+                <com.jaxwallet.app.widget.TokenIcon
                     android:id="@+id/token_icon"
                     android:layout_width="@dimen/token_icon"
                     android:layout_height="@dimen/token_icon"

@@ -1,0 +1,15 @@
+package com.jaxwallet.app.entity;
+
+/**
+ * Created by James on 20/07/2019.
+ * AJ TECHNOLOGIES LTD
+ */
+public enum AuthenticationFailType
+{
+    AUTHENTICATION_DIALOG_CANCELLED,
+    FINGERPRINT_NOT_VALIDATED,
+    PIN_FAILED,
+    DEVICE_NOT_SECURE,
+    BIOMETRIC_AUTHENTICATION_NOT_AVAILABLE,
+    FINGERPRINT_ERROR_CANCELED
+}

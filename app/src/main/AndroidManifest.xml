@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.alphawallet.app"
+    package="com.jaxwallet.app"
     android:targetSandboxVersion="1">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,7 +21,7 @@
 
     <application
         android:extractNativeLibs="true"
-        android:name=".App"
+        android:name="com.jaxwallet.app.App"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,7 +36,7 @@
         tools:replace="android:name, android:theme, android:allowBackup">
         <activity
             android:launchMode="singleTask"
-            android:name=".ui.HomeActivity"
+            android:name="com.jaxwallet.app.ui.HomeActivity"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan"
             >
@@ -138,61 +138,61 @@
         </provider>
 
         <activity
-            android:name=".ui.WalletsActivity"
+            android:name="com.jaxwallet.app.ui.WalletsActivity"
             android:label="@string/title_account_list" />
 
-        <activity android:name=".ui.SplashActivity"
+        <activity android:name="com.jaxwallet.app.ui.SplashActivity"
             android:theme="@style/SplashTheme" />
 
         <service
-            android:name=".service.WalletConnectService"
+            android:name="com.jaxwallet.app.service.WalletConnectService"
             android:enabled="true">
         </service>
 
-        <activity android:name=".ui.NameThisWalletActivity"
+        <activity android:name="com.jaxwallet.app.ui.NameThisWalletActivity"
             android:windowSoftInputMode="adjustResize"
             android:label="@string/name_this_wallet" />
         <activity
-            android:name=".ui.ImportWalletActivity"
+            android:name="com.jaxwallet.app.ui.ImportWalletActivity"
             android:label="@string/title_import"
             android:screenOrientation="sensor"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
 
         <activity
-            android:name=".ui.TransactionDetailActivity"
+            android:name="com.jaxwallet.app.ui.TransactionDetailActivity"
             android:label="@string/title_transaction_details" />
         <activity
-            android:name=".ui.MyAddressActivity"
+            android:name="com.jaxwallet.app.ui.MyAddressActivity"
             android:label="@string/title_my_address" />
 
         <activity
-            android:name=".ui.SendActivity"
+            android:name="com.jaxwallet.app.ui.SendActivity"
             android:label="@string/title_activity_send"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".ui.AddTokenActivity"
+            android:name="com.jaxwallet.app.ui.AddTokenActivity"
             android:label="@string/title_add_token" />
 
         <activity
-            android:name=".ui.AssetDisplayActivity"
+            android:name="com.jaxwallet.app.ui.AssetDisplayActivity"
             android:label="@string/title_use_token" />
 
         <activity
-            android:name=".ui.RedeemSignatureDisplayActivity"
+            android:name="com.jaxwallet.app.ui.RedeemSignatureDisplayActivity"
             android:label="@string/title_use_token" />
 
         <activity
-            android:name=".ui.GasSettingsActivity"
+            android:name="com.jaxwallet.app.ui.GasSettingsActivity"
             android:label="@string/title_send_settings" />
 
         <activity
-            android:name=".ui.SellDetailActivity"
+            android:name="com.jaxwallet.app.ui.SellDetailActivity"
             android:label="@string/action_sell"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".ui.RedeemAssetSelectActivity"
+            android:name="com.jaxwallet.app.ui.RedeemAssetSelectActivity"
             android:label="@string/title_redeem" />
 
         <!--<activity
@@ -201,31 +201,31 @@
             android:windowSoftInputMode="adjustPan" />-->
 
         <activity
-            android:name=".ui.ImportTokenActivity"
+            android:name="com.jaxwallet.app.ui.ImportTokenActivity"
             android:label="@string/title_import_token" />
 
         <activity
-            android:name=".ui.TransferTicketDetailActivity"
+            android:name="com.jaxwallet.app.ui.TransferTicketDetailActivity"
             android:label="@string/label_transfer_ticket_detail" />
 
         <activity
-            android:name=".ui.HelpActivity"
+            android:name="com.jaxwallet.app.ui.HelpActivity"
             android:label="@string/toolbar_header_help" />
 
         <activity
-            android:name=".ui.TokenDetailActivity"
+            android:name="com.jaxwallet.app.ui.TokenDetailActivity"
             android:label="@string/token_details" />
 
         <activity
-            android:name=".ui.Erc20DetailActivity"
+            android:name="com.jaxwallet.app.ui.Erc20DetailActivity"
             android:label="@string/erc20_details" />
 
         <activity
-            android:name=".ui.TokenFunctionActivity"
+            android:name="com.jaxwallet.app.ui.TokenFunctionActivity"
             android:label="@string/token_function" />
 
         <activity
-            android:name=".ui.FunctionActivity"
+            android:name="com.jaxwallet.app.ui.FunctionActivity"
             android:label="@string/token_function" />
 
         <!--<service android:name="AlphaWalletFirebaseMessagingService">-->
@@ -247,102 +247,102 @@
         <!--android:resource="@color/colorAccent" />-->
 
         <activity
-            android:name=".ui.WalletActionsActivity"
+            android:name="com.jaxwallet.app.ui.WalletActionsActivity"
             android:label="Wallet Actions" />
 
         <activity
-            android:name=".ui.AddEditDappActivity"
+            android:name="com.jaxwallet.app.ui.AddEditDappActivity"
             android:label="Add DApp" />
 
         <activity
-            android:name=".ui.SelectNetworkActivity"
+            android:name="com.jaxwallet.app.ui.SelectNetworkActivity"
             android:label="Select DApp Browser Network" />
 
         <activity
-            android:name=".ui.SelectNetworkFilterActivity"
+            android:name="com.jaxwallet.app.ui.SelectNetworkFilterActivity"
             android:label="Select Network Filters" />
 
         <activity
-            android:name=".ui.TokenManagementActivity"
+            android:name="com.jaxwallet.app.ui.TokenManagementActivity"
             android:label="Manage Tokens" />
 
         <activity
-            android:name=".ui.SelectLocaleActivity"
+            android:name="com.jaxwallet.app.ui.SelectLocaleActivity"
             android:label="Select Language" />
 
         <activity
-            android:name=".ui.SelectCurrencyActivity"
+            android:name="com.jaxwallet.app.ui.SelectCurrencyActivity"
             android:label="Select Currency" />
 
         <activity
-            android:name=".ui.BackupKeyActivity"
+            android:name="com.jaxwallet.app.ui.BackupKeyActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
-            android:name=".ui.SupportSettingsActivity"
+            android:name="com.jaxwallet.app.ui.SupportSettingsActivity"
             android:label="Support Settings" />
 
         <activity
-            android:name=".ui.AdvancedSettingsActivity"
+            android:name="com.jaxwallet.app.ui.AdvancedSettingsActivity"
             android:label="Advanced Settings" />
 
         <activity
-            android:name=".ui.StaticViewer"
+            android:name="com.jaxwallet.app.ui.StaticViewer"
             android:label="View Text" />
 
-        <activity android:name=".ui.TokenScriptManagementActivity"
+        <activity android:name="com.jaxwallet.app.ui.TokenScriptManagementActivity"
             android:label="@string/tokenscript_management"/>
 
-        <activity android:name=".ui.TokenActivity"
+        <activity android:name="com.jaxwallet.app.ui.TokenActivity"
             android:label="@string/activity_label"/>
 
         <activity
-            android:name=".ui.WalletConnectActivity"
+            android:name="com.jaxwallet.app.ui.WalletConnectActivity"
             android:launchMode="singleTop"
             android:label="WalletConnect" />
 
         <activity
-            android:name=".ui.BackupFlowActivity"
+            android:name="com.jaxwallet.app.ui.BackupFlowActivity"
             android:label="WalletConnect" />
 
         <activity
-            android:name=".ui.SignDetailActivity"
+            android:name="com.jaxwallet.app.ui.SignDetailActivity"
             android:label="Sign Details" />
 
         <activity
-            android:name=".ui.WalletConnectSessionActivity"
+            android:name="com.jaxwallet.app.ui.WalletConnectSessionActivity"
             android:label="WalletConnect Sessions" />
 
         <activity
-            android:name=".ui.TransactionSuccessActivity"
+            android:name="com.jaxwallet.app.ui.TransactionSuccessActivity"
             android:label="Transaction Success" />
 
         <activity
-            android:name=".ui.AddCustomRPCNetworkActivity"
+            android:name="com.jaxwallet.app.ui.AddCustomRPCNetworkActivity"
             android:label="@string/title_activity_add_custom_rpcnetwork"/>
 
         <activity
-            android:name=".ui.Erc1155Activity"
+            android:name="com.jaxwallet.app.ui.Erc1155Activity"
             android:label="ERC1155 Master Activity" />
 
         <activity
-            android:name=".ui.Erc1155AssetSelectActivity"
+            android:name="com.jaxwallet.app.ui.Erc1155AssetSelectActivity"
             android:label="ERC1155 Asset Selection" />
 
         <activity
-            android:name=".ui.Erc1155AssetDetailActivity"
+            android:name="com.jaxwallet.app.ui.Erc1155AssetDetailActivity"
             android:label="ERC1155 Asset Details" />
 
         <activity
-            android:name=".ui.Erc1155AssetListActivity"
+            android:name="com.jaxwallet.app.ui.Erc1155AssetListActivity"
             android:label="ERC1155 Asset Details" />
 
         <activity
-            android:name=".ui.TransferNFTActivity"
+            android:name="com.jaxwallet.app.ui.TransferNFTActivity"
             android:label="NFT Transfer" />
 
         <activity
-            android:name=".ui.QRScanning.QRScanner"
+            android:name="com.jaxwallet.app.ui.QRScanning.QRScanner"
             android:label="@string/qr_scanner" />
 
     </application>

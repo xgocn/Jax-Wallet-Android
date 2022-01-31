@@ -8,7 +8,7 @@
     android:padding="@dimen/dp22"
     tools:context=".ui.SwapFragment">
 
-    <com.alphawallet.app.widget.SwapItem
+    <com.jaxwallet.app.widget.SwapItem
         android:id="@+id/send_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -24,7 +24,7 @@
             android:src="@drawable/ic_swap"/>
     </LinearLayout>
 
-    <com.alphawallet.app.widget.SwapItem
+    <com.jaxwallet.app.widget.SwapItem
         android:id="@+id/receive_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -44,7 +44,7 @@
             android:textSize="@dimen/sp16"/>
     </LinearLayout>
 
-    <com.alphawallet.app.widget.FunctionButtonBar
+    <com.jaxwallet.app.widget.FunctionButtonBar
         android:id="@+id/layoutButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

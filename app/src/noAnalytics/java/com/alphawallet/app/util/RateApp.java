@@ -1,7 +1,7 @@
-package com.alphawallet.app.util;
+package com.jaxwallet.app.util;
 
 import android.app.Activity;
-import com.alphawallet.app.repository.PreferenceRepositoryType;
+import com.jaxwallet.app.repository.PreferenceRepositoryType;
 
 public class RateApp {
     // should be shown on 5th run or after the first transaction (afterTransaction == true)

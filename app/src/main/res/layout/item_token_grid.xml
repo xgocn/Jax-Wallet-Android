@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:padding="@dimen/dp10">
 
-    <com.alphawallet.app.widget.TokenIcon
+    <com.jaxwallet.app.widget.TokenIcon
         android:id="@+id/token_icon"
         android:layout_width="@dimen/token_icon_large"
         android:layout_height="@dimen/token_icon_large"

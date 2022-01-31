@@ -148,5 +148,4 @@ Thank you to all the contributors! You are awesome.
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-## License
-AlphaWallet Android is available under the [MIT license](https://github.com/AlphaWallet/alpha-wallet-android/blob/master/LICENSE). Free for commercial and non-commercial use.
+

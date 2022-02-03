@@ -928,6 +928,7 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
             String oldHash="";
             String oldContract="";
             String oldEvent="";
+            String to="";
             double total=0;
             //write event list
             for (int i = 0; i < events.length; i ++)
@@ -943,16 +944,17 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
                 String activityName = eventname.isEmpty() ? (isSend ? "sent" : "received") : eventname;
 
                 if(token != null) {
-                    if(ev.hash.equals(oldHash) && ev.contractAddress.equals(oldContract) && activityName.equals(oldEvent)) {
+                    if (ev.hash.equals(oldHash) && ev.contractAddress.equals(oldContract) && activityName.equals(oldEvent)) {
                         total += Double.parseDouble(ev.value);
                         tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo, total+"");
-                        valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : total+""); //Etherscan sometimes interprets NFT transfers as FT's
+                        valueList = VALUES.replace(TO_TOKEN, to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : total+""); //Etherscan sometimes interprets NFT transfers as FT's
                         storeTransferData(r, tx.hash, valueList, activityName, ev.contractAddress);
                     } else {
                         total = Double.parseDouble(ev.value);
                         oldHash = ev.hash;
                         oldContract = ev.contractAddress;
                         oldEvent = activityName;
+                        to = ev.to;
                         //find tx name
                         tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo, scanAsNFT ? ev.tokenID : ev.value);
                         valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : ev.value); //Etherscan sometimes interprets NFT transfers as FT's

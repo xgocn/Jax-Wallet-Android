@@ -159,7 +159,8 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:src="@drawable/selector_radio_tick"
-        android:visibility="gone" />
+        android:layout_marginLeft="10dp"
+        android:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/wallet_click_layer"

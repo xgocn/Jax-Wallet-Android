@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.jaxwallet.app.C;
 import com.jaxwallet.app.R;
+import com.jaxwallet.app.entity.StandardFunctionInterface;
 import com.jaxwallet.app.entity.Wallet;
 import com.jaxwallet.app.entity.walletconnect.WalletConnectSessionItem;
 import com.jaxwallet.app.ui.QRScanning.QRScanner;
@@ -34,7 +35,10 @@ import com.jaxwallet.app.viewmodel.WalletConnectViewModel;
 import com.jaxwallet.app.viewmodel.WalletConnectViewModelFactory;
 import com.jaxwallet.app.widget.ChainName;
 import com.bumptech.glide.Glide;
+import com.jaxwallet.app.widget.FunctionButtonBar;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -44,7 +48,7 @@ import dagger.android.AndroidInjection;
 /**
  * Created by JB on 9/09/2020.
  */
-public class WalletConnectSessionActivity extends BaseActivity
+public class WalletConnectSessionActivity extends BaseActivity implements StandardFunctionInterface
 {
     @Inject
     WalletConnectViewModelFactory viewModelFactory;
@@ -55,6 +59,7 @@ public class WalletConnectSessionActivity extends BaseActivity
     private Wallet wallet;
     private List<WalletConnectSessionItem> wcSessions;
     private LinearLayout emptyBox;
+    private FunctionButtonBar functionBar;
 
     private final Handler handler = new Handler(Looper.getMainLooper());
 
@@ -73,6 +78,9 @@ public class WalletConnectSessionActivity extends BaseActivity
         initViewModel();
 
         emptyBox = findViewById(R.id.empty_box);
+
+        functionBar = findViewById(R.id.layoutButtons);
+        functionBar.setupFunctions(this, new ArrayList<>(Collections.singletonList(R.string.action_scan_dapp)));
     }
 
     private void initViewModel()
@@ -154,6 +162,15 @@ public class WalletConnectSessionActivity extends BaseActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void handleClick(String action, int id)
+    {
+        Intent intent = new Intent(this, QRScanner.class);
+        intent.putExtra("wallet", wallet);
+        intent.putExtra(C.EXTRA_UNIVERSAL_SCAN, true);
+        startActivity(intent);
     }
 
     public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder>

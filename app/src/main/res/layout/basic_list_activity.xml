@@ -40,6 +40,12 @@
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/sp12"
                 android:text="@string/no_wallet_connect_sessions"/>
+            <com.jaxwallet.app.widget.FunctionButtonBar
+                android:id="@+id/layoutButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp22"
+                android:visibility="visible" />
         </LinearLayout>
 
 

@@ -15,7 +15,7 @@ public class MediaLinks
     public static final String AWALLET_FAQ_URL = "https://jaxwallet.io/faq.html";
     public static final String AWALLET_GITHUB = null;
 
-    public static final String AWALLET_EMAIL1 = "feedback+android";
+    public static final String AWALLET_EMAIL1 = "feedback";
     public static final String AWALLET_EMAIL2 = "jaxwallet.io";
     public static final String AWALLET_SUBJECT = "JAX Wallet Android Help";
 }

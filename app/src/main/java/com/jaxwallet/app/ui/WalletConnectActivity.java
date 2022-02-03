@@ -352,7 +352,7 @@ public class WalletConnectActivity extends BaseActivity implements ActionSheetCa
                     }
                     else
                     {
-                        getPendingRequest();
+//                        getPendingRequest();
                         setClient(client);
                     }
                 });
@@ -751,7 +751,7 @@ public class WalletConnectActivity extends BaseActivity implements ActionSheetCa
                     onDefaultWallet(viewModel.getWallet());
                 })
                 .setNeutralButton(R.string.action_cancel, (d, w) -> {
-                    killSession();
+//                    killSession();
                     finish();
                 })
                 .setCancelable(false)

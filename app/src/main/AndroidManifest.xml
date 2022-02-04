@@ -38,6 +38,7 @@
             android:launchMode="singleTask"
             android:name="com.jaxwallet.app.ui.HomeActivity"
             android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             >
             <intent-filter>
@@ -139,9 +140,11 @@
 
         <activity
             android:name="com.jaxwallet.app.ui.WalletsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_account_list" />
 
         <activity android:name="com.jaxwallet.app.ui.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme" />
 
         <service
@@ -151,48 +154,58 @@
 
         <activity android:name="com.jaxwallet.app.ui.NameThisWalletActivity"
             android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"
             android:label="@string/name_this_wallet" />
         <activity
             android:name="com.jaxwallet.app.ui.ImportWalletActivity"
             android:label="@string/title_import"
-            android:screenOrientation="sensor"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
 
         <activity
             android:name="com.jaxwallet.app.ui.TransactionDetailActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_transaction_details" />
         <activity
             android:name="com.jaxwallet.app.ui.MyAddressActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_my_address" />
 
         <activity
             android:name="com.jaxwallet.app.ui.SendActivity"
             android:label="@string/title_activity_send"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name="com.jaxwallet.app.ui.AddTokenActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_add_token" />
 
         <activity
             android:name="com.jaxwallet.app.ui.AssetDisplayActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_use_token" />
 
         <activity
             android:name="com.jaxwallet.app.ui.RedeemSignatureDisplayActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_use_token" />
 
         <activity
             android:name="com.jaxwallet.app.ui.GasSettingsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_send_settings" />
 
         <activity
             android:name="com.jaxwallet.app.ui.SellDetailActivity"
             android:label="@string/action_sell"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
             android:name="com.jaxwallet.app.ui.RedeemAssetSelectActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_redeem" />
 
         <!--<activity
@@ -202,30 +215,37 @@
 
         <activity
             android:name="com.jaxwallet.app.ui.ImportTokenActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_import_token" />
 
         <activity
             android:name="com.jaxwallet.app.ui.TransferTicketDetailActivity"
+            android:screenOrientation="portrait"
             android:label="@string/label_transfer_ticket_detail" />
 
         <activity
             android:name="com.jaxwallet.app.ui.HelpActivity"
+            android:screenOrientation="portrait"
             android:label="@string/toolbar_header_help" />
 
         <activity
             android:name="com.jaxwallet.app.ui.TokenDetailActivity"
+            android:screenOrientation="portrait"
             android:label="@string/token_details" />
 
         <activity
             android:name="com.jaxwallet.app.ui.Erc20DetailActivity"
+            android:screenOrientation="portrait"
             android:label="@string/erc20_details" />
 
         <activity
             android:name="com.jaxwallet.app.ui.TokenFunctionActivity"
+            android:screenOrientation="portrait"
             android:label="@string/token_function" />
 
         <activity
             android:name="com.jaxwallet.app.ui.FunctionActivity"
+            android:screenOrientation="portrait"
             android:label="@string/token_function" />
 
         <!--<service android:name="AlphaWalletFirebaseMessagingService">-->
@@ -248,101 +268,126 @@
 
         <activity
             android:name="com.jaxwallet.app.ui.WalletActionsActivity"
+            android:screenOrientation="portrait"
             android:label="Wallet Actions" />
 
         <activity
             android:name="com.jaxwallet.app.ui.AddEditDappActivity"
+            android:screenOrientation="portrait"
             android:label="Add DApp" />
 
         <activity
             android:name="com.jaxwallet.app.ui.SelectNetworkActivity"
+            android:screenOrientation="portrait"
             android:label="Select DApp Browser Network" />
 
         <activity
             android:name="com.jaxwallet.app.ui.SelectNetworkFilterActivity"
+            android:screenOrientation="portrait"
             android:label="Select Network Filters" />
 
         <activity
             android:name="com.jaxwallet.app.ui.TokenManagementActivity"
+            android:screenOrientation="portrait"
             android:label="Manage Tokens" />
 
         <activity
             android:name="com.jaxwallet.app.ui.SelectLocaleActivity"
+            android:screenOrientation="portrait"
             android:label="Select Language" />
 
         <activity
             android:name="com.jaxwallet.app.ui.SelectCurrencyActivity"
+            android:screenOrientation="portrait"
             android:label="Select Currency" />
 
         <activity
             android:name="com.jaxwallet.app.ui.BackupKeyActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
             android:name="com.jaxwallet.app.ui.SupportSettingsActivity"
+            android:screenOrientation="portrait"
             android:label="Support Settings" />
 
         <activity
             android:name="com.jaxwallet.app.ui.AdvancedSettingsActivity"
+            android:screenOrientation="portrait"
             android:label="Advanced Settings" />
 
         <activity
             android:name="com.jaxwallet.app.ui.StaticViewer"
+            android:screenOrientation="portrait"
             android:label="View Text" />
 
         <activity android:name="com.jaxwallet.app.ui.TokenScriptManagementActivity"
+            android:screenOrientation="portrait"
             android:label="@string/tokenscript_management"/>
 
         <activity android:name="com.jaxwallet.app.ui.TokenActivity"
+            android:screenOrientation="portrait"
             android:label="@string/activity_label"/>
 
         <activity
             android:name="com.jaxwallet.app.ui.WalletConnectActivity"
             android:launchMode="singleTop"
+            android:screenOrientation="portrait"
             android:label="WalletConnect" />
 
         <activity
             android:name="com.jaxwallet.app.ui.BackupFlowActivity"
+            android:screenOrientation="portrait"
             android:label="WalletConnect" />
 
         <activity
             android:name="com.jaxwallet.app.ui.SignDetailActivity"
+            android:screenOrientation="portrait"
             android:label="Sign Details" />
 
         <activity
             android:name="com.jaxwallet.app.ui.WalletConnectSessionActivity"
+            android:screenOrientation="portrait"
             android:label="WalletConnect Sessions" />
 
         <activity
             android:name="com.jaxwallet.app.ui.TransactionSuccessActivity"
+            android:screenOrientation="portrait"
             android:label="Transaction Success" />
 
         <activity
             android:name="com.jaxwallet.app.ui.AddCustomRPCNetworkActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_add_custom_rpcnetwork"/>
 
         <activity
             android:name="com.jaxwallet.app.ui.Erc1155Activity"
+            android:screenOrientation="portrait"
             android:label="ERC1155 Master Activity" />
 
         <activity
             android:name="com.jaxwallet.app.ui.Erc1155AssetSelectActivity"
+            android:screenOrientation="portrait"
             android:label="ERC1155 Asset Selection" />
 
         <activity
             android:name="com.jaxwallet.app.ui.Erc1155AssetDetailActivity"
+            android:screenOrientation="portrait"
             android:label="ERC1155 Asset Details" />
 
         <activity
             android:name="com.jaxwallet.app.ui.Erc1155AssetListActivity"
+            android:screenOrientation="portrait"
             android:label="ERC1155 Asset Details" />
 
         <activity
             android:name="com.jaxwallet.app.ui.TransferNFTActivity"
+            android:screenOrientation="portrait"
             android:label="NFT Transfer" />
 
         <activity
             android:name="com.jaxwallet.app.ui.QRScanning.QRScanner"
+            android:screenOrientation="portrait"
             android:label="@string/qr_scanner" />
 
     </application>

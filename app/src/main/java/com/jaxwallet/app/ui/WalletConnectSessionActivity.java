@@ -33,6 +33,7 @@ import com.jaxwallet.app.entity.walletconnect.WalletConnectSessionItem;
 import com.jaxwallet.app.ui.QRScanning.QRScanner;
 import com.jaxwallet.app.viewmodel.WalletConnectViewModel;
 import com.jaxwallet.app.viewmodel.WalletConnectViewModelFactory;
+import com.jaxwallet.app.walletconnect.WCClient;
 import com.jaxwallet.app.widget.ChainName;
 import com.bumptech.glide.Glide;
 import com.jaxwallet.app.widget.FunctionButtonBar;
@@ -228,7 +229,7 @@ public class WalletConnectSessionActivity extends BaseActivity implements Standa
 
             holder.clickLayer.setOnLongClickListener(v -> {
                 //delete this entry?
-                dialogConfirmDelete(session);
+                dialogConfirmDelete(session, holder);
                 return true;
             });
         }
@@ -255,13 +256,22 @@ public class WalletConnectSessionActivity extends BaseActivity implements Standa
         }));
     }
 
-    private void dialogConfirmDelete(WalletConnectSessionItem session)
+    private void dialogConfirmDelete(WalletConnectSessionItem session, final CustomAdapter.CustomViewHolder holder)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         AlertDialog dialog = builder.setTitle(R.string.title_delete_session)
                 .setMessage(getString(R.string.delete_session, session.name))
                 .setPositiveButton(R.string.delete, (d, w) -> {
                     viewModel.deleteSession(session.sessionId);
+                    viewModel.getClient(this, session.sessionId, client -> handler.post(() -> {
+                        if (client == null || !client.isConnected())
+                        {
+                        }
+                        else
+                        {
+                            client.killSession();
+                        }
+                    }));
                     setupList();
                 })
                 .setNegativeButton(R.string.action_cancel, (d, w) -> {

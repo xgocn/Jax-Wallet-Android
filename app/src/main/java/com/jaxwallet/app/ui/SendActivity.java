@@ -524,7 +524,10 @@ public class SendActivity extends BaseActivity implements AmountReadyCallback, S
         {
             sendAmount = NEGATIVE;
             //insufficient balance
-            amountInput.showError(true, 0);
+            if(base.balance.compareTo(BigDecimal.ZERO) == 0)
+            amountInput.showError(true, 1, base.getSymbolOrShortName());
+            else
+            amountInput.showError(true, 0, "");
             //if currently resolving ENS, stop
             addressInput.stopNameCheck();
         }

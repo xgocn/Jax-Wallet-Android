@@ -159,12 +159,12 @@ public class InputAmount extends LinearLayout
         handler.post(setCursor);
     }
 
-    public void showError(boolean showError, int customError)
+    public void showError(boolean showError, int customError, String message)
     {
         TextView errorText = findViewById(R.id.text_error);
         if (customError != 0)
         {
-            errorText.setText(customError);
+            errorText.setText(String.format(getResources().getString(R.string.error_insufficient_funds), message));
         }
         else
         {
@@ -254,7 +254,7 @@ public class InputAmount extends LinearLayout
                 if (editText.hasFocus())
                 {
                     exactAmount = BigDecimal.ZERO; //invalidate the 'all funds' amount
-                    showError(false, 0);
+                    showError(false, 0, "");
                 }
             }
 
@@ -270,12 +270,12 @@ public class InputAmount extends LinearLayout
         editText.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus)
             {
-                showError(false, 0);
+                showError(false, 0, "");
             }
         });
 
         editText.setOnClickListener(v -> {
-            showError(false, 0);
+            showError(false, 0, "");
         });
     }
 

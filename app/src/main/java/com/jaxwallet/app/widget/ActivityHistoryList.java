@@ -179,7 +179,7 @@ public class ActivityHistoryList extends LinearLayout
         if (isEth)
         {
             noTransactionsSubText.setText(context.getString(R.string.no_recent_transactions_subtext,
-                    context.getString(R.string.no_recent_transactions_subtext_ether)));
+                    context.getString(R.string.no_recent_transactions_subtext_tokens)));
         }
         else
         {

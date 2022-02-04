@@ -352,7 +352,7 @@ public class WalletConnectActivity extends BaseActivity implements ActionSheetCa
                     }
                     else
                     {
-//                        getPendingRequest();
+                        getPendingRequest();
                         setClient(client);
                     }
                 });
@@ -431,9 +431,9 @@ public class WalletConnectActivity extends BaseActivity implements ActionSheetCa
                     });
                     break;
                 case FAILURE:
-                    runOnUiThread(() -> {
-                        onFailure(rq.throwable);
-                    });
+//                    runOnUiThread(() -> {
+//                        onFailure(rq.throwable);
+//                    });
                     break;
                 case SESSION_REQUEST:
                     Log.d(TAG, "On Request: " + rq.peer.getName());

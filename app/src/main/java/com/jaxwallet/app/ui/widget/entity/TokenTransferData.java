@@ -46,24 +46,26 @@ public class TokenTransferData extends ActivityMeta implements Parcelable
         {
             case "sent":
                 String to = getDetailAddress();
-                if (!TextUtils.isEmpty(to) && to.equals(ZERO_ADDRESS))
-                {
-                    return R.string.token_burn;
-                }
-                else
-                {
+//                if (!TextUtils.isEmpty(to) && to.equals(ZERO_ADDRESS))
+//                {
+//                    return R.string.token_burn;
+//                }
+//                else
+//                {
                     return R.string.activity_sent;
-                }
+//                }
             case "received":
-                String from = getDetailAddress();
-                if (!TextUtils.isEmpty(from) && from.equals(ZERO_ADDRESS))
-                {
-                    return R.string.token_mint;
-                }
-                else
-                {
+//                String from = getDetailAddress();
+//                if (!TextUtils.isEmpty(from) && from.equals(ZERO_ADDRESS))
+//                {
+//                    return R.string.token_mint;
+//                }
+//                else
+//                {
                     return R.string.activity_received;
-                }
+//                }
+            case "cashback":
+                return R.string.activity_cashback;
             case "ownerApproved":
                 return R.string.activity_approved;
             case "approvalObtained":
@@ -154,6 +156,7 @@ public class TokenTransferData extends ActivityMeta implements Parcelable
                             : ENSHandler.displayAddressOrENS(ctx, resultMap.get("to").value, false);
                 break;
             case "received":
+            case "cashback":
                 EventResult eResult = resultMap.get("from");
                 if (eResult != null)
                 {
@@ -224,6 +227,8 @@ public class TokenTransferData extends ActivityMeta implements Parcelable
                 return R.string.received;
             case "sent":
                 return R.string.sent;
+            case "cashback":
+                return R.string.activity_cashback;
             case "approvalObtained":
             case "ownerApproved":
                 return R.string.approve;
@@ -250,6 +255,7 @@ public class TokenTransferData extends ActivityMeta implements Parcelable
         switch (eventName)
         {
             case "received":
+            case "cashback":
                 value = "+ ";
                 //drop through
             case "sent":
@@ -309,6 +315,7 @@ public class TokenTransferData extends ActivityMeta implements Parcelable
             case "sent":
                 return StatusType.SENT;
             case "received":
+            case "cashback":
                 return StatusType.RECEIVE;
             case "ownerApproved":
             case "approvalObtained":

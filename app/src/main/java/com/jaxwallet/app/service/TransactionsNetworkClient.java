@@ -925,49 +925,110 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
 
         Map<String, Transaction> txFetches = new HashMap<>();
         instance.executeTransaction(r -> {
-            String oldHash="";
-            String oldContract="";
-            String oldEvent="";
-            String to="";
-            double total=0;
             //write event list
-            for (int i = 0; i < events.length; i ++)
+            EtherscanEvent prev = new EtherscanEvent();
+            ArrayList<EtherscanEvent> eventsByTransactionHash = new ArrayList<>();
+
+            for (EtherscanEvent ev : events)
             {
-                EtherscanEvent ev = events[i];
-                boolean isSend = ev.from.equalsIgnoreCase(walletAddress);
+
                 Token token = svs.getToken(networkInfo.chainId, ev.contractAddress);
                 boolean scanAsNFT = isNFT || ((ev.tokenDecimal == null || ev.tokenDecimal.length() == 0) && (ev.tokenID != null && ev.tokenID.length() > 0));
-                Transaction tx = new Transaction();
-                String valueList="";
-
-                String eventname = tx.getEventName(walletAddress);
-                String activityName = eventname.isEmpty() ? (isSend ? "sent" : "received") : eventname;
 
                 if(token != null) {
-                    if (ev.hash.equals(oldHash) && ev.contractAddress.equals(oldContract) && activityName.equals(oldEvent)) {
-                        total += Double.parseDouble(ev.value);
-                        tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo, total+"");
-                        valueList = VALUES.replace(TO_TOKEN, to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : total+""); //Etherscan sometimes interprets NFT transfers as FT's
-                        storeTransferData(r, tx.hash, valueList, activityName, ev.contractAddress);
+                    if (ev.hash.equals(prev.hash)) {
+                        eventsByTransactionHash.add(ev);
                     } else {
-                        total = Double.parseDouble(ev.value);
-                        oldHash = ev.hash;
-                        oldContract = ev.contractAddress;
-                        oldEvent = activityName;
-                        to = ev.to;
-                        //find tx name
-                        tx = scanAsNFT ? ev.createNFTTransaction(networkInfo) : ev.createTransaction(networkInfo, scanAsNFT ? ev.tokenID : ev.value);
-                        valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, scanAsNFT ? ev.tokenID : ev.value); //Etherscan sometimes interprets NFT transfers as FT's
-                        storeTransferData(r, tx.hash, valueList, activityName, ev.contractAddress);
+                        if ( eventsByTransactionHash.size() > 0 ) {
+
+                            storeTransferInTransaction(eventsByTransactionHash, walletAddress, networkInfo, r);
+
+                            Transaction tx = scanAsNFT ? prev.createNFTTransaction(networkInfo) : prev.createTransaction(networkInfo);
+                            writeTransaction(r, tx, prev.contractAddress, txFetches);
+                        }
+
+                        prev = ev;
+                        eventsByTransactionHash.clear();
+                        eventsByTransactionHash.add(ev);
+
+//                        if ( events.length == 1) {
+//                            storeTransferInTransaction(eventsByTransactionHash, walletAddress, networkInfo, r);
+//
+//                            Transaction tx = scanAsNFT ? prev.createNFTTransaction(networkInfo) : prev.createTransaction(networkInfo);
+//                            writeTransaction(r, tx, prev.contractAddress, txFetches);
+//                        }
+
                     }
 
-                    //ensure we have fetched the transaction for each hash
-                    writeTransaction(r, tx, ev.contractAddress, txFetches);
+
                 }
             }
+
+//            if ( eventsByTransactionHash.size() > 0 ) {
+
+                storeTransferInTransaction(eventsByTransactionHash, walletAddress, networkInfo, r);
+
+                Transaction tx = prev.createTransaction(networkInfo);
+                writeTransaction(r, tx, prev.contractAddress, txFetches);
+//            }
+
         });
 
         fetchRequiredTransactions(instance, networkInfo.chainId, txFetches);
+    }
+
+    private String getActivityName(String walletAddress, EtherscanEvent ev, int idx)
+    {
+        if(ev.from.equalsIgnoreCase(walletAddress) && ev.to.equalsIgnoreCase(walletAddress)) {
+            switch (idx) {
+                case 100:
+                    return "sent";
+                case 1:
+                    return "cashback";
+                default:
+                    return "received";
+            }
+        } else if (ev.from.equalsIgnoreCase(walletAddress)) {
+            return "sent";
+        } else {
+            return "received";
+        }
+    }
+
+    private void storeTransferInTransaction(ArrayList<EtherscanEvent> eventsByTransactionHash, String walletAddress, NetworkInfo networkInfo, Realm r) {
+        int idx = 0;
+//        double total = 0.0;
+        double total = 0.0;
+        String TO_TOKEN = "[TO_ADDRESS]";
+        String FROM_TOKEN = "[FROM_ADDRESS]";
+        String AMOUNT_TOKEN = "[AMOUNT_TOKEN]";
+        String VALUES = "from,address," + FROM_TOKEN + ",to,address," + TO_TOKEN + ",amount,uint256," + AMOUNT_TOKEN;
+
+        EtherscanEvent firstEvent = eventsByTransactionHash.get(0);
+
+        for (EtherscanEvent ev: eventsByTransactionHash) {
+
+            boolean isSend = ev.from.equalsIgnoreCase(walletAddress);
+            boolean isReceive = ev.to.equalsIgnoreCase(walletAddress);
+
+            if (isSend) {
+                total += Double.parseDouble(ev.value);
+            }
+
+            if (isReceive) {
+                String activityName = getActivityName(walletAddress, ev, idx);
+                String valueList = VALUES.replace(TO_TOKEN, ev.to).replace(FROM_TOKEN, ev.from).replace(AMOUNT_TOKEN, ev.value);
+                storeTransferData(r, ev.hash, valueList, activityName, ev.contractAddress);
+            }
+            idx ++;
+        }
+
+        if ( total > 0) {
+            String activityName = getActivityName(walletAddress, firstEvent, 100);
+            String valueList = VALUES.replace(TO_TOKEN, firstEvent.to).replace(FROM_TOKEN, firstEvent.from).replace(AMOUNT_TOKEN, total+"");
+            storeTransferData(r, firstEvent.hash, valueList, activityName, firstEvent.contractAddress);
+        }
+
     }
 
     private void storeTransferData(Realm instance, String hash, String valueList, String activityName, String tokenAddress)
@@ -976,7 +1037,6 @@ public class TransactionsNetworkClient implements TransactionsNetworkClientType
                 .equalTo("hash", hash)
                 .equalTo("tokenAddress", tokenAddress)
                 .equalTo("eventName", activityName)
-//                .equalTo("transferDetail", oldvalueList)
                 .findFirst();
 
         if (matchingEntry == null) //prevent duplicates
